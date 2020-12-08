@@ -1,15 +1,15 @@
 import React from 'react';
-import './MenuLeft.css';
+import './MenuSide.css';
 
 
-export default class MenuLeft extends React.Component {
+export default class MenuSide extends React.Component {
     render() {
         return (
             <div className="MenuLeft">
                 <ul>
                     <li>Курсы</li>
                     <li>Тесты</li>
-                    <li>Цены</li>
+                    
                 </ul>
             </div>
         )
