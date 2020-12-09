@@ -1,0 +1,15 @@
+.Header {
+    display: flex;
+}
+/*
+.Header  as {
+    background-color: white;
+    height: 4rem;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    margin: 0 auto;
+    min-width: 105px;
+    align-items: center;
+}
+*/
