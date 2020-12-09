@@ -2,7 +2,7 @@ import React from 'react';
 import './MenuRight.css';
 
 
-export default class Header extends React.Component {
+export default class MenuRight extends React.Component {
     render() {
         return (
             <div className="MenuRight">
