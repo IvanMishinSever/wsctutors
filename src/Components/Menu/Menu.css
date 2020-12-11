@@ -1,0 +1,9 @@
+.Menu {
+    position: absolute;
+
+    width: 300px;
+    height: 700px;
+    
+    background-color: khaki;
+    border: 1px solid black;
+}
