@@ -1,9 +1,12 @@
 
-.Header .flex-container {
+.Header  {
     display: flex;
-   /*flex-wrap: wrap;*/
     justify-content: center;
     align-items: center;
+    background-color: rgba(128, 128, 128, 0.164);
+   /*flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;*/
 }
 
 
