@@ -6,7 +6,8 @@
     */
 .MenuRight {
     display: flex;
-    justify-content: center;
+   /* justify-content: flex-start;*/
+   margin-right: 3rem;
         
     }
     .MenuRight p {
