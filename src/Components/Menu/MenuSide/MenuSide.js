@@ -5,7 +5,7 @@ import './MenuSide.css';
 export default class MenuSide extends React.Component {
     render() {
         return (
-            <div className="MenuLeft">
+            <div className="MenuSide">
                 <ul>
                     <li>Курсы</li>
                     <li>Тесты</li>

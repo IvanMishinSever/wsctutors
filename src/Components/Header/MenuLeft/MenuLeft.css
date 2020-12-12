@@ -1,15 +1,18 @@
-.MenuLeft {
+/*.MenuLeft {
 border: 1px solid black;
 }
+*/
 .MenuLeft  {
+    flex: 1;
+
     margin-right: 1.5rem;
     }
 
-    .MenuLeft  ul  {
-        display: flex;
+.MenuLeft  ul  {
+    display: flex;
     } 
 
-    .MenuLeft  li {
-        padding: 0 1rem;
-        list-style: none;
+.MenuLeft  li {
+    padding: 0 1rem;
+    list-style: none;
     }

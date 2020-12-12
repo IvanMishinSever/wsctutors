@@ -1,0 +1,12 @@
+.Menu {
+    position: relative;
+    top: 3rem;
+
+    width: 250px;
+    height: 400px;
+
+    
+
+    background-color:gainsboro;
+    border: 1px solid black;
+}
