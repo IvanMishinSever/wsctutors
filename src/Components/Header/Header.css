@@ -10,6 +10,7 @@
     z-index: 5;
     background-color: rgba(128, 128, 128, 0.164);
 
+    border-bottom: 1px solid black;
    /*flex-wrap: wrap;
     justify-content: center;
     align-items: center;*/

@@ -1,7 +1,9 @@
+/*
 .MenuRight {
     border: 1px solid black;
 
     }
+    */
 .MenuRight {
     display: flex;
     justify-content: center;
