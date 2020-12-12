@@ -16,3 +16,28 @@ border: 1px solid black;
     padding: 0 1rem;
     list-style: none;
     }
+
+.MenuLeft div {
+    display: block;
+    width: 100%;
+    padding: 1rem  0;
+    /*for border hover*/
+
+}
+.MenuLeft a {
+    text-decoration: none;
+    color: black;
+    
+    
+}
+.MenuLeft a:hover {
+    
+    color: rgb(12, 12, 165);
+    
+}
+.MenuLeft div:hover {
+   /* background-color: rgb(196, 177, 196);*/
+    cursor: pointer;
+    color: white;
+
+}

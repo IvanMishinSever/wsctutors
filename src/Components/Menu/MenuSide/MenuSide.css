@@ -13,7 +13,28 @@
     
 }
 .MenuSide li {
-    padding: 16px 16px;
+   /* padding: 16px 16px;*/
     list-style: none;
-    background-color: lightblue;
+   /* background-color: lightblue;*/
 }
+
+.MenuSide div {
+    display: block;
+    width: 100%;
+    padding: 1rem  0;
+}
+.MenuSide a {
+     
+     text-decoration: none;
+     color: black;
+     
+     
+     
+}
+
+
+.MenuSide div:hover {
+    background-color: rgb(196, 177, 196);
+    cursor: pointer;
+}
+

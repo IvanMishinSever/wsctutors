@@ -7,8 +7,13 @@ export default class MenuSide extends React.Component {
         return (
             <div className="MenuSide">
                 <ul>
-                    <li>Курсы</li>
-                    <li>Тесты</li>
+                    <li>
+                        <div><a href="index.html">Курсы</a></div>
+                    </li>
+                    <li>
+                        <div><a href="index.html">Тесты</a></div>
+                        
+                    </li>
                     
                 </ul>
             </div>
