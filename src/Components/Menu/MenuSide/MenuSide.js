@@ -24,7 +24,7 @@ export default class MenuSide extends React.Component {
             <div className="MenuSide">
                 <ul>
                     <li>
-                        <div><button  onClick={this.handleClick}>Курсы</button></div>
+                        <div><button  onClick={this.handleClick}>Курсы{this.state.categoryView}</button></div>
                     </li>
                     <li>
                         <div><a href="index.html" onClick={this.handleClick}>Тесты</a></div>

@@ -1,0 +1,7 @@
+.Category div {
+    display: block;
+    width:   200px;
+    padding: 1rem  0;
+    background-color: cadetblue;
+    border: 1px solid black;
+}
