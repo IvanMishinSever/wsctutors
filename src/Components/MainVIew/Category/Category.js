@@ -6,7 +6,7 @@ export default class Category extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="Category">
                 <p>HELLO</p>
             </div>
         )
