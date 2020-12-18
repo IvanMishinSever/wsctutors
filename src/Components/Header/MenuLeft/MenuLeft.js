@@ -7,9 +7,9 @@ export default class MenuLeft extends React.Component {
         return (
             <div className="MenuLeft">
                 <ul>
-                    <li>Курсы</li>
-                    <li>Тесты</li>
-                    <li>Цены</li>
+                    <li><div><a href="index.html">Курсы</a></div></li>
+                    <li><div><a href="index.html">Тесты</a></div></li>
+                    <li><div><a href="index.html">Цены</a></div></li>
                 </ul>
             </div>
         )
