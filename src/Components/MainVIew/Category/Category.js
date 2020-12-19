@@ -3,10 +3,11 @@ import './Category.css';
 
 export default class Category extends React.Component {
 
-
+    
     render() {
+        let showInfo = false;
         return (
-            <div className="Category">
+            <div style={{display: showInfo ? "block" : "none"}} className="Category">
                 <ul>
                     <li><button>Инженерная геология</button></li>
                     <li><button>Строительная механика</button></li>
