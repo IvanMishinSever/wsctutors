@@ -1,9 +1,15 @@
+/*
 .MenuRight {
     border: 1px solid black;
+
     }
-    .MenuRight {
-      
-       display: flex;
-        justify-content: flex-start;
+    */
+.MenuRight {
+    display: flex;
+   /* justify-content: flex-start;*/
+   margin-right: 3rem;
         
+    }
+    .MenuRight p {
+        padding: 0 10px;
     }
