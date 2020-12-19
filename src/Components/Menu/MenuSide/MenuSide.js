@@ -24,10 +24,10 @@ export default class MenuSide extends React.Component {
             <div className="MenuSide">
                 <ul>
                     <li>
-                        <div><button  showCategory={this.state.categoryView} onClick={this.onClick}>Курсы</button></div>
+                        <button  showCategory={this.state.categoryView} onClick={this.onClick}>Курсы</button>
                     </li>
                     <li>
-                        <div><a href="index.html" onClick={this.onClick}>Тесты</a></div>
+                        <button>Тесты</button>
                         
                     </li>
                     
