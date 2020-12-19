@@ -8,14 +8,14 @@ export default class MenuSide extends React.Component {
         this.state = {
             categoryView: false,
         }
-        this.handleClick = this.handleClick.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
     
-    handleClick() {
+    onClick() {
         this.setState({
             categoryView: true
         })
-        console.log(this.state.categoryView);
+        //console.log(this.state.categoryView);
         
 
     }
@@ -24,10 +24,10 @@ export default class MenuSide extends React.Component {
             <div className="MenuSide">
                 <ul>
                     <li>
-                        <div><button  onClick={this.handleClick}>Курсы</button></div>
+                        <div><button  showCategory={this.state.categoryView} onClick={this.onClick}>Курсы</button></div>
                     </li>
                     <li>
-                        <div><a href="index.html" onClick={this.handleClick}>Тесты</a></div>
+                        <div><a href="index.html" onClick={this.onClick}>Тесты</a></div>
                         
                     </li>
                     

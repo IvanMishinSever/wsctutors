@@ -7,7 +7,11 @@ export default class Category extends React.Component {
     render() {
         return (
             <div className="Category">
-                <p>HELLO</p>
+                <ul>
+                    <li><button>Инженерная геология</button></li>
+                    <li><button>Строительная механика</button></li>
+                    <li><button>Железобетоные конструкции</button></li>
+                </ul>
             </div>
         )
     }

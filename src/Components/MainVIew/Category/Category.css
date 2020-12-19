@@ -1,7 +1,29 @@
-.Category div {
-    display: block;
-    width:   200px;
-    padding: 1rem  0;
-    background-color: cadetblue;
+
+.Category  {
+    
+    width: 350px;
+    height: auto;
     border: 1px solid black;
+    background-color: greenyellow;
+}
+.Category ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+}
+.Category li {
+   /* padding: 16px 16px;*/
+    list-style: none;
+   /* background-color: lightblue;*/
+}
+.Category button {
+    
+    width: 300px;
+    padding: 1rem  0;
+}
+.Category button:hover {
+    background-color: rgb(196, 177, 196);
+    cursor: pointer;
 }

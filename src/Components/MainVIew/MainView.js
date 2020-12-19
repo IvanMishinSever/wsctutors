@@ -5,11 +5,11 @@ import './MainView.css';
 
 export default class MainView extends React.Component {
 
-
     render() {
         return (
             <div className="MainView">
-                <Category />
+              <Category />  
+               
             </div>
         )
     }
