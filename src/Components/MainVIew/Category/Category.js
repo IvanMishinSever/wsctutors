@@ -5,7 +5,8 @@ export default class Category extends React.Component {
 
     
     render() {
-        let showInfo = false;
+        let showInfo = this.props.categoryView;
+       // let showInfo = true;
         return (
             <div style={{display: showInfo ? "block" : "none"}} className="Category">
                 <ul>

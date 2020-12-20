@@ -8,7 +8,7 @@ export default class MainView extends React.Component {
     render() {
         return (
             <div className="MainView">
-              <Category />  
+              <Category categoryView={this.props.categoryView}/>  
                
             </div>
         )

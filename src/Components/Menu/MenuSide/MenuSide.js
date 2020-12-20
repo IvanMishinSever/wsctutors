@@ -3,7 +3,7 @@ import './MenuSide.css';
 
 
 export default class MenuSide extends React.Component {
-    constructor(props) {
+ /*   constructor(props) {
         super(props);
         this.state = {
             categoryView: false,
@@ -16,18 +16,25 @@ export default class MenuSide extends React.Component {
             categoryView: true
         })
         //console.log(this.state.categoryView);
-        
+          }
+          
+          onPress() {
+              let visible = false;
 
-    }
+            alert(visible);
+          }
+*/
+
     render() {
         return (
             <div className="MenuSide">
                 <ul>
                     <li>
-                        <button  showCategory={this.state.categoryView} onClick={this.onClick}>Курсы</button>
+                        <button  >Курсы</button>
                     </li>
                     <li>
                         <button>Тесты</button>
+                        <button onClick={this.props.onClick}>Example</button>
                         
                     </li>
                     
