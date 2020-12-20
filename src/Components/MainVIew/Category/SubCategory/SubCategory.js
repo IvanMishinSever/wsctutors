@@ -5,7 +5,7 @@ import './SubCategory.css';
 export default class SubCategory extends React.Component  {
 
     render() {
-        let showInfo = true;
+        let showInfo = this.props.subcategoryView;
        // let showInfo = true;
        if (showInfo) {
         return (

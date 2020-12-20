@@ -1,6 +1,6 @@
 import React from 'react';
 import Category from './Category/Category';
-import SubCategory from './Category/SubCategory/SubCategory';
+
 import './MainView.css';
 
 
