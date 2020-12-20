@@ -30,11 +30,11 @@ export default class MenuSide extends React.Component {
             <div className="MenuSide">
                 <ul>
                     <li>
-                        <button  >Курсы</button>
+                        <button onClick={this.props.onClick}>Курсы</button>
                     </li>
                     <li>
                         <button>Тесты</button>
-                        <button onClick={this.props.onClick}>Example</button>
+                        <button >Example</button>
                         
                     </li>
                     
