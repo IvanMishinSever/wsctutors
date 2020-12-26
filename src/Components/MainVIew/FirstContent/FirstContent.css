@@ -1,8 +1,12 @@
 .FirstContent {
-    display: block;
-    width: 500 px;
+    display: flex;
+    width: 650px;
     height: 400px;
+    justify-content: center;
     border: 1px solid grey;
-    background-color: rgba(227, 231, 238, 0.966);
+    background-color: white;
+}
+.FirstContent p {
+    margin: auto 0;
 }
 
