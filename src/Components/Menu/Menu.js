@@ -7,7 +7,7 @@ export default class Menu extends React.Component {
     render() {
         return (
             <div className="Menu">
-                <MenuSide />
+                <MenuSide onClick={this.props.onClick}/>
                 
             </div>
         )
