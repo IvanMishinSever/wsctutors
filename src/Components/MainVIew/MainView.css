@@ -1,9 +1,9 @@
-.MainView div{
+.MainView {
     position:absolute;
     top: 60px;
     left: 300px;
     display:flex;
-    width: 800px;
+    width: 1000px;
     height:600px ;
     background-color: rgba(125, 185, 133, 0.438);
     border: 1px solid black;
