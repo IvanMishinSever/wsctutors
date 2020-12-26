@@ -6,20 +6,13 @@ import SubCategory from './SubCategory/SubCategory';
  const courseCategory = ['Инженерная геология','Строительная механика','Железобетоные конструкции'];
  const testCategory = ['Инженерная геология-test','Строительная механика-test','Жеезобетоные конструкции-test'];
  const chooseCategory = (id) => {
-   /*  let nameCategory;
-     if (id === 1) {
-         return nameCategory = courseCategory;
-     } else if (id === 2) {
-         return nameCategory = testCategory;
-     }
-     */
-    // let nameCategory;
-     if (id === 1) {
+     if (id === "1") {
          return courseCategory;
-     } else if (id === 2) {
+     } else if (id === "2") {
          return testCategory;
      } else {
-         alert("change number of the category id!");
+        // alert("change number of the category id!");
+        return null;
      }
  
  }
@@ -29,7 +22,7 @@ export default class Category extends React.Component {
             super(props);
             this.state = {
                 subCategory_1: false,
-               // idCategory: this.props.idCategory
+ 
             }
             this.handleClick = this.handleClick.bind(this);
         }

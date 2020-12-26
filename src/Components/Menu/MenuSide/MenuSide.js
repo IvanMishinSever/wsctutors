@@ -3,42 +3,39 @@ import './MenuSide.css';
 
 
 export default class MenuSide extends React.Component {
- /*   constructor(props) {
+    constructor(props) {
         super(props);
-        this.state = {
-            categoryView: false,
-        }
-        this.onClick = this.onClick.bind(this);
+       
+        this.handleClick = this.handleClick.bind(this);
     }
     
-    onClick() {
-        this.setState({
-            categoryView: true
-        })
-        //console.log(this.state.categoryView);
-          }
-          
-          onPress() {
-              let visible = false;
-
-            alert(visible);
-          }
-*/
-
+    handleClick(e) {
+        const id = e.target.value;
+        //const id = 1;
+        this.props.chooseCategory(id);
+       // console.log(id);
+      } 
+//<ul onClick={this.props.handleClick}>
     render() {
         return (
             <div className="MenuSide">
-                <ul>
+                <ul >
                     <li>
-                        <button onClick={this.props.onClick} >Курсы</button>
+                        <button onClick={this.handleClick} value="1"> Курсы </button>
                     </li>
                     <li>
-                        <button onClick={this.props.onClick} >Тесты </button>
+                        <button onClick={this.handleClick} value="2"> Тесты </button>
                         <button >Example</button>
-                        
                     </li>
                     
+                    
                 </ul>
+                <form onClick={this.handleClick}>
+                    <input type="radio" name="src" value="1" /> fast
+                    <input type="radio" name="src" value="2" /> slow
+                    <input type="radio" name="src" value="3" /> cute
+                    <input type="radio" name="src" value="4" /> eek
+                </form>
             </div>
         )
     }
