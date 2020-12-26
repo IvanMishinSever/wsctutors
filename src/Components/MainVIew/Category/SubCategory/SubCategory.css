@@ -1,33 +1,28 @@
-/*
-.MenuSide {
-  
+.SubCategory  {
+    display: block;
+    width: 350px;
+    height: auto;
     border: 1px solid black;
-
-    }
-    */
-.MenuSide ul {
+    background-color: rgba(172, 255, 47, 0.397);
+}
+.SubCategory ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     
 }
-.MenuSide li {
+.SubCategory li {
    /* padding: 16px 16px;*/
     list-style: none;
    /* background-color: lightblue;*/
 }
-
-.MenuSide button {
-    /*display: block;*/
-    width: 100%;
+.SubCategory button {
+    
+    width: 300px;
     padding: 1rem  0;
 }
-
-
-
-.MenuSide button:hover {
+.SubCategory button:hover {
     background-color: rgb(196, 177, 196);
     cursor: pointer;
 }
-

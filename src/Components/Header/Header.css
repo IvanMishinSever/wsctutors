@@ -1,6 +1,22 @@
-.Header {
+
+.Header  {
     display: flex;
+    justify-content: center;
+    align-items: center;
+   /* padding: 1.5rem;*/
+
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+    background-color: rgba(128, 128, 128, 0.164);
+
+    border-bottom: 1px solid black;
+   /*flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;*/
 }
+
+
 /*
 .Header  as {
     background-color: white;
@@ -13,3 +29,4 @@
     align-items: center;
 }
 */
+
