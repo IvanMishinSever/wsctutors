@@ -27,10 +27,10 @@ export default class Category extends React.Component {
             this.handleClick = this.handleClick.bind(this);
         }
     handleClick(e) {
-        const id = e.target.value;
+ 
         this.setState({
             subCategory_1: true,
-            idSubCategory: id
+            idSubCategory: e.target.value
         })
     }
     render() {
@@ -42,12 +42,13 @@ export default class Category extends React.Component {
         if (showInfo) {
             return (
                 <div  className="Category">
+                    <h3>Каталог {idCategory}</h3>
                     <ul>
                         <li><button onClick={this.handleClick} value="1">{nameCategory[0]}</button></li>
                         <li><button onClick={this.handleClick} value="2">{nameCategory[1]}</button></li>
                         <li><button onClick={this.handleClick} value="3">{nameCategory[2]}</button></li>
                     </ul>
-                    <SubCategory subcategoryView={this.state.subCategory_1} idSubCategory={this.state.idSubCategory}/>
+                    <SubCategory subcategoryView={this.state.subCategory_1} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
                 </div>
            
     
