@@ -4,7 +4,7 @@ import './SubCategory.css';
 
  //ADD SUBCATEGORY
  const courseSubCategory = ['Грунты','СП','ГОСТЫ'];
- const testSubCategory = ['Грунты-test','СП-test','ГОСТ-test'];
+ const testSubCategory = ['Грунты-test','СП-test','ГОСТ-test','R-test'];
  const chooseSubCategory = (id) => {
      if (id === "1") {
          return courseSubCategory;
@@ -22,8 +22,8 @@ export default class SubCategory extends React.Component  {
         let showInfo = this.props.subcategoryView;
        // let showInfo = true;
        //RECEIVE SUBCATEGORY
-      // let idSubCategory = this.props.idSubCategory;
-       let idSubCategory = "2";
+       let idSubCategory = this.props.idSubCategory;
+       //let idSubCategory = "2";
        let nameSubCategory = chooseSubCategory(idSubCategory);
        if (showInfo) {
         return (
@@ -32,6 +32,7 @@ export default class SubCategory extends React.Component  {
                     <li><button>{nameSubCategory[0]}</button></li>
                     <li><button>{nameSubCategory[1]}</button></li>
                     <li><button>{nameSubCategory[2]}</button></li>
+                    <li><button>{nameSubCategory[3]}</button></li>
                 </ul>
             </div>
        
