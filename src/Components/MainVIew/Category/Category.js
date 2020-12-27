@@ -21,7 +21,7 @@ export default class Category extends React.Component {
         constructor(props) {
             super(props);
             this.state = {
-                subCategory_1: false,
+                subCategoryView: false,
                 idSubCategory: "2"
             }
             this.handleClick = this.handleClick.bind(this);
@@ -29,7 +29,7 @@ export default class Category extends React.Component {
     handleClick(e) {
  
         this.setState({
-            subCategory_1: true,
+            subCategoryView: true,
             idSubCategory: e.target.value
         })
     }
@@ -48,7 +48,7 @@ export default class Category extends React.Component {
                         <li><button onClick={this.handleClick} value="2">{nameCategory[1]}</button></li>
                         <li><button onClick={this.handleClick} value="3">{nameCategory[2]}</button></li>
                     </ul>
-                    <SubCategory subcategoryView={this.state.subCategory_1} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
+                    <SubCategory subcategoryView={this.state.subCategoryView} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
                 </div>
            
     
