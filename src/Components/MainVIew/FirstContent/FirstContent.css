@@ -1,0 +1,12 @@
+.FirstContent {
+    display: flex;
+    width: 650px;
+    height: 400px;
+    justify-content: center;
+    border: 1px solid grey;
+    background-color: white;
+}
+.FirstContent p {
+    margin: auto 0;
+}
+

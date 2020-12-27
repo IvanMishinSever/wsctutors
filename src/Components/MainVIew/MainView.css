@@ -5,6 +5,7 @@
     display:flex;
     width: 1000px;
     height:600px ;
-    background-color: rgb(95, 160, 104);
+    background-color: rgba(125, 185, 133, 0.438);
     border: 1px solid black;
+    justify-content: center;
 }

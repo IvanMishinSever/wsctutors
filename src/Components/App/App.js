@@ -7,28 +7,32 @@ import Footer from '../Footer/Footer';
 import MainView from '../MainVIew/MainView';
 
 export default class App extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
         categoryView: false,
+        idCategory: "1",  // idCategory 1-Курсы, 2- Тесты, 3- Example
     }
-    this.handleClick = this.handleClick.bind(this);
+    this.chooseCategory = this.chooseCategory.bind(this);
 }
 
 
-handleClick() {
+chooseCategory(newId) {
     this.setState({
-        categoryView: true
+        categoryView: true,
+        idCategory: newId
     })
     //console.log(this.state.categoryView);
+   // console.log(this.props);
       }
       
   render() {
     return (
       <div className="App">
            <Header />
-           <Menu onClick={this.handleClick}/>
-           <MainView categoryView={this.state.categoryView}/>
+           <Menu chooseCategory={this.chooseCategory}/>
+           <MainView categoryView={this.state.categoryView} idCategory={this.state.idCategory}/>
            <Footer />
       </div>
 
