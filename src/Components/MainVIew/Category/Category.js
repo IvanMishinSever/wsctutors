@@ -2,35 +2,59 @@ import React from 'react';
 import './Category.css';
 import SubCategory from './SubCategory/SubCategory';
 
+ //ADD CATEGORY
+ const courseCategory = ['Инженерная геология','Строительная механика','Железобетоные конструкции'];
+ const testCategory = ['Инженерная геология-test','Строительная механика-test','Жеезобетоные конструкции-test'];
+ const chooseCategory = (id) => {
+     if (id === "1") {
+         return courseCategory;
+     } else if (id === "2") {
+         return testCategory;
+     } else {
+        // alert("change number of the category id!");
+        return null;
+     }
+ 
+ }
+ //CATEGORY CLASS
 export default class Category extends React.Component {
         constructor(props) {
             super(props);
             this.state = {
-                subCategory_1: false,
+                subCategoryView: false,
+                idSubCategory: "2"
             }
             this.handleClick = this.handleClick.bind(this);
         }
-    handleClick() {
+    handleClick(e) {
+ 
         this.setState({
-            subCategory_1: true
+            subCategoryView: true,
+            idSubCategory: e.target.value
         })
     }
     render() {
         let showInfo = this.props.categoryView;
-       // let showInfo = true;
-       if (showInfo) {
-        return (
-            <div  className="Category">
-                <ul>
-                    <li><button onClick={this.handleClick}>Инженерная геология</button></li>
-                    <li><button>Строительная механика</button></li>
-                    <li><button>Железобетоные конструкции</button></li>
-                </ul>
-                <SubCategory subcategoryView={this.state.subCategory_1} />
-            </div>
+       //RECEIVE ID CATEGORY
+        let idCategory = this.props.idCategory;
+        let nameCategory = chooseCategory(idCategory);
+  
+        if (showInfo) {
+            return (
+                <div  className="Category">
+                    <h3>Каталог {idCategory}</h3>
+                    <ul>
+                        <li><button onClick={this.handleClick} value="1">{nameCategory[0]}</button></li>
+                        <li><button onClick={this.handleClick} value="2">{nameCategory[1]}</button></li>
+                        <li><button onClick={this.handleClick} value="3">{nameCategory[2]}</button></li>
+                    </ul>
+                    <SubCategory subcategoryView={this.state.subCategoryView} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
+                </div>
+           
+    
+                )
+            }  else return null;
        
-
-            )
-        }  else return null;
+      
     }
 }
