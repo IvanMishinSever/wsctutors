@@ -1,10 +1,14 @@
 import React from 'react';
 import './Category.css';
 import SubCategory from './SubCategory/SubCategory';
+import TestCategory from './CategoryDataTests';
+import CourseCategory from "./CategoryDataCourses";
 
  //ADD CATEGORY
- const courseCategory = ['Инженерная геология','Строительная механика','Железобетоные конструкции'];
- const testCategory = ['Инженерная геология-test','Строительная механика-test','Жеезобетоные конструкции-test'];
+ //const courseCategory = ['Инженерная геология','Строительная механика','Железобетоные конструкции'];
+ //const testCategory = ['Инженерная геология-test','Строительная механика-test','Жеезобетоные конструкции-test'];
+ const testCategory = TestCategory;
+ const courseCategory = CourseCategory;
  const chooseCategory = (id) => {
      if (id === "1") {
          return courseCategory;
@@ -46,7 +50,7 @@ export default class Category extends React.Component {
                     <ul>
                         <li><button onClick={this.handleClick} value="1">{nameCategory[0]}</button></li>
                         <li><button onClick={this.handleClick} value="2">{nameCategory[1]}</button></li>
-                        <li><button onClick={this.handleClick} value="3">{nameCategory[2]}</button></li>
+                        <li><button onClick={this.handleClick} value="3">{nameCategory[3]}</button></li>
                     </ul>
                     <SubCategory subcategoryView={this.state.subCategoryView} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
                 </div>
