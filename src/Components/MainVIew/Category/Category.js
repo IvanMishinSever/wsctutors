@@ -64,7 +64,7 @@ export default class Category extends React.Component {
                         <h3>Каталог {idCategory}</h3>
                         <ul> {
                             nameCategory.map( (item, index) => (
-                                <li><button onClick={this.handleClick} value={String(index)}>{item} {index}</button></li>
+                                <li key={item}><button onClick={this.handleClick} value={String(index)}>{item} {index}</button></li>
                                 
                             ))
                             }

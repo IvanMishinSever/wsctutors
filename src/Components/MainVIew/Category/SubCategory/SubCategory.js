@@ -49,7 +49,7 @@ export default class SubCategory extends React.Component  {
        let nameSubCategory = chooseSubCategory(idCategory, idSubCategory);
       
        if (showInfo) {
-        return (
+       /* return (
             <div  className="SubCategory">
                 <ul>
                     <li><button onClick={this.handleClick} value="1">{nameSubCategory[0]}</button></li>
@@ -59,9 +59,21 @@ export default class SubCategory extends React.Component  {
                 </ul>
                 <FinalLists finalListsView={this.state.finalListsView}  idFinalLists={this.state.idFinalLists} idSubCategory={this.props.idSubCategory} idCategory={this.props.idCategory}/>
             </div>
-       
-
-            )
+                   )*/
+                   return (
+                    <div  className="SubCategory">
+                        <ul>
+                            {nameSubCategory.map((item, index) => (
+                                <li key={item}><button onClick={this.handleClick} value={String(index)}>{item} {index}</button></li>
+                            )
+                               
+                            )}
+                            
+                          
+                        </ul>
+                        <FinalLists finalListsView={this.state.finalListsView}  idFinalLists={this.state.idFinalLists} idSubCategory={this.props.idSubCategory} idCategory={this.props.idCategory}/>
+                    </div>
+                           )
         }  else return null;
 
     }
