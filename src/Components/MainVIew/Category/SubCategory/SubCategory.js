@@ -27,7 +27,7 @@ export default class SubCategory extends React.Component  {
         super(props);
         this.state = {
             finalListsView: false,
-            idFinalLists: "1"
+            idFinalLists: ""
         }
         this.handleClick = this.handleClick.bind(this);
     }

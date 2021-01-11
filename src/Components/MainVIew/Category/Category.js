@@ -26,7 +26,7 @@ export default class Category extends React.Component {
             super(props);
             this.state = {
                 subCategoryView: false,
-                idSubCategory: "2"
+                idSubCategory: ""
             }
             this.handleClick = this.handleClick.bind(this);
         }
@@ -63,8 +63,9 @@ export default class Category extends React.Component {
                     <div  className="Category">
                         <h3>Каталог {idCategory}</h3>
                         <ul> {
-                            nameCategory.map( item => (
-                                <li><button onClick={this.handleClick} value="1">{item}</button></li>
+                            nameCategory.map( (item, index) => (
+                                <li><button onClick={this.handleClick} value={String(index)}>{item} {index}</button></li>
+                                
                             ))
                             }
                         </ul>
