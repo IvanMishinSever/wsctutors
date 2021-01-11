@@ -26,16 +26,16 @@ const chooseSubCategory = (idCat,idSub) => {
 }
 */
 const chooseSubCategory = (idCat,idSub) => {
-    if (idCat === "1" ) {
+    if (idCat === "1" && courseSubCategory[Number(idSub)].nodes) {
         //return testSubCategory[Number(idSub)-1].nodes;
-        return courseSubCategory[0].nodes;
+        return courseSubCategory[Number(idSub)].nodes;
     } 
     
-   else if (idCat === "2" ) {
-       return testSubCategory;
+   else if (idCat === "2" && testSubCategory[Number(idSub)].nodes ) {
+       return testSubCategory[Number(idSub)].nodes;
    }else {
        // alert("change number of the category id!");
-       //return null;
+      // return null;
     }
 
 }
