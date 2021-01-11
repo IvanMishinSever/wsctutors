@@ -14,11 +14,12 @@ import CourseCategory from "./CategoryDataCourses";
          return courseCategory;
      } else if (id === "2") {
          return testCategory;
-     } else {
+     } 
+     /*else {
         // alert("change number of the category id!");
         return null;
      }
- 
+ */
  }
  //CATEGORY CLASS
 export default class Category extends React.Component {
