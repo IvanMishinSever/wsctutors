@@ -44,19 +44,40 @@ export default class Category extends React.Component {
         let nameCategory = chooseCategory(idCategory);
   
         if (showInfo) {
-            return (
+            /*return (
                 <div  className="Category">
                     <h3>Каталог {idCategory}</h3>
                     <ul>
                         <li><button onClick={this.handleClick} value="1">{nameCategory[0]}</button></li>
                         <li><button onClick={this.handleClick} value="2">{nameCategory[1]}</button></li>
-                        <li><button onClick={this.handleClick} value="3">{nameCategory[3]}</button></li>
+                        <li><button onClick={this.handleClick} value="3">{nameCategory[2]}</button></li>
+
+
                     </ul>
                     <SubCategory subcategoryView={this.state.subCategoryView} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
                 </div>
            
     
-                )
+                )*/
+                return (
+                    <div  className="Category">
+                        <h3>Каталог {idCategory}</h3>
+                        <ul> {
+                            nameCategory.map( item => (
+                                <li><button onClick={this.handleClick} value="1">{item}</button></li>
+                            ))
+                            }
+                        </ul>
+                        <SubCategory subcategoryView={this.state.subCategoryView} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
+                    </div>
+               
+        
+                    )
+
+
+
+
+
             }  else return null;
        
       
