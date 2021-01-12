@@ -39,6 +39,17 @@ const TestCategory = [
             },
             {id: "3",
             label: "СП356",
+            nodes:[
+                {
+                id: "1",
+                label: "СП356 п.1 "
+                },
+                {
+                id: "2",
+                label: "СП356 п.2 "
+                }
+
+            ]
             }
 
             ]
@@ -49,14 +60,25 @@ const TestCategory = [
         nodes:[
             {
             id: "1",
-            label: "СП16 П.1",
+            label: "СП16 ",
+            nodes:[
+                {
+                id: "1",
+                label: "СП16 п.1 "
+                },
+                {
+                id: "2",
+                label: "СП16 п.2 "
+                }
+
+            ]
             },
             {
             id: "2",
-            label: "СП16 П.2",
+            label: "Горев",
             },
             {id: "3",
-            label: "СП16 П.3",
+            label: "Беленя",
             }
 
             ]},

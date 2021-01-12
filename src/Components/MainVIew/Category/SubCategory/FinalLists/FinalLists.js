@@ -33,7 +33,8 @@ export default class FinalLists extends React.Component  {
        let nameFinalLists = chooseFinalList(idCategory, idSubCategory, idFinalLists);
       //let nameFinalLists = chooseFinalList("1", "1", "1");
       console.log(idCategory+" "+idSubCategory+" "+idFinalLists);
-      console.log(nameFinalLists); 
+      console.log("final"+nameFinalLists); 
+      console.log(nameFinalLists[1]); 
        if (showInfo) {
        /* return (
             <div  className="FinalLists">
