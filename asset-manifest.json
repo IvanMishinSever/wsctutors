@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/wsctutors/static/css/main.b1342f13.chunk.css",
-    "main.js": "/wsctutors/static/js/main.9a4170a3.chunk.js",
-    "main.js.map": "/wsctutors/static/js/main.9a4170a3.chunk.js.map",
+    "main.css": "/wsctutors/static/css/main.09055f61.chunk.css",
+    "main.js": "/wsctutors/static/js/main.0bdb9767.chunk.js",
+    "main.js.map": "/wsctutors/static/js/main.0bdb9767.chunk.js.map",
     "runtime-main.js": "/wsctutors/static/js/runtime-main.623ad25e.js",
     "runtime-main.js.map": "/wsctutors/static/js/runtime-main.623ad25e.js.map",
     "static/js/2.72826ad4.chunk.js": "/wsctutors/static/js/2.72826ad4.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.dfea4a8a.chunk.js": "/wsctutors/static/js/3.dfea4a8a.chunk.js",
     "static/js/3.dfea4a8a.chunk.js.map": "/wsctutors/static/js/3.dfea4a8a.chunk.js.map",
     "index.html": "/wsctutors/index.html",
-    "static/css/main.b1342f13.chunk.css.map": "/wsctutors/static/css/main.b1342f13.chunk.css.map",
+    "static/css/main.09055f61.chunk.css.map": "/wsctutors/static/css/main.09055f61.chunk.css.map",
     "static/js/2.72826ad4.chunk.js.LICENSE.txt": "/wsctutors/static/js/2.72826ad4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.623ad25e.js",
     "static/js/2.72826ad4.chunk.js",
-    "static/css/main.b1342f13.chunk.css",
-    "static/js/main.9a4170a3.chunk.js"
+    "static/css/main.09055f61.chunk.css",
+    "static/js/main.0bdb9767.chunk.js"
   ]
 }
