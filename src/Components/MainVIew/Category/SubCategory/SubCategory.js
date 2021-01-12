@@ -1,7 +1,7 @@
 import React from 'react';
 import './SubCategory.css';
 import FinalLists from './FinalLists/FinalLists';
-import chooseSubCategory from "../../../../utils/chooseSubCategory";
+import {chooseSubCategory} from "../../../../utils/chooseSubCategory";
 
  //ADD SUBCATEGORY
  /*
@@ -51,7 +51,7 @@ export default class SubCategory extends React.Component  {
        let idCategory = this.props.idCategory;
        let nameSubCategory = chooseSubCategory(idCategory, idSubCategory);
        console.log(idCategory+" "+idSubCategory); 
-       console.log(nameSubCategory);
+      // console.log(nameSubCategory);
        if (showInfo) {
        /* return (
             <div  className="SubCategory">

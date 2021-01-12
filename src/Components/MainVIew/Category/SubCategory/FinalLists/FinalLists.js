@@ -1,15 +1,16 @@
 import React from 'react';
 import './FinalLists.css';
-
+import {chooseFinalList} from "../../../../../utils/chooseSubCategory";
 
  //ADD FINALLISTS
+ /*
  const finalLists_1_1_1 = ['Характеристики грунтов','Просадочные грунты','Набухающие грунты', 'Пучинистые грунты', 'Вечномерзлые грунты'];
  const finalLists_1_1_2 =  ['Характеристики грунтов СП п.5','Просадочные грунты'];
 
  const chooseFinalList = (idCat,idSub,idFinLi) => {
-     if (idCat === "1" && idSub === "1" && idFinLi === "1") {
+     if (idCat === "2" && idSub === "0" && idFinLi === "1") {
          return finalLists_1_1_1;
-     } else if (idCat === "1" && idSub === "1" && idFinLi === "2") {
+     } else if (idCat === "2" && idSub === "0" && idFinLi === "0") {
          return finalLists_1_1_2;
      }else {
         // alert("change number of the category id!");
@@ -17,7 +18,7 @@ import './FinalLists.css';
      }
  
  }
-
+*/
  // CLASS FINALLISTS
 export default class FinalLists extends React.Component  {
 
@@ -31,8 +32,10 @@ export default class FinalLists extends React.Component  {
         let idFinalLists = this.props.idFinalLists;
        let nameFinalLists = chooseFinalList(idCategory, idSubCategory, idFinalLists);
       //let nameFinalLists = chooseFinalList("1", "1", "1");
+      console.log(idCategory+" "+idSubCategory+" "+idFinalLists);
+      console.log(nameFinalLists); 
        if (showInfo) {
-        return (
+       /* return (
             <div  className="FinalLists">
                 <ul>
                     <li><button>{nameFinalLists[0]}</button></li>
@@ -41,9 +44,21 @@ export default class FinalLists extends React.Component  {
                     <li><button>{nameFinalLists[3]}</button></li>
                 </ul>
             </div>
-       
+                   )*/
+                   return (
+                    <div  className="FinalLists">
+                        <ul> { (nameFinalLists) && nameFinalLists.map((item, index) => (
+                            <li key={item.id}><button >{item.label} {index}</button></li>)
+                        )
+                            
+                            }
+                        </ul>
+                    </div>
+                           )
 
-            )
+
+
+
         }  else return null;
 
     }

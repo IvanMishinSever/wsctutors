@@ -25,6 +25,7 @@ const chooseSubCategory = (idCat,idSub) => {
 
 }
 */
+//SUBCATEGORY
 const chooseSubCategory = (idCat,idSub) => {
     if (idCat === "1" && courseSubCategory[Number(idSub)].nodes) {
         //return testSubCategory[Number(idSub)-1].nodes;
@@ -38,6 +39,22 @@ const chooseSubCategory = (idCat,idSub) => {
 
 
 }
-export default chooseSubCategory;
+//FINAL LISTS
+
+const finalLists_1_1_1 = ['Характеристики грунтов','Просадочные грунты','Набухающие грунты', 'Пучинистые грунты', 'Вечномерзлые грунты'];
+ const finalLists_1_1_2 =  ['Характеристики грунтов СП п.5','Просадочные грунты'];
+ const chooseFinalList = (idCat,idSub,idFinLi) => {
+    if (idCat === "2" && idSub === "0" && idFinLi === "1") {
+        return finalLists_1_1_1;
+    } else if (idCat === "2" && idSub === "0" && idFinLi === "0") {
+        return finalLists_1_1_2;
+    }else {
+       // alert("change number of the category id!");
+       return null;
+    }
+
+}
+
+export  {chooseSubCategory, chooseFinalList};
 
 

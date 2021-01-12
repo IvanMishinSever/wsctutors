@@ -20,14 +20,25 @@ const TestCategory = [
         nodes:[
             {
             id: "1",
-            label: "СП63 П.1",
+            label: "СП63 ",
+            nodes:[
+                {
+                id: "1",
+                label: "СП63 п.1 "
+                },
+                {
+                id: "2",
+                label: "СП63 п.2 "
+                }
+
+            ]
             },
             {
             id: "2",
-            label: "СП63 П.2",
+            label: "СП70",
             },
             {id: "3",
-            label: "СП63 П.3",
+            label: "СП356",
             }
 
             ]
