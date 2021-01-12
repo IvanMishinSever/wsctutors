@@ -9,6 +9,7 @@ import CourseCategory from "./CategoryDataCourses";
  //const testCategory = ['Инженерная геология-test','Строительная механика-test','Жеезобетоные конструкции-test'];
  const testCategory = TestCategory;
  const courseCategory = CourseCategory;
+ //CHOOSE CATEGORY
  const chooseCategory = (id) => {
      if (id === "1") {
          return courseCategory;

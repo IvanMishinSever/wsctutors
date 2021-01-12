@@ -33,10 +33,9 @@ const chooseSubCategory = (idCat,idSub) => {
     
    else if (idCat === "2" && testSubCategory[Number(idSub)].nodes ) {
        return testSubCategory[Number(idSub)].nodes;
-   }else {
-       // alert("change number of the category id!");
-      // return null;
-    }
+   }
+   else return false;
+
 
 }
 export default chooseSubCategory;
