@@ -58,6 +58,18 @@ export default class Category extends React.Component {
         )
         
     }
+    //CLEARE STATE SUBCATEGORY
+    
+    clearSubCategory() {
+        this.setState(
+            {
+                subCategoryView: false,
+                idSubCategory: "",
+        
+        
+            } )
+    }
+
     render() {
         let showInfo = this.props.categoryView;
        //RECEIVE ID CATEGORY
