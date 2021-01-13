@@ -3,6 +3,24 @@ import CourseCategory from "../Components/MainVIew/Category/CategoryDataCourses"
 
 const testSubCategory = TestCategory;
 const courseSubCategory = CourseCategory;
+
+ //CHOOSE CATEGORY
+ const chooseCategory = (id) => {
+    if (id === "1") {
+        return courseSubCategory;
+    } else if (id === "2") {
+        return testSubCategory;
+    } 
+    /*else {
+       // alert("change number of the category id!");
+       return null;
+    }
+*/
+}
+
+
+
+
 /*
 const courseSubCategory_1 = ['Грунты_1','СП','ГОСТЫ'];
 const courseSubCategory_2 = ['Грунты_2','СП','ГОСТЫ'];
@@ -27,16 +45,16 @@ const chooseSubCategory = (idCat,idSub) => {
 */
 //SUBCATEGORY
 const chooseSubCategory = (idCat,idSub) => {
-    const nameCourse = courseSubCategory[Number(idSub)].nodes;
-    const nameTest = testSubCategory[Number(idSub)].nodes;
-    //console.log(nameTest);
-    if (idCat === "1" && nameCourse !== undefined) {
+   // const nameCourse = courseSubCategory[Number(idSub)].nodes;
+    //const nameTest = testSubCategory[Number(idSub)].nodes;
+   // console.log(nameTest);
+    if (idCat === "1" && courseSubCategory[Number(idSub)].nodes !== "undefined") {
         //return testSubCategory[Number(idSub)-1].nodes;
-        return nameCourse;
+        return courseSubCategory[Number(idSub)].nodes;
     } 
     
-   else if (idCat === "2" && nameTest !== undefined) {
-       return nameTest;
+   else if (idCat === "2" && testSubCategory[Number(idSub)].nodes !== "undefined") {
+       return testSubCategory[Number(idSub)].nodes;
    }
    else return false;
 
@@ -59,13 +77,14 @@ const finalLists_1_1_1 = ['Характеристики грунтов','Про�
 }*/
 const chooseFinalList = (idCat,idSub,idFinLi) => {
     if (idFinLi) {
-        const nameCourse = courseSubCategory[Number(idSub)].nodes[Number(idFinLi)];
-        const nameTest = testSubCategory[Number(idSub)].nodes[Number(idFinLi)]; 
-    
-        if (idCat === "1" && nameCourse!== undefined  ) {
-            return nameCourse.nodes;
-        } else if (idCat === "2" && nameTest!== undefined  ) {
-            return nameTest.nodes;
+       // const nameCourse = courseSubCategory[Number(idSub)].nodes[Number(idFinLi)];
+       // const nameTest = testSubCategory[Number(idSub)].nodes[Number(idFinLi)]; 
+        //console.log(testSubCategory[Number(2)].nodes[Number(0)]);
+
+        if (idCat === "1" && courseSubCategory[Number(idSub)].nodes[Number(idFinLi)]!== "undefined") {
+            return courseSubCategory[Number(idSub)].nodes[Number(idFinLi)].nodes;
+        } else if (idCat === "2" && testSubCategory[Number(idSub)].nodes[Number(idFinLi)]!== "undefined") {
+            return testSubCategory[Number(idSub)].nodes[Number(idFinLi)].nodes;
         }else {
            // alert("change number of the category id!");
            return false;
@@ -75,6 +94,6 @@ const chooseFinalList = (idCat,idSub,idFinLi) => {
 
 }
 
-export  {chooseSubCategory, chooseFinalList};
+export  {chooseSubCategory, chooseFinalList, chooseCategory};
 
 

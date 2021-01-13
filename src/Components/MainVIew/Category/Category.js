@@ -1,15 +1,17 @@
 import React from 'react';
 import './Category.css';
 import SubCategory from './SubCategory/SubCategory';
-import TestCategory from './CategoryDataTests';
-import CourseCategory from "./CategoryDataCourses";
+
+import {chooseCategory} from "../../../utils/chooseSubCategory";
 
  //ADD CATEGORY
  //const courseCategory = ['Инженерная геология','Строительная механика','Железобетоные конструкции'];
  //const testCategory = ['Инженерная геология-test','Строительная механика-test','Жеезобетоные конструкции-test'];
+ /*
  const testCategory = TestCategory;
  const courseCategory = CourseCategory;
  //CHOOSE CATEGORY
+ 
  const chooseCategory = (id) => {
      if (id === "1") {
          return courseCategory;
@@ -20,15 +22,17 @@ import CourseCategory from "./CategoryDataCourses";
         // alert("change number of the category id!");
         return null;
      }
- */
+
  }
+ */
  //CATEGORY CLASS
 export default class Category extends React.Component {
         constructor(props) {
             super(props);
             this.state = {
                 subCategoryView: false,
-                idSubCategory: ""
+                idSubCategory: "",
+                
             }
             this.handleClick = this.handleClick.bind(this);
         }
@@ -36,7 +40,8 @@ export default class Category extends React.Component {
  
         this.setState({
             subCategoryView: true,
-            idSubCategory: e.target.value
+            idSubCategory: e.target.value,
+           
         })
     }
     render() {
