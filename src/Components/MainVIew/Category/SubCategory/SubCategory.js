@@ -50,8 +50,11 @@ export default class SubCategory extends React.Component  {
        //let idSubCategory = "2";
        let idCategory = this.props.idCategory;
        let nameSubCategory = chooseSubCategory(idCategory, idSubCategory);
-       console.log(idCategory+" "+idSubCategory); 
-      // console.log(nameSubCategory);
+       /*console.log(idCategory+" "+idSubCategory); 
+       console.log("subcat -" + nameSubCategory);
+       console.log(nameSubCategory)
+       console.log("id -" + this.state.idFinalLists);*/
+       console.log(this.state);
        if (showInfo) {
        /* return (
             <div  className="SubCategory">

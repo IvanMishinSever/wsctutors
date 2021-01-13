@@ -27,13 +27,16 @@ const chooseSubCategory = (idCat,idSub) => {
 */
 //SUBCATEGORY
 const chooseSubCategory = (idCat,idSub) => {
-    if (idCat === "1" && courseSubCategory[Number(idSub)].nodes) {
+    const nameCourse = courseSubCategory[Number(idSub)].nodes;
+    const nameTest = testSubCategory[Number(idSub)].nodes;
+    //console.log(nameTest);
+    if (idCat === "1" && nameCourse !== undefined) {
         //return testSubCategory[Number(idSub)-1].nodes;
-        return courseSubCategory[Number(idSub)].nodes;
+        return nameCourse;
     } 
     
-   else if (idCat === "2" && testSubCategory[Number(idSub)].nodes ) {
-       return testSubCategory[Number(idSub)].nodes;
+   else if (idCat === "2" && nameTest !== undefined) {
+       return nameTest;
    }
    else return false;
 
@@ -55,14 +58,20 @@ const finalLists_1_1_1 = ['Характеристики грунтов','Про�
 
 }*/
 const chooseFinalList = (idCat,idSub,idFinLi) => {
-    if (idCat === "1" && courseSubCategory[Number(idSub)].nodes[Number(idFinLi)].nodes ) {
-        return courseSubCategory[Number(idSub)].nodes[Number(idFinLi)].nodes;
-    } else if (idCat === "2" && testSubCategory[Number(idSub)].nodes[Number(idFinLi)].nodes ) {
-        return testSubCategory[Number(idSub)].nodes[Number(idFinLi)].nodes;
-    }else {
-       // alert("change number of the category id!");
-       return false;
-    }
+    if (idFinLi) {
+        const nameCourse = courseSubCategory[Number(idSub)].nodes[Number(idFinLi)];
+        const nameTest = testSubCategory[Number(idSub)].nodes[Number(idFinLi)]; 
+    
+        if (idCat === "1" && nameCourse!== undefined  ) {
+            return nameCourse.nodes;
+        } else if (idCat === "2" && nameTest!== undefined  ) {
+            return nameTest.nodes;
+        }else {
+           // alert("change number of the category id!");
+           return false;
+        }
+    } else console.log("idfinli false---" + idFinLi);
+
 
 }
 

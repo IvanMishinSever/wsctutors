@@ -44,7 +44,7 @@ export default class Category extends React.Component {
        //RECEIVE ID CATEGORY
         let idCategory = this.props.idCategory;
         let nameCategory = chooseCategory(idCategory);
-  
+        console.log(this.state);
         if (showInfo) {
             /*return (
                 <div  className="Category">
