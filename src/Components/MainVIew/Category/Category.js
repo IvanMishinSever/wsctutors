@@ -32,17 +32,31 @@ export default class Category extends React.Component {
             this.state = {
                 subCategoryView: false,
                 idSubCategory: "",
+                finalListsView: false,
+                idFinalLists: ""
                 
             }
             this.handleClick = this.handleClick.bind(this);
+            this.onClickFinalLists = this.onClickFinalLists.bind(this);
         }
     handleClick(e) {
  
         this.setState({
             subCategoryView: true,
             idSubCategory: e.target.value,
-           
+            finalListsView: false,
+            idFinalLists: ""
         })
+    }
+
+    onClickFinalLists(e) {
+        this.setState(
+            {
+                finalListsView: true,
+                idFinalLists: e
+            }
+        )
+        
     }
     render() {
         let showInfo = this.props.categoryView;
@@ -76,7 +90,7 @@ export default class Category extends React.Component {
                             ))
                             }
                         </ul>
-                        <SubCategory subcategoryView={this.state.subCategoryView} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
+                        <SubCategory onClick={this.onClickFinalLists} finalListsView={this.state.finalListsView}  idFinalLists={this.state.idFinalLists} subcategoryView={this.state.subCategoryView} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
                     </div>
                
         

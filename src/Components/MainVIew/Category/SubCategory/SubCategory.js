@@ -28,12 +28,14 @@ import {chooseSubCategory} from "../../../../utils/chooseSubCategory";
 export default class SubCategory extends React.Component  {
     constructor(props) {
         super(props);
-        this.state = {
+       /* this.state = {
             finalListsView: false,
             idFinalLists: ""
         }
+        */
         this.handleClick = this.handleClick.bind(this);
     }
+    /*
     handleClick(e) {
  
         this.setState({
@@ -41,6 +43,13 @@ export default class SubCategory extends React.Component  {
             idFinalLists: e.target.value
         })
     }
+    */
+    handleClick(e) {
+        const id = e.target.value;
+        this.props.onClick(id);
+    }
+
+
 
     render() {
         let showInfo = this.props.subcategoryView;
@@ -53,8 +62,8 @@ export default class SubCategory extends React.Component  {
        /*console.log(idCategory+" "+idSubCategory); 
        console.log("subcat -" + nameSubCategory);
        console.log(nameSubCategory)*/
-       console.log("id -" + this.state.idFinalLists);
-       console.log(this.state);
+      // console.log("id -" + this.state.idFinalLists);
+       //console.log(this.state);
        if (showInfo) {
        /* return (
             <div  className="SubCategory">
@@ -78,7 +87,7 @@ export default class SubCategory extends React.Component  {
                             
                           
                         </ul>
-                        <FinalLists finalListsView={this.state.finalListsView}  idFinalLists={this.state.idFinalLists} idSubCategory={this.props.idSubCategory} idCategory={this.props.idCategory}/>
+                        <FinalLists finalListsView={this.props.finalListsView}  idFinalLists={this.props.idFinalLists} idSubCategory={this.props.idSubCategory} idCategory={this.props.idCategory}/>
                     </div>
                            )
         }  else return null;
