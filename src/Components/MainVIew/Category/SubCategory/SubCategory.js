@@ -80,14 +80,24 @@ export default class SubCategory extends React.Component  {
                     <div  className="SubCategory">
                         <ul>
                             { (nameSubCategory) && nameSubCategory.map((item, index) => (
-                                    <li key={item.id}><button onClick={this.handleClick} value={String(index)}>{item.label} {index}</button></li>
+                                    <li key={item.id}>
+                                        <button 
+                                            onClick={this.handleClick} 
+                                            value={String(index)}>{item.label} {index}
+                                        </button>
+                                    </li>
                                 ))}
                             
                             
                             
                           
                         </ul>
-                        <FinalLists finalListsView={this.props.finalListsView}  idFinalLists={this.props.idFinalLists} idSubCategory={this.props.idSubCategory} idCategory={this.props.idCategory}/>
+                        <FinalLists 
+                            finalListsView={this.props.finalListsView}  
+                            idFinalLists={this.props.idFinalLists} 
+                            idSubCategory={this.props.idSubCategory} 
+                            idCategory={this.props.idCategory}
+                        />
                     </div>
                            )
         }  else return null;

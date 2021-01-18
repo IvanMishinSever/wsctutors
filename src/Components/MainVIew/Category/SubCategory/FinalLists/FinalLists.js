@@ -49,17 +49,13 @@ export default class FinalLists extends React.Component  {
                    return (
                     <div  className="FinalLists">
                         <ul> { (nameFinalLists) && nameFinalLists.map((item, index) => (
-                            <li key={item.id}><button >{item.label} {index}</button></li>)
-                        )
-                            
-                            }
+                            <li key={item.id}>
+                                <button >{item.label} {index}
+                                </button>
+                            </li>))}
                         </ul>
                     </div>
                            )
-
-
-
-
         }  else return null;
 
     }

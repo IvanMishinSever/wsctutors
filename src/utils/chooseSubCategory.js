@@ -10,6 +10,8 @@ const courseSubCategory = CourseCategory;
         return courseSubCategory;
     } else if (id === "2") {
         return testSubCategory;
+    } else if (id === "3") {
+        return testSubCategory;
     } 
     /*else {
        // alert("change number of the category id!");

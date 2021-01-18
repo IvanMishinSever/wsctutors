@@ -97,12 +97,24 @@ export default class Category extends React.Component {
                         <h3>Каталог {idCategory}</h3>
                         <ul> {
                             nameCategory.map( (item, index) => (
-                                <li key={item.id}><button onClick={this.handleClick} value={String(index)}>{item.label} in{index} id{item.id}</button></li>
+                                <li key={item.id}>
+                                    <button 
+                                        onClick={this.handleClick} 
+                                        value={String(index)}>{item.label} in{index} id{item.id}
+                                    </button>
+                                </li>
                                 
                             ))
                             }
                         </ul>
-                        <SubCategory onClick={this.onClickFinalLists} finalListsView={this.state.finalListsView}  idFinalLists={this.state.idFinalLists} subcategoryView={this.state.subCategoryView} idSubCategory={this.state.idSubCategory} idCategory={this.props.idCategory}/>
+                        <SubCategory 
+                            onClick={this.onClickFinalLists} 
+                            subcategoryView={this.state.subCategoryView} 
+                            finalListsView={this.state.finalListsView}  
+                            idSubCategory={this.state.idSubCategory} 
+                            idCategory={this.props.idCategory}
+                            idFinalLists={this.state.idFinalLists} 
+                        />
                     </div>
                
         
