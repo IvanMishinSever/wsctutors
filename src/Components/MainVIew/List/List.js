@@ -4,6 +4,27 @@ import {chooseCategory, chooseLists} from "../../../utils/chooseSubCategory";
 
 export default class List extends React.Component {
 
+    renderLists (nameCategory) {
+        return (
+        <ul> {
+            nameCategory.map( (item, index) => (
+                <li key={item.id}>
+                    <button 
+                        onClick={(e) => this.handleClick(e)} 
+                        value={String(index)}>{item.label} in{index} id{item.id}
+                    </button>
+                </li>
+                
+            ))
+            }
+        </ul>
+        )
+    }
+    handleClick(e) {
+        const id = e.target.value;
+        this.props.onClick(id);
+       
+    }
 
     render() {
         const idCategory = this.props.idCategory;
@@ -18,7 +39,8 @@ export default class List extends React.Component {
             return (
                 <div  className="List">
                     <h3>Каталог {/*idCategory*/}</h3>
-                    <ul> {
+                    {this.renderLists(nameCategory)}
+                    {/*<ul> {
                         nameCategory.map( (item, index) => (
                             <li key={item.id}>
                                 <button 
@@ -29,7 +51,7 @@ export default class List extends React.Component {
                             
                         ))
                         }
-                    </ul>
+                    </ul>*/}
                  </div>
             )
         } else return null;
