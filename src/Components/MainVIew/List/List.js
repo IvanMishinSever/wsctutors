@@ -12,7 +12,7 @@ export default class List extends React.Component {
 
 
         const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
-       // console.log(viewComponent);
+        console.log(viewComponent);
 
         if (viewComponent) {
             return (

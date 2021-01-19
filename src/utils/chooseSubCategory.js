@@ -95,19 +95,56 @@ const chooseFinalList = (idCat,idSub,idFinLi) => {
 
 
 }
-
-const chooseLists = (i) => {
-    //const lists = testSubCategory;
-
-    const lists = testSubCategory[Number(i)].nodes;
-        if (testSubCategory[Number(i)].nodes !== undefined) {
-        console.log(lists);
-        return lists;
+/*
+const chooseLists = (idCat) => {
+    
+    const listsExist = testSubCategory[Number(idCat)].nodes;
+    
+    //console.log(testSubCategory);
+    //console.log(testSubCategory[Number(3)].nodes[Number("0")].nodes);
+    //console.log(i);
+    
+        if (listsExist !== undefined) {
+            //const lists = testSubCategory[Number(i)].nodes[Number("0")].nodes;
+            const lists = testSubCategory[Number(idCat)].nodes;
+            //const lists = testSubCategory;
+            console.log(lists);
+            return lists;
         } else {
             return false;
         }
    
 }
+*/
+//HELP FUNCTION
+const checkLists = (listsExist, nameCategory) => {
+    if (listsExist !== undefined) {
+        //const lists = nameCategory[Number(i)].nodes[Number("0")].nodes;
+        //const lists = nameCategory[Number(1)].nodes;
+        const lists = nameCategory;
+       // console.log(lists);
+        return lists;
+    } else {
+        return false;
+    }
+}
+// CHOOSELIST
+const chooseLists = (idCat) => {
+//const nameCategory = testSubCategory;
+let nameCategory = [];
+    if (idCat ==="0") {
+         nameCategory = courseSubCategory;
+    } else if (idCat ==="1") {
+        nameCategory = testSubCategory;
+    } else if (idCat ==="2") {
+        nameCategory = testSubCategory;
+    }
+    //console.log(courseSubCategory);
+    const listsExist = nameCategory[Number(idCat)].nodes;
+    console.log(listsExist);  
+    return checkLists(listsExist, nameCategory);
+}
+
 
 
 export  {chooseSubCategory, chooseFinalList, chooseCategory, chooseLists};

@@ -23,11 +23,11 @@ export default class MenuSide extends React.Component {
             <div className="MenuSide">
                 <ul >
                     <li>
-                        <button onClick={this.handleClick} value="1"> Курсы </button>
+                        <button onClick={this.handleClick} value="0"> Курсы </button>
                     </li>
                     <li>
-                        <button onClick={this.handleClick} value="2"> Тесты </button>
-                        <button onClick={this.handleClick} value="3">Example</button>
+                        <button onClick={this.handleClick} value="1"> Тесты </button>
+                        <button onClick={this.handleClick} value="2">Example</button>
                     </li>
                     
                     
