@@ -96,6 +96,20 @@ const chooseFinalList = (idCat,idSub,idFinLi) => {
 
 }
 
-export  {chooseSubCategory, chooseFinalList, chooseCategory};
+const chooseLists = (i) => {
+    //const lists = testSubCategory;
+
+    const lists = testSubCategory[Number(i)].nodes;
+        if (testSubCategory[Number(i)].nodes !== undefined) {
+        console.log(lists);
+        return lists;
+        } else {
+            return false;
+        }
+   
+}
+
+
+export  {chooseSubCategory, chooseFinalList, chooseCategory, chooseLists};
 
 

@@ -14,7 +14,10 @@ export default class MainView extends React.Component {
             <div className="MainView">
              {/* <Category categoryView={this.props.categoryView} idCategory={this.props.idCategory} /> */}
               <FirstContent categoryView={this.props.categoryView} />
-              <List categoryView={this.props.categoryView} idCategory={this.props.idCategory} />  
+              <List 
+                categoryView={this.props.categoryView} 
+                idCategory={this.props.idCategory} 
+              />  
             </div>
             )
     }

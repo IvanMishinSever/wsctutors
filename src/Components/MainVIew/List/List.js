@@ -1,15 +1,20 @@
 import React from 'react';
 import './List.css';
-import {chooseCategory} from "../../../utils/chooseSubCategory";
+import {chooseCategory, chooseLists} from "../../../utils/chooseSubCategory";
 
 export default class List extends React.Component {
 
 
     render() {
-        let idCategory = this.props.idCategory;
-        let nameCategory = chooseCategory(idCategory);
+        const idCategory = this.props.idCategory;
+        const nameCategory = chooseLists(idCategory);
+        //const viewComponent = nameCategory  ? false : this.props.categoryView;
 
-        if(this.props.categoryView) {
+
+        const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
+       // console.log(viewComponent);
+
+        if (viewComponent) {
             return (
                 <div  className="List">
                     <h3>Каталог {/*idCategory*/}</h3>
