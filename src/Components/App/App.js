@@ -12,7 +12,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
         categoryView: false,
-        idCategory: "1",  // idCategory 1-Курсы, 2- Тесты, 3- Example
+        idCategory: "",  // idCategory 1-Курсы, 2- Тесты, 3- Example
         listExist: false,
         idList : "",
     }
@@ -20,12 +20,13 @@ export default class App extends React.Component {
     this.setIdList = this.setIdList.bind(this);
 }
 
+//CHOOSE CATEGORY
 
 chooseCategory(newId) {
     this.setState({
         categoryView: true,
         idCategory: newId,
-        
+        idList: "",
         listExist: false
     })
     //console.log(this.state.categoryView);
@@ -33,11 +34,11 @@ chooseCategory(newId) {
       }
 
   //SET ID LIST
+
 setIdList(id, listExist) {
-   
-  this.setState({
+    this.setState({
       idList: id,
-     listExist: listExist
+      listExist: listExist,
   })
   
   //this.showID();
