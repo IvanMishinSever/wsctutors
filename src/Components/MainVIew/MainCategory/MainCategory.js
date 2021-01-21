@@ -1,10 +1,12 @@
 import React from 'react';
-import './List.css';
-import {chooseLists} from "../../../utils/chooseSubCategory";
+import './MainCategory.css';
+import {chooseMainCategory} from "../../../utils/chooseSubCategory";
 
-export default class List extends React.Component {
+export default class MainCategory extends React.Component {
 
-    renderList (nameCategory) {
+    //RENDER CATEGORY
+
+    renderMainCategory (nameCategory) {
         return (
         <ul> {
             nameCategory.map( (item, index) => (
@@ -20,27 +22,29 @@ export default class List extends React.Component {
         </ul>
         )
     }
+    // ADD ID LIST TO STATE
+
     handleClick(e) {
         const id = e.target.value;
         this.props.onClick(id);
-       
+        
        
     }
 
     render() {
+
+        // IF CATEGORY EXISTS return CATEGORY, ELSE FALSE
+
         const idCategory = this.props.idCategory;
-        const nameCategory = chooseLists(idCategory);
-        //const viewComponent = nameCategory  ? false : this.props.categoryView;
-
-
+        const nameCategory = chooseMainCategory(idCategory);
         const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
-        console.log(viewComponent);
+        //console.log(viewComponent);
 
         if (viewComponent) {
             return (
-                <div  className="List">
+                <div  className="MainCategory">
                     <h3>Каталог {/*idCategory*/}</h3>
-                    {this.renderList(nameCategory)}
+                    {this.renderMainCategory(nameCategory)}
 
                  </div>
             )
