@@ -28,8 +28,12 @@ export default class MainCategory extends React.Component {
 
     handleClick(e) {
         const id = e.target.value;
-        this.props.onClick(id);
-     
+        const listExist = true;
+        this.props.setIdList(id, listExist);
+        
+    }
+    checkListExists() {
+
     }
     // RENDER CHILD LIST
 
@@ -41,7 +45,7 @@ export default class MainCategory extends React.Component {
              <List
                 categoryView={this.props.categoryView} 
                 idCategory={this.props.idCategory}
-            
+                
                 idList={this.props.idList}
              />
                 )

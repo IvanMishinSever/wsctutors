@@ -8,12 +8,12 @@ import './MainView.css';
 export default class MainView extends React.Component {
 constructor(props) {
     super(props);
-    this.state = {
+   /* this.state = {
         idList : "",
-        listExist: false,
+       // listExist: false,
        // number: [],
-    }
-    this.setIdList = this.setIdList.bind(this);
+    } */
+    //this.setIdList = this.setIdList.bind(this);
     this.renderAllCategory = this.renderAllCategory.bind(this);
     
 }
@@ -26,24 +26,27 @@ renderAllCategory() {
         <MainCategory 
             categoryView={this.props.categoryView} 
             idCategory={this.props.idCategory}
-            onClick={this.setIdList}
-            idList={this.state.idList}
-            listExist={this.state.listExist} 
+            
+            idList={this.props.idList}
+            listExist={this.props.listExist}
+            setIdList={this.props.setIdList}
+            
         />
         )
     
 }
 
 //SET ID LIST
-setIdList(id) {
+/*setIdList(id, listExist) {
    
     this.setState({
-        idList: id
+        idList: id,
+       // listExist: listExist
     })
     
     //this.showID();
 }
-
+*/
 
     render() {
 
