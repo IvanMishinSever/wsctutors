@@ -28,12 +28,12 @@ export default class MainCategory extends React.Component {
 
     handleClick(e) {
         const id = e.target.value;
-        const listExist = true;
+        const listExist = this.checkListExists();
         this.props.setIdList(id, listExist);
         
     }
     checkListExists() {
-
+        return true;
     }
     // RENDER CHILD LIST
 
