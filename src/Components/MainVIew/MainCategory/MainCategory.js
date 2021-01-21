@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainCategory.css';
 import {chooseMainCategory} from "../../../utils/chooseSubCategory";
+import List from "../List/List";
 
 export default class MainCategory extends React.Component {
 
@@ -22,14 +23,32 @@ export default class MainCategory extends React.Component {
         </ul>
         )
     }
+
     // ADD ID LIST TO STATE
 
     handleClick(e) {
         const id = e.target.value;
         this.props.onClick(id);
-        
-       
+     
     }
+    // RENDER CHILD LIST
+
+     renderList() {
+         const listExist = this.props.listExist;
+
+         if (listExist) {
+         return (
+             <List
+                categoryView={this.props.categoryView} 
+                idCategory={this.props.idCategory}
+            
+                idList={this.props.idList}
+             />
+                )
+         } else return null;
+     }
+
+
 
     render() {
 
@@ -44,7 +63,11 @@ export default class MainCategory extends React.Component {
             return (
                 <div  className="MainCategory">
                     <h3>Каталог {/*idCategory*/}</h3>
+
                     {this.renderMainCategory(nameCategory)}
+
+                    {this.renderList()}
+
 
                  </div>
             )

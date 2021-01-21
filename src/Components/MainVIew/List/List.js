@@ -1,13 +1,13 @@
 import React from 'react';
 import './List.css';
-import {chooseLists} from "../../../utils/chooseSubCategory";
+import { chooseLists } from "../../../utils/chooseSubCategory";
 
 export default class List extends React.Component {
 
-    renderList (nameCategory) {
+    renderList (nameList) {
         return (
         <ul> {
-            nameCategory.map( (item, index) => (
+            nameList.map( (item, index) => (
                 <li key={item.id}>
                     <button 
                         onClick={(e) => this.handleClick(e)} 
@@ -20,27 +20,31 @@ export default class List extends React.Component {
         </ul>
         )
     }
+    /*
     handleClick(e) {
         const id = e.target.value;
         this.props.onClick(id);
        
        
     }
-
+*/
     render() {
         const idCategory = this.props.idCategory;
-        const nameCategory = chooseLists(idCategory);
+        const idList = this.props.idList;
+        const nameList = chooseLists(idCategory,idList);
+        
         //const viewComponent = nameCategory  ? false : this.props.categoryView;
 
 
-        const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
+        const viewComponent = (nameList === false) ? false : this.props.categoryView;
         console.log(viewComponent);
+       
 
         if (viewComponent) {
             return (
                 <div  className="List">
                     <h3>Каталог {/*idCategory*/}</h3>
-                    {this.renderList(nameCategory)}
+                    {this.renderList(nameList)}
 
                  </div>
             )

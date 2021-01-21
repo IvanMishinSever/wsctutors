@@ -118,12 +118,12 @@ const chooseLists = (idCat) => {
 */
 //FOR LISTS CHILD
 //HELP FUNCTION
-const checkLists = (listsExist, nameCategory) => {
+const checkLists = (listsExist, nameCategory, IdList) => {
     if (listsExist !== undefined) {
         //const lists = nameCategory[Number(i)].nodes[Number("0")].nodes;
-        //const lists = nameCategory[Number(1)].nodes;
+        const lists = nameCategory[Number(IdList)].nodes;
         //const result = 'nameCategory' + '[Number(1)].nodes';
-        const lists = nameCategory;
+        //const lists = nameCategory;
         //const lists = result;
        // console.log(lists);
         return lists;
@@ -132,7 +132,7 @@ const checkLists = (listsExist, nameCategory) => {
     }
 }
 // CHOOSELIST
-const chooseLists = (idCat) => {
+const chooseLists = (idCat, IdList) => {
 //const nameCategory = testSubCategory;
 let nameCategory = [];
     if (idCat ==="0") {
@@ -145,7 +145,7 @@ let nameCategory = [];
     //console.log(courseSubCategory);
     const listsExist = nameCategory[Number(idCat)].nodes;
     console.log(listsExist);  
-    return checkLists(listsExist, nameCategory);
+    return checkLists(listsExist, nameCategory, IdList);
 }
 
 // FOR MAIN CATEGORY

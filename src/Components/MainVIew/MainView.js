@@ -10,22 +10,25 @@ constructor(props) {
     super(props);
     this.state = {
         idList : "",
-        number: [],
+        listExist: false,
+       // number: [],
     }
     this.setIdList = this.setIdList.bind(this);
     this.renderAllCategory = this.renderAllCategory.bind(this);
     
 }
-//RENDER LISTS
-renderAllCategory(nameList) {
+//RENDER MAIN CATEGORY COMPONENT
+
+renderAllCategory() {
 
     return (
         
         <MainCategory 
-       categoryView={this.props.categoryView} 
-        idCategory={this.props.idCategory}
-        onClick={this.setIdList}
-        idList={this.state.idList} 
+            categoryView={this.props.categoryView} 
+            idCategory={this.props.idCategory}
+            onClick={this.setIdList}
+            idList={this.state.idList}
+            listExist={this.state.listExist} 
         />
         )
     
@@ -48,8 +51,10 @@ setIdList(id) {
         return (
             <div className="MainView">
              {/* <Category categoryView={this.props.categoryView} idCategory={this.props.idCategory} /> */}
+
               <FirstContent categoryView={this.props.categoryView} />
-              {this.renderAllCategory(this.state.idList)}
+
+              {this.renderAllCategory()}
               
               {/*<List 
                 categoryView={this.props.categoryView} 
