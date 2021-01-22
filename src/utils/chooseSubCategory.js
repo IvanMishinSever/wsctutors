@@ -143,11 +143,29 @@ let nameCategory = [];
         nameCategory = testSubCategory;
     }
     //console.log(courseSubCategory);
-    const listsExist = nameCategory[Number(idCat)].nodes;
-    console.log(listsExist);  
+    const listsExist = nameCategory[Number(idCat)].nodes;// STRANGE!!!!!!!
+    //console.log(listsExist);  
     return checkLists(listsExist, nameCategory, IdList);
 }
-
+//
+const checkListExists = (idCat, IdList) => {
+    let nameCategory = [];
+    if (idCat ==="0") {
+         nameCategory = courseSubCategory;
+    } else if (idCat ==="1") {
+        nameCategory = testSubCategory;
+    } else if (idCat ==="2") {
+        nameCategory = testSubCategory;
+    }
+    //console.log(courseSubCategory);
+    const listsNodesExist = nameCategory[Number(IdList)].nodes;
+    console.log(listsNodesExist);
+    if (listsNodesExist !== undefined) {
+        return true;
+    } else {
+        return false;
+    }
+}
 // FOR MAIN CATEGORY
 
 // CHOOSE MAIN CATEGORY
@@ -167,6 +185,6 @@ const chooseMainCategory = (idCat) => {
 }
 
 
-export  {chooseSubCategory, chooseFinalList, chooseCategory, chooseLists, chooseMainCategory};
+export  {chooseSubCategory, chooseFinalList, chooseCategory, chooseLists, chooseMainCategory, checkListExists};
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './MainCategory.css';
-import {chooseMainCategory} from "../../../utils/chooseSubCategory";
+import {chooseMainCategory, checkListExists} from "../../../utils/chooseSubCategory";
 import List from "../List/List";
 
 export default class MainCategory extends React.Component {
@@ -28,13 +28,17 @@ export default class MainCategory extends React.Component {
 
     handleClick(e) {
         const id = e.target.value;
-        const listExist = this.checkListExists();
+        const listExist = checkListExists(this.props.idCategory, id);
+        console.log(listExist);
         this.props.setIdList(id, listExist);
         
     }
-    checkListExists() {
+    /*checkListExists() {
+       const view = chooseLists(this.props.idCategory, this.props.idList);
+       if view
         return true;
     }
+    */
     // RENDER CHILD LIST
 
      renderList() {
