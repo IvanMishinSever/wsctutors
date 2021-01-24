@@ -43,8 +43,8 @@ renderNodes() {
 if (this.props.categoryView) {
     return (
        
-        testCategory.map(element =>
-            <Nodes  
+        testCategory.map((element, index) =>
+            <Nodes  key={index}
                 element={element} 
             />
         

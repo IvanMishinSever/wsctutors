@@ -20,8 +20,17 @@ export default class Nodes extends React.Component {
     }
     //SHOW NODES
     showNodes() {
-
-    }
+        let arrayNodes = [];
+        console.log(arrayNodes);
+        if (this.props.element.nodes ) {
+            this.props.element.nodes.map((element, index) => {
+                arrayNodes.push(<Nodes key={index} element={element} />);
+            });
+            }
+            return arrayNodes;
+        }
+        
+    
 
     //RENDER NODE
     render() {

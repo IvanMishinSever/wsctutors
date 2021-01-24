@@ -79,9 +79,23 @@ const TestCategory = [
             },
             {id: "3",
             label: "Беленя",
-            nodes:[{id: "1",
-            label: "ddd"},{id: "2",
-            label: "ddfff"}]
+            nodes:[
+                {id: "1",
+                label: "Рамы",
+                nodes:[
+                    {
+                    id: "1",
+                    label: "рамы1"
+                    },
+                    {
+                    id: "2",
+                    label: "рамы 2 "
+                    }
+    
+                ]
+            },
+            {id: "2",
+            label: "Фермы"}]
             }
 
             ]
