@@ -33,12 +33,8 @@ export default class MainCategory extends React.Component {
         this.props.setIdList(id, listExist);
         
     }
-    /*checkListExists() {
-       const view = chooseLists(this.props.idCategory, this.props.idList);
-       if view
-        return true;
-    }
-    */
+
+   
     // RENDER CHILD LIST
 
      renderList() {

@@ -2,8 +2,11 @@ import React from 'react';
 //import Category from './Category/Category';
 import FirstContent from './FirstContent/FirstContent';
 import MainCategory from "./MainCategory/MainCategory";
+import Nodes from './Nodes/Nodes';
 import './MainView.css';
-
+//
+import TestCategory from './Category/CategoryDataTests';
+const testCategory = TestCategory;
 
 export default class MainView extends React.Component {
 constructor(props) {
@@ -36,6 +39,21 @@ renderAllCategory() {
     
 }
 
+renderNodes() {
+if (this.props.categoryView) {
+    return (
+       
+        testCategory.map(element =>
+            <Nodes  
+                element={element} 
+            />
+        
+
+        )
+        
+    )
+}
+}
 //SET ID LIST
 /*setIdList(id, listExist) {
    
@@ -57,14 +75,14 @@ renderAllCategory() {
 
               <FirstContent categoryView={this.props.categoryView} />
 
-              {this.renderAllCategory()}
+              {/*this.renderAllCategory()*/}
               
               {/*<List 
                 categoryView={this.props.categoryView} 
                 idCategory={this.props.idCategory}
                 onClick={this.setIdList} 
               /> */ }
-
+               {this.renderNodes()} 
 
             </div>
             )
