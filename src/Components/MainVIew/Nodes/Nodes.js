@@ -7,7 +7,23 @@ export default class Nodes extends React.Component {
         this.state = {
             expanded: false
         }
+        this.toggle = this.toggle.bind(this);
+        this.showNodes = this.showNodes.bind(this);
     }
+
+    //SWITCH  EXPANDED
+    toggle() {
+        let expanded = !this.state.expanded;
+        this.setState({
+            expanded: expanded
+        })
+    }
+    //SHOW NODES
+    showNodes() {
+
+    }
+
+    //RENDER NODE
     render() {
         console.log(this.props.element);
         return (
