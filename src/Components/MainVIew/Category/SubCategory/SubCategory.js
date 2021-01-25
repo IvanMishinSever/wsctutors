@@ -28,12 +28,14 @@ import {chooseSubCategory} from "../../../../utils/chooseSubCategory";
 export default class SubCategory extends React.Component  {
     constructor(props) {
         super(props);
-        this.state = {
+       /* this.state = {
             finalListsView: false,
             idFinalLists: ""
         }
+        */
         this.handleClick = this.handleClick.bind(this);
     }
+    /*
     handleClick(e) {
  
         this.setState({
@@ -41,6 +43,13 @@ export default class SubCategory extends React.Component  {
             idFinalLists: e.target.value
         })
     }
+    */
+    handleClick(e) {
+        const id = e.target.value;
+        this.props.onClick(id);
+    }
+
+
 
     render() {
         let showInfo = this.props.subcategoryView;
@@ -50,8 +59,11 @@ export default class SubCategory extends React.Component  {
        //let idSubCategory = "2";
        let idCategory = this.props.idCategory;
        let nameSubCategory = chooseSubCategory(idCategory, idSubCategory);
-       console.log(idCategory+" "+idSubCategory); 
-      // console.log(nameSubCategory);
+       /*console.log(idCategory+" "+idSubCategory); 
+       console.log("subcat -" + nameSubCategory);
+       console.log(nameSubCategory)*/
+      // console.log("id -" + this.state.idFinalLists);
+       //console.log(this.state);
        if (showInfo) {
        /* return (
             <div  className="SubCategory">
@@ -68,14 +80,24 @@ export default class SubCategory extends React.Component  {
                     <div  className="SubCategory">
                         <ul>
                             { (nameSubCategory) && nameSubCategory.map((item, index) => (
-                                    <li key={item.id}><button onClick={this.handleClick} value={String(index)}>{item.label} {index}</button></li>
+                                    <li key={item.id}>
+                                        <button 
+                                            onClick={this.handleClick} 
+                                            value={String(index)}>{item.label} {index}
+                                        </button>
+                                    </li>
                                 ))}
                             
                             
                             
                           
                         </ul>
-                        <FinalLists finalListsView={this.state.finalListsView}  idFinalLists={this.state.idFinalLists} idSubCategory={this.props.idSubCategory} idCategory={this.props.idCategory}/>
+                        <FinalLists 
+                            finalListsView={this.props.finalListsView}  
+                            idFinalLists={this.props.idFinalLists} 
+                            idSubCategory={this.props.idSubCategory} 
+                            idCategory={this.props.idCategory}
+                        />
                     </div>
                            )
         }  else return null;
