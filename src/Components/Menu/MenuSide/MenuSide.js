@@ -14,18 +14,20 @@ export default class MenuSide extends React.Component {
         //const id = 1;
         this.props.chooseCategory(id);
        // console.log(id);
-      } 
+
+      }
+      
 //<ul onClick={this.props.handleClick}>
     render() {
         return (
             <div className="MenuSide">
                 <ul >
                     <li>
-                        <button onClick={this.handleClick} value="1"> Курсы </button>
+                        <button onClick={this.handleClick} value="0"> Курсы </button>
                     </li>
                     <li>
-                        <button onClick={this.handleClick} value="2"> Тесты </button>
-                        <button >Example</button>
+                        <button onClick={this.handleClick} value="1"> Тесты </button>
+                        <button onClick={this.handleClick} value="2">Example</button>
                     </li>
                     
                     

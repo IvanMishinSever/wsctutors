@@ -6,9 +6,14 @@ export default class Footer extends React.Component {
         return (
             <div className="Footer">
                 <ul>
-                    <li>Курсы</li>
-                    <li>Тесты</li>
-                    <li>Цены</li>
+                    <li>О проекте</li>
+                    <li>Контакты</li>
+                    <li>Отзывы</li>
+                    <li>Помощь</li>
+                    <li>Условия использования</li>
+                    <li>Политика конфидициальности</li>
+
+
                 </ul>
             </div>
         )

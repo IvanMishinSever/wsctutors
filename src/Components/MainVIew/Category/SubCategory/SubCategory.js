@@ -1,8 +1,10 @@
 import React from 'react';
 import './SubCategory.css';
 import FinalLists from './FinalLists/FinalLists';
+import {chooseSubCategory} from "../../../../utils/chooseSubCategory";
 
  //ADD SUBCATEGORY
+ /*
  const courseSubCategory_1 = ['Грунты_1','СП','ГОСТЫ'];
  const courseSubCategory_2 = ['Грунты_2','СП','ГОСТЫ'];
  const testSubCategory_1 = ['Грунты-test_1','СП-test','ГОСТ-test','R-test'];
@@ -18,19 +20,22 @@ import FinalLists from './FinalLists/FinalLists';
         return testSubCategory_2;
     }else {
         // alert("change number of the category id!");
-        return null;
+        //return null;
      }
  
  }
+ */
 export default class SubCategory extends React.Component  {
     constructor(props) {
         super(props);
-        this.state = {
+       /* this.state = {
             finalListsView: false,
-            idFinalLists: "1"
+            idFinalLists: ""
         }
+        */
         this.handleClick = this.handleClick.bind(this);
     }
+    /*
     handleClick(e) {
  
         this.setState({
@@ -38,6 +43,13 @@ export default class SubCategory extends React.Component  {
             idFinalLists: e.target.value
         })
     }
+    */
+    handleClick(e) {
+        const id = e.target.value;
+        this.props.onClick(id);
+    }
+
+
 
     render() {
         let showInfo = this.props.subcategoryView;
@@ -47,9 +59,13 @@ export default class SubCategory extends React.Component  {
        //let idSubCategory = "2";
        let idCategory = this.props.idCategory;
        let nameSubCategory = chooseSubCategory(idCategory, idSubCategory);
-      
+       /*console.log(idCategory+" "+idSubCategory); 
+       console.log("subcat -" + nameSubCategory);
+       console.log(nameSubCategory)*/
+      // console.log("id -" + this.state.idFinalLists);
+       //console.log(this.state);
        if (showInfo) {
-        return (
+       /* return (
             <div  className="SubCategory">
                 <ul>
                     <li><button onClick={this.handleClick} value="1">{nameSubCategory[0]}</button></li>
@@ -59,9 +75,31 @@ export default class SubCategory extends React.Component  {
                 </ul>
                 <FinalLists finalListsView={this.state.finalListsView}  idFinalLists={this.state.idFinalLists} idSubCategory={this.props.idSubCategory} idCategory={this.props.idCategory}/>
             </div>
-       
-
-            )
+                   )*/
+                   return (
+                    <div  className="SubCategory">
+                        <ul>
+                            { (nameSubCategory) && nameSubCategory.map((item, index) => (
+                                    <li key={item.id}>
+                                        <button 
+                                            onClick={this.handleClick} 
+                                            value={String(index)}>{item.label} {index}
+                                        </button>
+                                    </li>
+                                ))}
+                            
+                            
+                            
+                          
+                        </ul>
+                        <FinalLists 
+                            finalListsView={this.props.finalListsView}  
+                            idFinalLists={this.props.idFinalLists} 
+                            idSubCategory={this.props.idSubCategory} 
+                            idCategory={this.props.idCategory}
+                        />
+                    </div>
+                           )
         }  else return null;
 
     }
