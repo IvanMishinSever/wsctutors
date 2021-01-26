@@ -5,8 +5,9 @@ import MainCategory from "./MainCategory/MainCategory";
 import Nodes from './Nodes/Nodes';
 import './MainView.css';
 //
-import TestCategory from './Category/CategoryDataTests';
-const testCategory = TestCategory;
+import { chooseMainCategory } from '../../utils/chooseSubCategory';
+
+
 
 export default class MainView extends React.Component {
 constructor(props) {
@@ -17,11 +18,11 @@ constructor(props) {
        // number: [],
     } */
     //this.setIdList = this.setIdList.bind(this);
-    this.renderAllCategory = this.renderAllCategory.bind(this);
+   // this.renderAllCategory = this.renderAllCategory.bind(this);
     
 }
 //RENDER MAIN CATEGORY COMPONENT
-
+/*
 renderAllCategory() {
 
     return (
@@ -38,14 +39,20 @@ renderAllCategory() {
         )
     
 }
-
+*/
 renderNodes() {
-if (this.props.categoryView) {
+const nameCategory = chooseMainCategory(this.props.idCategory);
+const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
+
+if (viewComponent) {
     return (
        
-        testCategory.map((element, index) =>
+        nameCategory.map((element, index) =>
             <Nodes  key={index}
-                element={element} 
+                element={element}
+                
+                 
+                 
             />
         
 
