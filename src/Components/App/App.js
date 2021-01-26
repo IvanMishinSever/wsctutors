@@ -22,7 +22,7 @@ export default class App extends React.Component {
 }
 
 //CHOOSE CATEGORY
->>>>>>> master
+
 
 chooseCategory(newId) {
     this.setState({
