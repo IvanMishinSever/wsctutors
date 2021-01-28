@@ -46,15 +46,17 @@ const viewComponent = (nameCategory === false) ? false : this.props.categoryView
 
 if (viewComponent) {
     return (
-       
-        nameCategory.map((element, index) =>
+       <div className="MainView-nodes">
+
+        {nameCategory.map((element, index) => 
             <Nodes  key={index}
                 element={element}
               />
-   
-        )
-        
+         
+              )}
+        </div>  
     )
+    
 }
 }
 //SET ID LIST
