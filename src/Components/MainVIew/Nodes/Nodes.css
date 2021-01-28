@@ -7,7 +7,7 @@
     background-color: greenyellow;
 }
 */
-.Node-container  {
+.Nodes-container  {
     display: block;
     width: 100px;
     height: 100px;
@@ -15,7 +15,7 @@
     background-color: greenyellow;
 }
 
-.Node {
+.Nodes {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,18 +31,18 @@
     
 }
 */
-.Node li {
+.Nodes li {
    /* padding: 16px 16px;*/
     list-style: none;
    /* background-color: lightblue;*/
 }
-.Node button {
+.Nodes button {
     
     width: 100px;
 
     padding: 1rem  0;
 }
-.Node button:hover {
+.Nodes button:hover {
     background-color: rgb(221, 219, 92);
     cursor: pointer;
 }

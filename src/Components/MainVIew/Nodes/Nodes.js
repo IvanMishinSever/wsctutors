@@ -64,8 +64,8 @@ export default class Nodes extends React.Component {
     render() {
         console.log(this.props.element);
         return (
-            <div className="Node-container">
-                <div className="Node">
+            <div className="Nodes-container">
+                <div className="Nodes">
                     {this.renderButton()}
                     <h6>{this.props.element.label}
                     <small>{this.props.element.id}</small>

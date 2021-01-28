@@ -50,12 +50,8 @@ if (viewComponent) {
         nameCategory.map((element, index) =>
             <Nodes  key={index}
                 element={element}
-                
-                 
-                 
-            />
-        
-
+              />
+   
         )
         
     )
