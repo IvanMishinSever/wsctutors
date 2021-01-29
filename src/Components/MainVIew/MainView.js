@@ -3,6 +3,8 @@ import React from 'react';
 import FirstContent from './FirstContent/FirstContent';
 import MainCategory from "./MainCategory/MainCategory";
 import Nodes from './Nodes/Nodes';
+import Quiz from './Quiz/Quiz';
+
 import './MainView.css';
 //
 import { chooseMainCategory } from '../../utils/chooseSubCategory';
@@ -40,6 +42,7 @@ renderAllCategory() {
     
 }
 */
+//RENDER MENU NODES
 renderNodes() {
 const nameCategory = chooseMainCategory(this.props.idCategory);
 const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
@@ -59,6 +62,15 @@ if (viewComponent) {
     
 }
 }
+//RENDER QUIZ
+renderQuiz() {
+    return (
+        <div>
+            <Quiz />
+        </div>
+    )
+}
+
 //SET ID LIST
 /*setIdList(id, listExist) {
    
@@ -87,7 +99,8 @@ if (viewComponent) {
                 idCategory={this.props.idCategory}
                 onClick={this.setIdList} 
               /> */ }
-               {this.renderNodes()} 
+               {this.renderNodes()}
+               {this.renderQuiz()} 
 
             </div>
             )
