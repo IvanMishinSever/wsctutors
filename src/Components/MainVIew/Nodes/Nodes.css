@@ -39,7 +39,7 @@
 .Nodes button {
     
     width: 100px;
-
+    background-color: burlywood;
     padding: 1rem  0;
 }
 .Nodes button:hover {

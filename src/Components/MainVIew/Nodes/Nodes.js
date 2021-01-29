@@ -44,10 +44,19 @@ export default class Nodes extends React.Component {
         }
      renderButton() {
          const sign = this.props.element.nodes;
-         //console.log(sign);   
+         //console.log(sign);
+
+         //CHANGE COLOR OF THE BUTTON
+         let styleButton;
+         if (this.state.expanded) {
+             styleButton ={
+                backgroundColor:"green"
+            }
+         }
+        //RENDER BUTTON
          if (sign) {
          return(
-            <button
+            <button     style={styleButton}
                         type="button"
                         onClick={this.toggle}
                     >+</button>
