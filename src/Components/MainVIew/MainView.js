@@ -3,10 +3,13 @@ import React from 'react';
 import FirstContent from './FirstContent/FirstContent';
 import MainCategory from "./MainCategory/MainCategory";
 import Nodes from './Nodes/Nodes';
+import Quiz from './Quiz/Quiz';
+
 import './MainView.css';
 //
-import TestCategory from './Category/CategoryDataTests';
-const testCategory = TestCategory;
+import { chooseMainCategory } from '../../utils/chooseSubCategory';
+
+
 
 export default class MainView extends React.Component {
 constructor(props) {
@@ -17,11 +20,11 @@ constructor(props) {
        // number: [],
     } */
     //this.setIdList = this.setIdList.bind(this);
-    this.renderAllCategory = this.renderAllCategory.bind(this);
+   // this.renderAllCategory = this.renderAllCategory.bind(this);
     
 }
 //RENDER MAIN CATEGORY COMPONENT
-
+/*
 renderAllCategory() {
 
     return (
@@ -38,22 +41,36 @@ renderAllCategory() {
         )
     
 }
-
+*/
+//RENDER MENU NODES
 renderNodes() {
-if (this.props.categoryView) {
-    return (
-       
-        testCategory.map((element, index) =>
-            <Nodes  key={index}
-                element={element} 
-            />
-        
+const nameCategory = chooseMainCategory(this.props.idCategory);
+const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
 
-        )
-        
+if (viewComponent) {
+    return (
+       <div className="MainView-nodes">
+
+        {nameCategory.map((element, index) => 
+            <Nodes  key={index}
+                element={element}
+              />
+         
+              )}
+        </div>  
+    )
+    
+}
+}
+//RENDER QUIZ
+renderQuiz() {
+    return (
+        <div>
+            <Quiz />
+        </div>
     )
 }
-}
+
 //SET ID LIST
 /*setIdList(id, listExist) {
    
@@ -82,7 +99,8 @@ if (this.props.categoryView) {
                 idCategory={this.props.idCategory}
                 onClick={this.setIdList} 
               /> */ }
-               {this.renderNodes()} 
+               {this.renderNodes()}
+               {this.renderQuiz()} 
 
             </div>
             )
