@@ -9,17 +9,20 @@ Quiz = [
             id:"1",
             label:true,
             text:"200мм",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"2",
             label:false,
             text:"300мм",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"3",
             label:false,
             text:"100мм",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         }]
     },
     {
@@ -32,17 +35,20 @@ Quiz = [
             id:"1",
             label:true,
             text:"200мм",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"2",
             label:false,
             text:"300мм",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"3",
             label:false,
             text:"100мм",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         }]
     },
     {
@@ -55,17 +61,20 @@ Quiz = [
             id:"1",
             label:true,
             text:"в зависимости от вида -для подошвы-не нормировано",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"2",
             label:false,
             text:"1%",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"3",
             label:false,
             text:"2%",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         }]
     },
     {
@@ -78,17 +87,20 @@ Quiz = [
             id:"1",
             label:true,
             text:"1%",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"2",
             label:false,
             text:"5%",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"3",
             label:false,
             text:"2%",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         }]
     },
     {
@@ -101,17 +113,20 @@ Quiz = [
             id:"1",
             label:true,
             text:"см. СП",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"2",
             label:false,
             text:"1%",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"3",
             label:false,
             text:"2%",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         }]
     },
     {
@@ -124,17 +139,20 @@ Quiz = [
             id:"1",
             label:true,
             text:"см. сп",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"2",
             label:false,
             text:"300мм",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"3",
             label:false,
             text:"50мм",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         }]
     },
     {
@@ -147,17 +165,20 @@ Quiz = [
             id:"1",
             label:true,
             text:"4",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"2",
             label:false,
             text:"5",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         },{
             id:"3",
             label:false,
             text:"3",
-            img:""
+            img:"",
+            feedback:"см. Свод правил"
         }]
     }
 ]
