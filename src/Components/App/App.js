@@ -17,10 +17,12 @@ export default class App extends React.Component {
         idList : "",
     }
     this.chooseCategory = this.chooseCategory.bind(this);
+
     this.setIdList = this.setIdList.bind(this);
 }
 
 //CHOOSE CATEGORY
+
 
 chooseCategory(newId) {
     this.setState({
