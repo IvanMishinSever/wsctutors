@@ -15,9 +15,16 @@ export default class Nodes extends React.Component {
     //SWITCH  EXPANDED
     toggle() {
         let expanded = !this.state.expanded;
+       // console.log("hi");
+       /* if (!this.props.element.nodes) {
+            this.props.quizView();
+        }*/
+       
         this.setState({
             expanded: expanded
         })
+        
+       
     }
                 // change state!!!!!!!!!!!!!
     checkNodes() {
@@ -37,11 +44,17 @@ export default class Nodes extends React.Component {
 
            //print nodes 
             this.props.element.nodes.map((element, index) => {
-                arrayNodes.push(<Nodes key={index} element={element} />);
+                arrayNodes.push(
+                <Nodes 
+                key={index} 
+                element={element} 
+                quizView={this.props.quizView}
+                />);
             });
             }
             return arrayNodes;
         }
+        //RENDER BUTTON
      renderButton() {
          const sign = this.props.element.nodes;
          //console.log(sign);
@@ -53,7 +66,7 @@ export default class Nodes extends React.Component {
                 backgroundColor:"green"
             }
          }
-        //RENDER BUTTON
+        //RENDER body BUTTON
          if (sign) {
          return(
             <button     style={styleButton}
@@ -71,7 +84,7 @@ export default class Nodes extends React.Component {
 
     //RENDER NODE
     render() {
-        console.log(this.props.element);
+        //console.log(this.props.element);
         return (
             <div className="Nodes-container">
                 <div className="Nodes">

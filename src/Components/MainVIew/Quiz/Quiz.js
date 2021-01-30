@@ -4,10 +4,13 @@ import Question from './Question/Question';
 
 export default class Quiz extends React.Component {
     render() {
-        return (
-            <div className="Quiz">
-                <Question />
-            </div>
-        )
+        if (this.props.quizView) {
+            return (
+                <div className="Quiz">
+                    <Question />
+                </div>
+            )
+        } else return null;
+
     }
 }
