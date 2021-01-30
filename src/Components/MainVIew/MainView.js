@@ -1,13 +1,13 @@
 import React from 'react';
 //import Category from './Category/Category';
 import FirstContent from './FirstContent/FirstContent';
-import MainCategory from "./MainCategory/MainCategory";
-import Nodes from './Nodes/Nodes';
+//import MainCategory from "./MainCategory/MainCategory";
+//import Nodes from './Nodes/Nodes';
 import Quiz from './Quiz/Quiz';
-
+import MenuNodes from './MenuNodes/MenuNodes';
 import './MainView.css';
 //
-import { chooseMainCategory } from '../../utils/chooseSubCategory';
+// import { chooseMainCategory } from '../../utils/chooseSubCategory';
 
 
 
@@ -42,7 +42,7 @@ renderAllCategory() {
     
 }
 */
-//RENDER MENU NODES
+/*//RENDER MENU NODES
 renderNodes() {
 const nameCategory = chooseMainCategory(this.props.idCategory);
 const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
@@ -61,8 +61,21 @@ if (viewComponent) {
     )
     
 }
+}*/
+//RENDER MENU NODES
+
+renderMenuNodes() {
+    return (
+        <div>
+            <MenuNodes 
+            categoryView={this.props.categoryView} 
+            idCategory={this.props.idCategory}
+            />
+        </div>
+    )
 }
 //RENDER QUIZ
+
 renderQuiz() {
     return (
         <div>
@@ -99,7 +112,8 @@ renderQuiz() {
                 idCategory={this.props.idCategory}
                 onClick={this.setIdList} 
               /> */ }
-               {this.renderNodes()}
+               {/*this.renderNodes()*/}
+               {this.renderMenuNodes()}
                {this.renderQuiz()} 
 
             </div>

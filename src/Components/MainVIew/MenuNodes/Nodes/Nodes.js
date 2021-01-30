@@ -42,6 +42,7 @@ export default class Nodes extends React.Component {
             }
             return arrayNodes;
         }
+        //RENDER BUTTON
      renderButton() {
          const sign = this.props.element.nodes;
          //console.log(sign);
@@ -53,7 +54,7 @@ export default class Nodes extends React.Component {
                 backgroundColor:"green"
             }
          }
-        //RENDER BUTTON
+        //RENDER body BUTTON
          if (sign) {
          return(
             <button     style={styleButton}
