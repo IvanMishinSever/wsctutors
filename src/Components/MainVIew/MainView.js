@@ -14,14 +14,15 @@ import './MainView.css';
 export default class MainView extends React.Component {
 constructor(props) {
     super(props);
-   /* this.state = {
-        idList : "",
+    this.state = {
+       // idList : "",
        // listExist: false,
        // number: [],
-    } */
+       quizView: false,
+    } 
     //this.setIdList = this.setIdList.bind(this);
    // this.renderAllCategory = this.renderAllCategory.bind(this);
-    
+    this.handlerQuizView = this.handlerQuizView.bind(this);
 }
 //RENDER MAIN CATEGORY COMPONENT
 /*
@@ -62,6 +63,14 @@ if (viewComponent) {
     
 }
 }*/
+
+//HANDLER QUIZ VIEW
+handlerQuizView() {
+    this.setState(
+        {quizView: true}
+    )
+}
+
 //RENDER MENU NODES
 
 renderMenuNodes() {
@@ -70,6 +79,7 @@ renderMenuNodes() {
             <MenuNodes 
             categoryView={this.props.categoryView} 
             idCategory={this.props.idCategory}
+            quizView={this.handlerQuizView}
             />
         </div>
     )
@@ -79,7 +89,10 @@ renderMenuNodes() {
 renderQuiz() {
     return (
         <div>
-            <Quiz />
+            <Quiz 
+            quizView={this.state.quizView}
+
+            />
         </div>
     )
 }
