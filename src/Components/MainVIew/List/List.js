@@ -31,6 +31,7 @@ export default class List extends React.Component {
     render() {
         const idCategory = this.props.idCategory;
         const idList = this.props.idList;
+       
         const nameList = chooseLists(idCategory,idList);
         
         //const viewComponent = nameCategory  ? false : this.props.categoryView;
