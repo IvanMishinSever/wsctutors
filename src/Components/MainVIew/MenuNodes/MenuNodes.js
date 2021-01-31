@@ -3,9 +3,9 @@ import './MenuNodes.css';
 import Nodes from './Nodes/Nodes';
 import { chooseMainCategory } from '../../../utils/chooseSubCategory';
 export default class MenuNodes extends React.Component {
-  constructor(props) {
+ /*constructor(props) {
       super(props);
-  }
+  }*/
     //RENDER MENU NODES
 renderNodes() {
     const nameCategory = chooseMainCategory(this.props.idCategory);

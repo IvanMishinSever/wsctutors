@@ -15,7 +15,7 @@ export default class Nodes extends React.Component {
     //SWITCH  EXPANDED
     toggle() {
         let expanded = !this.state.expanded;
-       // console.log("hi");
+        console.log("hi");
        /* if (!this.props.element.nodes) {
             this.props.quizView();
         }*/
@@ -38,7 +38,7 @@ export default class Nodes extends React.Component {
     //SHOW NODES
     showNodes() {
         let arrayNodes = [];
-        console.log(arrayNodes);
+       // console.log(arrayNodes);
         if (this.props.element.nodes ) {
 
 
@@ -88,10 +88,13 @@ export default class Nodes extends React.Component {
         return (
             <div className="Nodes-container">
                 <div className="Nodes">
-                    {this.renderButton()}
-                    <h6>{this.props.element.label}
-                    <small>{this.props.element.id}</small>
+                <div className="Nodes-sign">{this.renderButton()}</div>
+                    
+                    <h6>{/*this.props.element.label*/}
+                    <small>{/*this.props.element.id*/}</small>
                     </h6>
+                    
+                    <button>{this.props.element.label}</button>
                     {this.state.expanded && 
                         <div>
                             {this.showNodes()}
