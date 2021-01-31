@@ -18,7 +18,7 @@ renderNodes() {
             {nameCategory.map((element, index) => 
                 <Nodes  key={index}
                     element={element}
-                    quizView={this.props.quizView}
+                    quizViewChange={this.props.quizViewChange}
                   />
              
                   )}
