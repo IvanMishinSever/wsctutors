@@ -72,11 +72,11 @@ export default class Nodes extends React.Component {
             <button     style={styleButton}
                         type="button"
                         onClick={this.toggle}
-                    >+</button>
+                    >+ {this.props.element.label}{this.props.element.id}</button>
          ) 
          } else {
             return(
-                <button> - </button>
+                <button> - {this.props.element.label}</button>
              )   
          }
      }   
@@ -88,18 +88,8 @@ export default class Nodes extends React.Component {
         return (
             <div className="Nodes-container">
                 <div className="Nodes">
-                <div className="Nodes-sign">{this.renderButton()}</div>
-                    
-                    <h6>{/*this.props.element.label*/}
-                    <small>{/*this.props.element.id*/}</small>
-                    </h6>
-                    
-                    <button>{this.props.element.label}</button>
-                    {this.state.expanded && 
-                        <div>
-                            {this.showNodes()}
-                        </div>
-                    }
+                {this.renderButton()}
+                {this.state.expanded && <div> {this.showNodes()} </div>}
                 </div>
 
             </div>
