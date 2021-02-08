@@ -6,6 +6,7 @@ import FirstContent from './FirstContent/FirstContent';
 import Quiz from './Quiz/Quiz';
 import MenuNodes from './MenuNodes/MenuNodes';
 import './MainView.css';
+import QuizContainer from './Quiz/QuizContainer';
 //
 // import { chooseMainCategory } from '../../utils/chooseSubCategory';
 
@@ -87,10 +88,10 @@ renderMenuNodes() {
 }
 //RENDER QUIZ
 
-renderQuiz() {
+renderQuizContainer() {
     return (
         <div>
-            <Quiz 
+            <QuizContainer 
             quizView={this.props.quizView}
 
             />
@@ -128,7 +129,7 @@ renderQuiz() {
               /> */ }
                {/*this.renderNodes()*/}
                {this.renderMenuNodes()}
-               {this.renderQuiz()} 
+               {this.renderQuizContainer()} 
 
             </div>
             )

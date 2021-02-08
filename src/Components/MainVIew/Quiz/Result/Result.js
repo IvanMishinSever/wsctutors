@@ -9,3 +9,8 @@ function Result(props) {
         </div>
     )
 }
+
+Result.propTypes = {
+    quizResult: PropTypes.string.isRequired,
+}
+export default Result;
