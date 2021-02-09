@@ -1,0 +1,24 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+function AnswerOption(props) {
+    return (
+        <li>
+            <input 
+            type="radio"
+            className="radioCustomButton"
+            name="radioGroup"
+            id={props.answerType}
+            value={props.answerType}
+            disabled={props.answer}
+            />
+        </li>
+    )
+}
+AnswerOption.propTypes = {
+    answerType: PropTypes.string.isRequired,
+    answerContent: PropTypes.string.isRequired,
+    answer: PropTypes.string.isRequired,
+    onAnswerSelected: PropTypes.func.isRequired
+    };
+export default AnswerOption;

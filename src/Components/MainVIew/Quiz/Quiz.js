@@ -1,17 +1,34 @@
 import React from 'react';
 import './Quiz.css';
 import Question from './Question/Question';
+import PropTypes from 'prop-types';
 
-export default class Quiz extends React.Component {
- 
-    render() {
-        if (this.props.quizView) {
+function Quiz(props) {
+    
+    
+        
             return (
                 <div className="Quiz">
-                    <Question />
+                    <Question 
+                        content={props.question}
+
+                    />
+                    <ul>
+                        {props.answerOptions.map()}
+                    </ul>
                 </div>
             )
-        } else return null;
+  
 
-    }
+    
 }
+Quiz.propTypes = {
+    answer: PropTypes.string.isRequired,
+    answerOptions: PropTypes.array.isRequired,
+    //counter: PropTypes.number.isRequired,
+    question: PropTypes.string.isRequired,
+    questionId: PropTypes.number.isRequired,
+    questionTotal: PropTypes.number.isRequired,
+    onAnswerSelected: PropTypes.func.isRequired
+    };
+export default Quiz;
