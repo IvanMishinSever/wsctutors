@@ -1,10 +1,23 @@
 import React from 'react';
 import './Quiz.css';
 import Question from './Question/Question';
+import AnswerOption from './Question/AnswerOption/AnswerOption';
 import PropTypes from 'prop-types';
 
 function Quiz(props) {
     
+    function renderAnswerOptions(key) {
+        return (
+        <AnswerOption
+            key={key.content}
+            answerContent={key.content}
+            answerType={key.type}
+            answer={props.answer}
+            questionId={props.questionId}
+            onAnswerSelected={props.onAnswerSelected}
+        />
+        );
+        }
     
         
             return (
@@ -14,7 +27,7 @@ function Quiz(props) {
 
                     />
                     <ul>
-                        {props.answerOptions.map()}
+                        {props.answerOptions.map(renderAnswerOptions)}
                     </ul>
                 </div>
             )

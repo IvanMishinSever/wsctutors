@@ -12,6 +12,9 @@ function AnswerOption(props) {
             value={props.answerType}
             disabled={props.answer}
             />
+            <label className="radioCustomLabel" htmlFor={props.answerType}>
+        {props.answerContent}
+      </label>
         </li>
     )
 }
