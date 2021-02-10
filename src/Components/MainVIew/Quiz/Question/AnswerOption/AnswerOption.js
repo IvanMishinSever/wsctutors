@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './AnswerOption.css';
 
 function AnswerOption(props) {
     return (
-        <li>
+        <li className="AnswerOption">
             <input 
             type="radio"
             className="radioCustomButton"
