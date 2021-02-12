@@ -27,8 +27,7 @@ export default class QuizContainer extends React.Component {
 
 // FILL ARRAY OF QUESTIONS
 componentDidMount() {
-    const shuffledAnswerOptions = quizQuestions.map(question =>
-      this.shuffleArray(question.answers)
+    const shuffledAnswerOptions = quizQuestions.map(question => this.shuffleArray(question.answers)
     );
     this.setState({
       question: quizQuestions[0].question,
