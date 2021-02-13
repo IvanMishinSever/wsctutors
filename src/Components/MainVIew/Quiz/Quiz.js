@@ -9,7 +9,7 @@ import QuestionCount from './QuestionCount/QuestionCount';
 function Quiz(props) {
     
     function renderAnswerOptions(key) {
-        return (
+      /*  return (
         <AnswerOption
             key={key.content}
             answerContent={key.content}
@@ -18,7 +18,17 @@ function Quiz(props) {
             questionId={props.questionId}
             onAnswerSelected={props.onAnswerSelected}
         />
-        );
+        );*/
+          return (
+        <AnswerOption
+            key={key.text}
+            answerContent={key.text}
+            answerType={key.text}
+            answer={props.answer}
+            questionId={props.questionId}
+            onAnswerSelected={props.onAnswerSelected}
+        />
+        );     
         }
     
         

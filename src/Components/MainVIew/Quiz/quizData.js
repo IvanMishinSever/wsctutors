@@ -1,4 +1,6 @@
-Quiz = [
+//import quizQuestions from "./quizQuestions"
+
+const quizQuestions = [
     {
         id:"1",
         question: {
@@ -182,3 +184,4 @@ Quiz = [
         }]
     }
 ]
+export default quizQuestions;

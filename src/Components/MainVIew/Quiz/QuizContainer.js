@@ -3,8 +3,8 @@ import './Quiz.css';
 
 import Quiz from './Quiz';
 import Result from './Result/Result';
-import quizQuestions from './quizQuestions';
-
+//import quizQuestions from './quizQuestions';
+import quizQuestions from './quizData';
 export default class QuizContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -29,10 +29,14 @@ export default class QuizContainer extends React.Component {
 componentDidMount() {
     const shuffledAnswerOptions = quizQuestions.map(question => this.shuffleArray(question.answers)
     );
+    console.log(quizQuestions[0].question.text);
+    
     this.setState({
-      question: quizQuestions[0].question,
+      //question: quizQuestions[0].question,
+      question: quizQuestions[0].question.text,
       answerOptions: shuffledAnswerOptions[0]
     });
+
   }
 
   shuffleArray(array) {
@@ -72,7 +76,8 @@ setUserAnswer(answer) {
     this.setState({
       counter: counter,
       questionId: questionId,
-      question: quizQuestions[counter].question,
+      //question: quizQuestions[counter].question,
+      question: quizQuestions[counter].question.text,
       answerOptions: quizQuestions[counter].answers,
       answer: ''
     });
