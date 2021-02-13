@@ -46,14 +46,14 @@ export default class Nodes extends React.Component {
 
 
            //print nodes 
-            this.props.element.nodes.map((element, index) => {
+            this.props.element.nodes.map((element, index) => (
                 arrayNodes.push(
                 <Nodes 
                 key={index} 
                 element={element} 
                 quizViewChange={this.props.quizViewChange}
-                />);
-            });
+                />)
+            ));
             }
             return arrayNodes;
         }
