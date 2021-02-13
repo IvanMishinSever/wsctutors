@@ -15,11 +15,11 @@ export default class QuizContainer extends React.Component {
             question: '',
             answerOptions: [],
             answer: '',
-            answersCount: {
+           /* answersCount: {
               nintendo: 0,
               microsoft: 0,
               sony: 0
-            },
+            },*/
             result: ''
         };
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -61,10 +61,10 @@ componentDidMount() {
 //HANDLER CLICK ANSWER
 setUserAnswer(answer) {
     this.setState((state, props) => ({
-      answersCount: {
+     /* answersCount: {
         ...state.answersCount,
         [answer]: (state.answersCount[answer] || 0) + 1
-      },
+      },*/
       answer: answer
     }));
   }
@@ -93,18 +93,25 @@ setUserAnswer(answer) {
     }
   
     getResults() {
+        /*
       const answersCount = this.state.answersCount;
       const answersCountKeys = Object.keys(answersCount);
       const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
       const maxAnswerCount = Math.max.apply(null, answersCountValues);
       return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+      */
+     const result = "YOU PASS QUIZ";
+     return result;
       }
       setResults (result) {
+          /*
         if (result.length === 1) {
         this.setState({ result: result[0] });
         } else {
         this.setState({ result: 'Undetermined' });
         }
+        */
+       this.setState({result: result});
         }
 //RENDER QUIZ
 renderQuiz() {
