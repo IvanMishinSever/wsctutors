@@ -15,11 +15,11 @@ export default class QuizContainer extends React.Component {
             question: '',
             answerOptions: [],
             answer: '',
-           /* answersCount: {
-              nintendo: 0,
-              microsoft: 0,
-              sony: 0
-            },*/
+            answersCount: {
+              trueAnswer: 0,
+             // microsoft: 0,
+             // sony: 0
+            },
             result: ''
         };
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -60,13 +60,20 @@ componentDidMount() {
   }
 //HANDLER CLICK ANSWER
 setUserAnswer(answer) {
+//calculate true answer
+if (answer === 'Yes') {
     this.setState((state, props) => ({
-     /* answersCount: {
+    /*  answersCount: {
         ...state.answersCount,
         [answer]: (state.answersCount[answer] || 0) + 1
       },*/
-      answer: answer
+      ...state.answersCount,
+      answer: answer,
+      answersCount: {
+        trueAnswer: state.answersCount.trueAnswer + 1
+      },
     }));
+  }
   }
   
   setNextQuestion() {
@@ -130,7 +137,11 @@ renderQuiz() {
 //RENDER RESULT
  renderResult() {
      return (
-         <Result quizResult={this.state.result} />
+         <Result 
+         quizResult={this.state.result} 
+         trueAnswer={this.state.answersCount.trueAnswer}
+         questionTotal={quizQuestions.length}
+         />
      )
  }
 //RENDER ALL   

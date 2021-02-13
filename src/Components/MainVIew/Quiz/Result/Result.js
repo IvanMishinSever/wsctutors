@@ -5,8 +5,12 @@ import './Result';
 function Result(props) {
     return (
         <div className="Result">
-            Вы ответили правильно на 1 вопросов.
-            Ваш результат <strong>{props.quizResult}</strong>
+            Вы ответили правильно на <strong>{props.trueAnswer}</strong>  
+            из <strong>{props.questionTotal}</strong>  вопросов.
+            Ваш результат 
+                <strong>
+                {Math.floor((props.trueAnswer/props.questionTotal)*100)}%
+                </strong>
         </div>
     )
 }
