@@ -4,8 +4,9 @@ import './AnswerOption.css';
 
 function AnswerOption(props) {
     return (
-        <li className="AnswerOption">
-            <input 
+        <li className="AnswerOption" style={props.styleAnswer}>
+            <input
+             
             type="radio"
             className="radioCustomButton"
             name="radioGroup"

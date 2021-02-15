@@ -20,7 +20,9 @@ export default class QuizContainer extends React.Component {
              // microsoft: 0,
              // sony: 0
             },
-            result: ''
+            result: '',
+            styleAnswer:{
+              backgroundColor: 'white'}
         };
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     }
@@ -62,16 +64,20 @@ componentDidMount() {
 setUserAnswer(answer) {
 //calculate true answer
 if (answer === 'Yes') {
+    //document.getElementById()
     this.setState((state, props) => ({
     /*  answersCount: {
         ...state.answersCount,
         [answer]: (state.answersCount[answer] || 0) + 1
       },*/
-      ...state.answersCount,
+     // ...state.answersCount,
       answer: answer,
       answersCount: {
         trueAnswer: state.answersCount.trueAnswer + 1
       },
+      styleAnswer: {
+        backgroundColor: 'green'
+      }
     }));
   }
   }
@@ -86,7 +92,10 @@ if (answer === 'Yes') {
       //question: quizQuestions[counter].question,
       question: quizQuestions[counter].question.text,
       answerOptions: quizQuestions[counter].answers,
-      answer: ''
+      answer: '',
+      styleAnswer: {
+        backgroundColor: 'white'
+      }
     });
   }
   handleAnswerSelected(event) {
@@ -122,6 +131,7 @@ if (answer === 'Yes') {
         }
 //RENDER QUIZ
 renderQuiz() {
+
     return (
         <Quiz 
         quizView={this.props.quizView} 
@@ -131,8 +141,10 @@ renderQuiz() {
         question={this.state.question}
         onAnswerSelected={this.handleAnswerSelected}
         questionTotal={quizQuestions.length}
+        styleAnswer={this.state.styleAnswer}
         />
     );
+  
 }    
 //RENDER RESULT
  renderResult() {
