@@ -22,7 +22,7 @@ export default class QuizContainer extends React.Component {
             },
             result: '',
             styleAnswer:{
-              backgroundColor: 'white'}
+              flag: false}
         };
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     }
@@ -76,7 +76,7 @@ if (answer === 'Yes') {
         trueAnswer: state.answersCount.trueAnswer + 1
       },
       styleAnswer: {
-        backgroundColor: 'green'
+        flag: true
       }
     }));
   }
@@ -94,11 +94,12 @@ if (answer === 'Yes') {
       answerOptions: quizQuestions[counter].answers,
       answer: '',
       styleAnswer: {
-        backgroundColor: 'white'
+        flag: false
       }
     });
   }
   handleAnswerSelected(event) {
+    console.log(event.currentTarget.value);
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
     setTimeout(() => this.setNextQuestion(), 600);

@@ -7,6 +7,7 @@ import FirstContent from './FirstContent/FirstContent';
 import MenuNodes from './MenuNodes/MenuNodes';
 import './MainView.css';
 import QuizContainer from './Quiz/QuizContainer';
+import Example from './Example/Example';
 //
 // import { chooseMainCategory } from '../../utils/chooseSubCategory';
 
@@ -110,6 +111,17 @@ renderQuizContainer() {
     //this.showID();
 }
 */
+//EXAMPLE 
+renderExample() {
+    
+        
+        return (
+            <div>
+                <Example  />
+            </div>
+        );
+    
+}
 
     render() {
 
@@ -129,7 +141,8 @@ renderQuizContainer() {
               /> */ }
                {/*this.renderNodes()*/}
                {this.renderMenuNodes()}
-               {this.renderQuizContainer()} 
+               {this.renderQuizContainer()}
+               {this.renderExample()} 
 
             </div>
             )

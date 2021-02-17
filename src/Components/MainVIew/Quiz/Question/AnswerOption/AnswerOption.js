@@ -3,8 +3,17 @@ import PropTypes from 'prop-types';
 import './AnswerOption.css';
 
 function AnswerOption(props) {
+  
+ let style;
+ if (props.styleAnswer.flag) {
+     
+    style = {
+        backgroundColor:"green"
+    }
+ }
+    
     return (
-        <li className="AnswerOption" style={props.styleAnswer}>
+        <li className="AnswerOption" style={style} >
             <input
              
             type="radio"

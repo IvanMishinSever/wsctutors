@@ -28,6 +28,7 @@ function Quiz(props) {
             questionId={props.questionId}
             onAnswerSelected={props.onAnswerSelected}
             styleAnswer={props.styleAnswer}
+            
         />
         );     
         }
