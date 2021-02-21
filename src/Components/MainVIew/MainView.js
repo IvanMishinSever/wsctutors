@@ -3,17 +3,19 @@ import React from 'react';
 import FirstContent from './FirstContent/FirstContent';
 //import MainCategory from "./MainCategory/MainCategory";
 //import Nodes from './Nodes/Nodes';
-import Quiz from './Quiz/Quiz';
+//import Quiz from './Quiz/Quiz';
 import MenuNodes from './MenuNodes/MenuNodes';
 import './MainView.css';
+import QuizContainer from './Quiz/QuizContainer';
+import Example from './Example/Example';
 //
 // import { chooseMainCategory } from '../../utils/chooseSubCategory';
 
 
 
 export default class MainView extends React.Component {
-constructor(props) {
-    super(props);
+//constructor(props) {
+  //  super(props);
     /*this.state = {
        // idList : "",
        // listExist: false,
@@ -23,7 +25,7 @@ constructor(props) {
     //this.setIdList = this.setIdList.bind(this);
    // this.renderAllCategory = this.renderAllCategory.bind(this);
     //this.handlerQuizView = this.handlerQuizView.bind(this);
-}
+//}
 //RENDER MAIN CATEGORY COMPONENT
 /*
 renderAllCategory() {
@@ -87,10 +89,10 @@ renderMenuNodes() {
 }
 //RENDER QUIZ
 
-renderQuiz() {
+renderQuizContainer() {
     return (
         <div>
-            <Quiz 
+            <QuizContainer 
             quizView={this.props.quizView}
 
             />
@@ -109,6 +111,17 @@ renderQuiz() {
     //this.showID();
 }
 */
+//EXAMPLE 
+renderExample() {
+    
+        
+        return (
+            <div>
+                <Example  />
+            </div>
+        );
+    
+}
 
     render() {
 
@@ -128,7 +141,8 @@ renderQuiz() {
               /> */ }
                {/*this.renderNodes()*/}
                {this.renderMenuNodes()}
-               {this.renderQuiz()} 
+               {this.renderQuizContainer()}
+               {this.renderExample()} 
 
             </div>
             )

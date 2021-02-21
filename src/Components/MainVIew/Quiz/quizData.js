@@ -1,4 +1,6 @@
-Quiz = [
+//import quizQuestions from "./quizQuestions"
+
+const quizQuestions = [
     {
         id:"1",
         question: {
@@ -7,19 +9,19 @@ Quiz = [
         },
         answers:[{
             id:"1",
-            label:true,
+            label:"Yes",
             text:"200мм",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"2",
-            label:false,
+            label:"No",
             text:"300мм",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"3",
-            label:false,
+            label:"No",
             text:"100мм",
             img:"",
             feedback:"см. Свод правил"
@@ -33,19 +35,19 @@ Quiz = [
         },
         answers:[{
             id:"1",
-            label:true,
+            label:"Yes",
             text:"200мм",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"2",
-            label:false,
+            label:"No",
             text:"300мм",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"3",
-            label:false,
+            label:"No",
             text:"100мм",
             img:"",
             feedback:"см. Свод правил"
@@ -59,19 +61,19 @@ Quiz = [
         },
         answers:[{
             id:"1",
-            label:true,
+            label:"Yes",
             text:"в зависимости от вида -для подошвы-не нормировано",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"2",
-            label:false,
+            label:"No",
             text:"1%",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"3",
-            label:false,
+            label:"No",
             text:"2%",
             img:"",
             feedback:"см. Свод правил"
@@ -85,19 +87,19 @@ Quiz = [
         },
         answers:[{
             id:"1",
-            label:true,
+            label:"Yes",
             text:"1%",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"2",
-            label:false,
+            label:"No",
             text:"5%",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"3",
-            label:false,
+            label:"No",
             text:"2%",
             img:"",
             feedback:"см. Свод правил"
@@ -111,19 +113,19 @@ Quiz = [
         },
         answers:[{
             id:"1",
-            label:true,
+            label:"Yes",
             text:"см. СП",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"2",
-            label:false,
+            label:"No",
             text:"1%",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"3",
-            label:false,
+            label:"No",
             text:"2%",
             img:"",
             feedback:"см. Свод правил"
@@ -137,19 +139,19 @@ Quiz = [
         },
         answers:[{
             id:"1",
-            label:true,
+            label:"Yes",
             text:"см. сп",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"2",
-            label:false,
+            label:"No",
             text:"300мм",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"3",
-            label:false,
+            label:"No",
             text:"50мм",
             img:"",
             feedback:"см. Свод правил"
@@ -163,22 +165,23 @@ Quiz = [
         },
         answers:[{
             id:"1",
-            label:true,
+            label:"Yes",
             text:"4",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"2",
-            label:false,
+            label:"No",
             text:"5",
             img:"",
             feedback:"см. Свод правил"
         },{
             id:"3",
-            label:false,
+            label:"No",
             text:"3",
             img:"",
             feedback:"см. Свод правил"
         }]
     }
 ]
+export default quizQuestions;
