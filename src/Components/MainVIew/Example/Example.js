@@ -14,7 +14,8 @@ class ListItem extends React.Component{
     },*/
     constructor(props) {
           super(props);
-         this.state ={ hover_flag: false}
+         this.state = { hover_flag: false}
+         this.hoverEvent = this.hoverEvent.bind(this);
     }
    /* getDefaultProps() {
         return {
@@ -39,7 +40,7 @@ class ListItem extends React.Component{
         return (
             <li
                 onClick={this.props.onClick}
-                onMouseEnter={this.hoverEvent}
+               onMouseEnter={this.hoverEvent}
                 onMouseLeave={this.hoverEvent}
                 style={liStyle}>{this.props.name}
             </li>
@@ -51,7 +52,9 @@ class ListItem extends React.Component{
  class List extends React.Component{
     constructor(props) {
         super(props);
-       this.state ={ selectedItem: null}
+        this.state ={ selectedItem: null}
+        this.clickHandler = this.clickHandler.bind(this);
+       // this.renderItems = this.renderItems.bind(this);
   }
    /* getInitialState() {
         return {
@@ -59,28 +62,65 @@ class ListItem extends React.Component{
         };
     }*/
     clickHandler(idx) {
+        console.log(idx);
         this.setState({selectedItem: idx});
+
     }
+    
     render() {
-        var ulStyle = {
+        const ulStyle = {
             padding: '0px',
             margin: '20px'
         };
-        var items = this.props.data.map(function (item, idx) {
-            var is_selected = this.state.selectedItem === idx;
+        let items = this.props.data.map( (item, idListItem) => {
+          //  const is_selected = this.state.selectedItem === idListItem;
+            const is_selected = this.state.selectedItem === idListItem;
+            console.log(idListItem);
+            console.log(this.state.selectedItem);
+            console.log(is_selected);
             return <ListItem
-                key={idx}
+                key={idListItem}
                 name={item.name}
-                onClick={this.clickHandler.bind(this, idx)}
+                onClick={this.clickHandler}
                 isSelected={is_selected}
                 />;
-        }.bind(this));
+        });
+        
         return (
             <ul style={ulStyle}>
                 {items}
             </ul>
         );
     }
+    /* РАБОТАЕТ НО НЕ ПЕЧАТАЕТ LISTITEM
+    renderItems() {
+         this.props.data.map( (item, idx) => {
+             console.log(item +"idx" +idx);
+             
+            let is_selected = this.state.selectedItem === idx;
+            return <ListItem
+                key={idx}
+                name={item.name}
+                onClick={this.clickHandler}
+                isSelected={is_selected}
+                />;
+            })
+        
+    }   
+
+    render() {
+        const ulStyle = {
+            padding: '0px',
+            margin: '20px'
+        };
+       // console.log(this.state.selectedItem);
+        return (
+            <ul style={ulStyle}>
+                {this.renderItems()}
+            </ul>
+        );
+    }
+ */
 };
 
 export default class Example extends React.Component{

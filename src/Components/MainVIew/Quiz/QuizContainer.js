@@ -22,7 +22,10 @@ export default class QuizContainer extends React.Component {
             },
             result: '',
             styleAnswer:{
-              flag: false}
+              flag: false},
+            selectedItem: null
+              
+
         };
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     }
@@ -77,7 +80,8 @@ if (answer === 'Yes') {
       },
       styleAnswer: {
         flag: true
-      }
+      },
+
     }));
   }
   }
@@ -101,12 +105,13 @@ if (answer === 'Yes') {
   handleAnswerSelected(event) {
     console.log(event.currentTarget.value);
     this.setUserAnswer(event.currentTarget.value);
+    /*
     if (this.state.questionId < quizQuestions.length) {
     setTimeout(() => this.setNextQuestion(), 600);
     } else {
     // do nothing for now
     setTimeout (() => this.setResults (this.getResults ()), 300);
-    }
+    }*/
     }
   
     getResults() {
@@ -132,7 +137,7 @@ if (answer === 'Yes') {
         }
 //RENDER QUIZ
 renderQuiz() {
-
+  //let is_selected = this.state.selectedItem === idx;
     return (
         <Quiz 
         quizView={this.props.quizView} 
@@ -143,6 +148,7 @@ renderQuiz() {
         onAnswerSelected={this.handleAnswerSelected}
         questionTotal={quizQuestions.length}
         styleAnswer={this.state.styleAnswer}
+        isSelected={this.state.selectedItem}
         />
     );
   
