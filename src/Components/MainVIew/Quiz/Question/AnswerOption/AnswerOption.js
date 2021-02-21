@@ -11,12 +11,20 @@ function AnswerOption(props) {
         backgroundColor:"green"
     }
  }*/
- if (props.isSelected) {
+ if (props.isSelected && props.styleAnswer.flag) {
      
     style = {
         backgroundColor:"green"
     }
  }
+ if (props.isSelected && !props.styleAnswer.flag) {
+     
+    style = {
+        backgroundColor:"red"
+    }
+ }
+
+
     
     return (
         <li className="AnswerOption" style={style} >

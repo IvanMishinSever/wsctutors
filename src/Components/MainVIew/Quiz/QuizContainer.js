@@ -113,13 +113,13 @@ if (answer === 'Yes') {
    // console.log(event);
     //console.log(idx);
     this.setUserAnswer(event.currentTarget.value,idx);
-    /*
+    
     if (this.state.questionId < quizQuestions.length) {
     setTimeout(() => this.setNextQuestion(), 600);
     } else {
     // do nothing for now
     setTimeout (() => this.setResults (this.getResults ()), 300);
-    }*/
+    }
     }
   
     getResults() {
