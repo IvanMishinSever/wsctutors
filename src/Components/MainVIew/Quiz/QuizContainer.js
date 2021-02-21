@@ -64,7 +64,7 @@ componentDidMount() {
     return array;
   }
 //HANDLER CLICK ANSWER
-setUserAnswer(answer) {
+setUserAnswer(answer,idx) {
 //calculate true answer
 if (answer === 'Yes') {
     //document.getElementById()
@@ -81,8 +81,13 @@ if (answer === 'Yes') {
       styleAnswer: {
         flag: true
       },
+      selectedItem: idx
 
     }));
+  } else {
+    this.setState({
+      selectedItem: idx
+    })
   }
   }
   
@@ -102,9 +107,10 @@ if (answer === 'Yes') {
       }
     });
   }
-  handleAnswerSelected(event) {
-    console.log(event.currentTarget.value);
-    this.setUserAnswer(event.currentTarget.value);
+  handleAnswerSelected(event, idx) {
+   // console.log(event.currentTarget.value);
+    console.log(idx);
+    this.setUserAnswer(event.currentTarget.value,idx);
     /*
     if (this.state.questionId < quizQuestions.length) {
     setTimeout(() => this.setNextQuestion(), 600);

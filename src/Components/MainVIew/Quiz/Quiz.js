@@ -8,7 +8,7 @@ import QuestionCount from './QuestionCount/QuestionCount';
 
 function Quiz(props) {
     
-    function renderAnswerOptions(key) {
+    function renderAnswerOptions(key, idListItem) {
       /*  return (
         <AnswerOption
             key={key.content}
@@ -19,6 +19,11 @@ function Quiz(props) {
             onAnswerSelected={props.onAnswerSelected}
         />
         );*/
+        const is_selected = props.selectedItem === idListItem;
+            console.log(idListItem);
+            console.log(props.selectedItem);
+            console.log(is_selected);
+
           return (
         <AnswerOption
             key={key.text}
@@ -26,8 +31,9 @@ function Quiz(props) {
             answerType={key.label}
             answer={props.answer}
             questionId={props.questionId}
-            onAnswerSelected={props.onAnswerSelected}
+            onAnswerSelected={props.onAnswerSelected.bind(idListItem)}
             styleAnswer={props.styleAnswer}
+            isSelected={is_selected}
             
         />
         );     

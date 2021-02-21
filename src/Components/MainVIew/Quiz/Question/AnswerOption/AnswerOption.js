@@ -5,7 +5,13 @@ import './AnswerOption.css';
 function AnswerOption(props) {
   
  let style;
- if (props.styleAnswer.flag) {
+ /*if (props.styleAnswer.flag) {
+     
+    style = {
+        backgroundColor:"green"
+    }
+ }*/
+ if (props.isSelected) {
      
     style = {
         backgroundColor:"green"
