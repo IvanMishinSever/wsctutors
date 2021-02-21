@@ -64,7 +64,8 @@ componentDidMount() {
     return array;
   }
 //HANDLER CLICK ANSWER
-setUserAnswer(answer,idx) {
+setUserAnswer(answer, idx) {
+  console.log("idx hfdyj" + idx);
 //calculate true answer
 if (answer === 'Yes') {
     //document.getElementById()
@@ -107,9 +108,10 @@ if (answer === 'Yes') {
       }
     });
   }
-  handleAnswerSelected(event, idx) {
+  handleAnswerSelected(idx, event) {
    // console.log(event.currentTarget.value);
-    console.log(idx);
+   // console.log(event);
+    //console.log(idx);
     this.setUserAnswer(event.currentTarget.value,idx);
     /*
     if (this.state.questionId < quizQuestions.length) {

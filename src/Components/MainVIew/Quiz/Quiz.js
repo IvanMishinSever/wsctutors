@@ -19,10 +19,10 @@ function Quiz(props) {
             onAnswerSelected={props.onAnswerSelected}
         />
         );*/
-        const is_selected = props.selectedItem === idListItem;
+        const is_selected = props.isSelected === idListItem;
             console.log(idListItem);
-            console.log(props.selectedItem);
-            console.log(is_selected);
+            console.log(props.isSelected);
+            //console.log(is_selected);
 
           return (
         <AnswerOption
@@ -31,7 +31,8 @@ function Quiz(props) {
             answerType={key.label}
             answer={props.answer}
             questionId={props.questionId}
-            onAnswerSelected={props.onAnswerSelected.bind(idListItem)}
+            //onAnswerSelected={props.onAnswerSelected.bind(idListItem)}
+            onAnswerSelected={props.onAnswerSelected.bind(this, idListItem)}
             styleAnswer={props.styleAnswer}
             isSelected={is_selected}
             
