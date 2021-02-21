@@ -66,7 +66,7 @@ class ListItem extends React.Component{
         this.setState({selectedItem: idx});
 
     }
-    
+    /*
     render() {
         const ulStyle = {
             padding: '0px',
@@ -92,6 +92,27 @@ class ListItem extends React.Component{
             </ul>
         );
     }
+    */
+   render() {
+    var ulStyle = {
+     padding: '0px',
+         margin: '20px'
+     };
+     var items = this.props.data.map(function (item, idx) {
+         var is_selected = this.state.selectedItem === idx;
+         return <ListItem
+             key={idx}
+             name={item.name}
+             onClick={this.clickHandler.bind(this, idx)}
+             isSelected={is_selected}
+             />;
+     }.bind(this));
+     return (
+         <ul style={ulStyle}>
+             {items}
+         </ul>
+     );
+ }
     /* РАБОТАЕТ НО НЕ ПЕЧАТАЕТ LISTITEM
     renderItems() {
          this.props.data.map( (item, idx) => {
