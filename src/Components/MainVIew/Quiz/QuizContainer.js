@@ -105,7 +105,9 @@ if (answer === 'Yes') {
       answer: '',
       styleAnswer: {
         flag: false
-      }
+      },
+      selectedItem: null
+
     });
   }
   handleAnswerSelected(idx, event) {
