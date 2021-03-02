@@ -20,8 +20,8 @@ function Quiz(props) {
         />
         );*/
         const is_selected = props.isSelected === idListItem;
-            console.log(idListItem);
-            console.log(props.isSelected);
+           // console.log(idListItem);
+            //console.log(props.isSelected);
             //console.log(is_selected);
 
           return (

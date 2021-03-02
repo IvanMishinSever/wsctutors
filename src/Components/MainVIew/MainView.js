@@ -142,7 +142,7 @@ renderExample() {
                {/*this.renderNodes()*/}
                {this.renderMenuNodes()}
                {this.renderQuizContainer()}
-               {this.renderExample()} 
+               {/*this.renderExample()*/} 
 
             </div>
             )
