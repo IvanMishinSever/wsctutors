@@ -75,7 +75,7 @@ class ListItem extends React.Component{
         let items = this.props.data.map( (item, idListItem) => {
           //  const is_selected = this.state.selectedItem === idListItem;
             const is_selected = this.state.selectedItem === idListItem;
-           // console.log(idListItem);
+          //  console.log('idListItem' + idListItem);
            // console.log(this.state.selectedItem);
            // console.log(is_selected);
             return <ListItem

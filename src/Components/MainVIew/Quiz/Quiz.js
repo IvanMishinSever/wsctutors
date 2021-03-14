@@ -23,10 +23,11 @@ function Quiz(props) {
            // console.log(idListItem);
             //console.log(props.isSelected);
             //console.log(is_selected);
+            console.log('idListItem' + idListItem);
 
           return (
         <AnswerOption
-            key={key.text}
+            key={idListItem}
             answerContent={key.text}
             answerType={key.label}
             answer={props.answer}
@@ -35,6 +36,7 @@ function Quiz(props) {
             onAnswerSelected={props.onAnswerSelected.bind(this, idListItem)}
             styleAnswer={props.styleAnswer}
             isSelected={is_selected}
+            number={idListItem}
             
         />
         );     

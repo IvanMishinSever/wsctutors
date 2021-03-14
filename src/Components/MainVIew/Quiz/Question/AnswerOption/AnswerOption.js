@@ -11,13 +11,13 @@ function AnswerOption(props) {
         backgroundColor:"green"
     }
  }*/
- if (props.isSelected && props.styleAnswer.flag) {
+ if (props.isSelected /*&& props.styleAnswer.flag*/) {
      
     style = {
         backgroundColor:"green"
     }
  }
- if (props.isSelected && !props.styleAnswer.flag) {
+ if (props.isSelected /*&& !props.styleAnswer.flag*/) {
      
     style = {
         backgroundColor:"red"
@@ -33,13 +33,13 @@ function AnswerOption(props) {
             type="radio"
             className="radioCustomButton"
             name="radioGroup"
-            id={props.answerType}
+            id={props.number}
             value={props.answerType}
             disabled={props.answer}
             onChange={props.onAnswerSelected}
             />
-            <label className="radioCustomLabel" htmlFor={props.answerType}>
-        {props.answerContent}
+            <label className="radioCustomLabel" htmlFor={props.number}>
+        {props.answerContent} {/*props.number*/}
             </label>
         </li>
     )

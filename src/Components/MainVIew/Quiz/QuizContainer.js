@@ -116,19 +116,19 @@ if (answer === 'Yes') {
     });
   }
   handleAnswerSelected(idx, event) {
-    console.log(event);
+    console.log('event' + event.currentTarget.value);
    // console.log(event);
-    //console.log(idx);
+    console.log('idx=' + idx);
     this.setUserAnswer(event.currentTarget.value,idx);
 
     //APPLY NEXT QUESTION
-    /*
+    
     if (this.state.questionId < quizQuestions.length) {
     setTimeout(() => this.setNextQuestion(), 600);
     } else {
     // do nothing for now
     setTimeout (() => this.setResults (this.getResults ()), 300);
-    }*/
+    }
     }
   
     getResults() {
