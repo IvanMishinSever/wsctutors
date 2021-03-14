@@ -11,13 +11,13 @@ function AnswerOption(props) {
         backgroundColor:"green"
     }
  }*/
- if (props.isSelected /*&& props.styleAnswer.flag*/) {
+ if (props.isSelected && props.styleAnswer.flag) {
      
     style = {
         backgroundColor:"green"
     }
  }
- if (props.isSelected /*&& !props.styleAnswer.flag*/) {
+ if (props.isSelected && !props.styleAnswer.flag) {
      
     style = {
         backgroundColor:"red"
