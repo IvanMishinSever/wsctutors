@@ -32,14 +32,18 @@ export default class QuizContainer extends React.Component {
 
 // FILL ARRAY OF QUESTIONS
 componentDidMount() {
-    const shuffledAnswerOptions = quizQuestions.map(question => this.shuffleArray(question.answers)
-    );
+   // const shuffledAnswerOptions = quizQuestions.map(question => this.shuffleArray(question.answers));
+  //const arrayAnswerOptions = quizQuestions.map()
+    
     console.log(quizQuestions[0].question.text);
+    console.log(quizQuestions);
+    console.log(quizQuestions[0].answers);
     
     this.setState({
       //question: quizQuestions[0].question,
       question: quizQuestions[0].question.text,
-      answerOptions: shuffledAnswerOptions[0]
+     //answerOptions: shuffledAnswerOptions[0]
+      answerOptions: quizQuestions[0].answers
     });
 
   }
@@ -64,7 +68,9 @@ componentDidMount() {
     return array;
   }
 //HANDLER CLICK ANSWER
-setUserAnswer(answer) {
+setUserAnswer(answer, idx) {
+  console.log("idx hfdyj" + idx);
+  console.log(answer);
 //calculate true answer
 if (answer === 'Yes') {
     //document.getElementById()
@@ -81,8 +87,13 @@ if (answer === 'Yes') {
       styleAnswer: {
         flag: true
       },
+      selectedItem: idx
 
     }));
+  } else {
+    this.setState({
+      selectedItem: idx
+    })
   }
   }
   
@@ -99,19 +110,25 @@ if (answer === 'Yes') {
       answer: '',
       styleAnswer: {
         flag: false
-      }
+      },
+      selectedItem: null
+
     });
   }
-  handleAnswerSelected(event) {
-    console.log(event.currentTarget.value);
-    this.setUserAnswer(event.currentTarget.value);
-    /*
+  handleAnswerSelected(idx, event) {
+    console.log('event' + event.currentTarget.value);
+   // console.log(event);
+    console.log('idx=' + idx);
+    this.setUserAnswer(event.currentTarget.value,idx);
+
+    //APPLY NEXT QUESTION
+    
     if (this.state.questionId < quizQuestions.length) {
     setTimeout(() => this.setNextQuestion(), 600);
     } else {
     // do nothing for now
     setTimeout (() => this.setResults (this.getResults ()), 300);
-    }*/
+    }
     }
   
     getResults() {
