@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import Menu from '../Menu/Menu';
 import Footer from '../Footer/Footer';
 import MainView from '../MainVIew/MainView';
+import Admin from '../Admin/Admin';
 
 export default class App extends React.Component {
   
@@ -77,6 +78,7 @@ handlerQuizView() {
               quizViewChange={this.handlerQuizView}
               quizView={this.state.quizView}
            />
+           <Admin categoryView={this.state.categoryView}/>
            <Footer />
       </div>
 
