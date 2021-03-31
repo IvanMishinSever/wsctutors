@@ -25,6 +25,12 @@ const quizQuestions = [
             text:"100мм",
             img:"",
             feedback:"см. Свод правил"
+        },{
+            id:"4",
+            label:"No",
+            text:"1000мм",
+            img:"",
+            feedback:"см. Свод правил"
         }]
     },
     {

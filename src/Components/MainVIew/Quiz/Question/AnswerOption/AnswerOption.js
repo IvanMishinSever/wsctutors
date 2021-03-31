@@ -5,13 +5,25 @@ import './AnswerOption.css';
 function AnswerOption(props) {
   /*
  let style;
- if (props.styleAnswer.flag) {
+ /*if (props.styleAnswer.flag) {
+     
+    style = {
+        backgroundColor:"green"
+    }
+ }*/
+ if (props.isSelected && props.styleAnswer.flag) {
      
     style = {
         backgroundColor:"green"
     }
  }
-  */  
+ if (props.isSelected && !props.styleAnswer.flag) {
+     
+    style = {
+        backgroundColor:"red"
+    }
+ }
+
     return (
         <li className="AnswerOption"  >
             <input
@@ -19,14 +31,14 @@ function AnswerOption(props) {
             type="radio"
             className="radioCustomButton"
             name="radioGroup"
-            id={props.answerType}
+            id={props.number}
             value={props.answerType}
             disabled={props.answer}
             onChange={props.onAnswerSelected}
             />
-            <label className="radioCustomLabel" htmlFor={props.answerType}>
-        {props.answerContent}
-      </label>
+            <label className="radioCustomLabel" htmlFor={props.number}>
+        {props.answerContent} {/*props.number*/}
+            </label>
         </li>
     )
 }
