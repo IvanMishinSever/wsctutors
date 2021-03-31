@@ -72,7 +72,7 @@ setUserAnswer(answer, idx) {
   console.log("idx hfdyj" + idx);
   console.log(answer);
 //calculate true answer
-
+if (answer === 'Yes') {
     //document.getElementById()
     this.setState((state, props) => ({
     /*  answersCount: {
@@ -90,13 +90,11 @@ setUserAnswer(answer, idx) {
       selectedItem: idx
 
     }));
-
   } else {
     this.setState({
       selectedItem: idx
     })
   }
-
   }
   
   setNextQuestion() {
