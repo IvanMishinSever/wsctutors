@@ -66,7 +66,7 @@ componentDidMount() {
 //HANDLER CLICK ANSWER
 setUserAnswer(answer) {
 //calculate true answer
-if (answer === 'Yes') {
+
     //document.getElementById()
     this.setState((state, props) => ({
     /*  answersCount: {
@@ -83,7 +83,7 @@ if (answer === 'Yes') {
       },
 
     }));
-  }
+  
   }
   
   setNextQuestion() {
