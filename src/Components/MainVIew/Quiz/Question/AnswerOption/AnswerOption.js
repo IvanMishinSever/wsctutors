@@ -1,9 +1,10 @@
+  
 import React from 'react';
 import PropTypes from 'prop-types';
 import './AnswerOption.css';
 
 function AnswerOption(props) {
-  /*
+  
  let style;
  /*if (props.styleAnswer.flag) {
      
@@ -24,8 +25,10 @@ function AnswerOption(props) {
     }
  }
 
+
+    
     return (
-        <li className="AnswerOption"  >
+        <li className="AnswerOption" style={style} >
             <input
              
             type="radio"

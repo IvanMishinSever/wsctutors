@@ -35,12 +35,10 @@ function Quiz(props) {
             //onAnswerSelected={props.onAnswerSelected.bind(idListItem)}
             onAnswerSelected={props.onAnswerSelected.bind(this, idListItem)}
             styleAnswer={props.styleAnswer}
-
             isSelected={is_selected}
             number={idListItem}
             
         />
-
         );     
         }
     
