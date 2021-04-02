@@ -16,3 +16,7 @@
     padding: 1rem;
     list-style: none;
 }
+.Admin button {
+    width: 100%;
+    padding: 1rem  1rem;
+}

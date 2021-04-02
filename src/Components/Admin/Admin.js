@@ -6,13 +6,14 @@ export default class Admin extends React.Component {
         return (
             
             <div className="Admin">
-                <ul>
-                    <li>Тесты</li>
-                    <li>Пользователи</li>
+                    <button>Курсы</button>
+                    <button>Тесты</button>
+                    <button>Пользователи</button>
+                    
                     
 
 
-                </ul>
+                
             </div>
         )
     }
