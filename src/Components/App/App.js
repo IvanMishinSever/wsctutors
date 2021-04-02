@@ -24,6 +24,7 @@ export default class App extends React.Component {
 
     this.setIdList = this.setIdList.bind(this);
     this.handlerQuizView = this.handlerQuizView.bind(this);
+    this.handlerAdminView = this.handlerAdminView.bind(this);
 }
 
 //CHOOSE CATEGORY
@@ -64,20 +65,28 @@ handlerQuizView() {
       }
   )
 }
-//SHOW ADMIN
-renderAdmin() {
- 
-    return (
-      <Admin adminView={this.state.adminView}/>
-        )
 
- 
+// ADMIN COMPONENT
+renderAdmin() {
+     return (
+      <Admin />
+        )
 }
+//SHOW ADMIN COMPONENT
+handlerAdminView() {
+  this.setState(
+    { 
+      adminView: true
+    }
+  )
+}
+
+//ALL RENDER
   render() {
     if (!this.state.adminView) {
     return (
       <div className="App">
-           <Header />
+           <Header adminViewChange={this.handlerAdminView}/>
            <Menu chooseCategory={this.chooseCategory}/>
            <MainView 
               categoryView={this.state.categoryView}
