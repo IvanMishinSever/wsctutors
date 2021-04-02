@@ -17,7 +17,8 @@ export default class App extends React.Component {
         listExist: false,
         idList : "",
         quizView: false,
-        firstContentView: true
+        firstContentView: true,
+        adminView: false
     }
     this.chooseCategory = this.chooseCategory.bind(this);
 
@@ -35,7 +36,8 @@ chooseCategory(newId) {
         idList: "",
         listExist: false,
         firstContentView: false,
-        quizView: false
+        quizView: false,
+        
         
     })
     //console.log(this.state.categoryView);
@@ -62,8 +64,17 @@ handlerQuizView() {
       }
   )
 }
+//SHOW ADMIN
+renderAdmin() {
+ 
+    return (
+      <Admin adminView={this.state.adminView}/>
+        )
 
+ 
+}
   render() {
+    if (!this.state.adminView) {
     return (
       <div className="App">
            <Header />
@@ -78,11 +89,20 @@ handlerQuizView() {
               quizViewChange={this.handlerQuizView}
               quizView={this.state.quizView}
            />
-           <Admin categoryView={this.state.categoryView}/>
+           
            <Footer />
       </div>
+    )
+    } else {
+      return (
+        <div className="App">
+        <Header />  
+        {this.renderAdmin()}
+        </div>
+      );
+    }
 
-    );
+    
   }
 }
 
