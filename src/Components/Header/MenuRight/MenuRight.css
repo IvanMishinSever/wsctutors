@@ -13,3 +13,7 @@
     .MenuRight p {
         padding: 0 10px;
     }
+    /*admin temporary*/
+    #admin {
+        font-weight: 800;
+    }
