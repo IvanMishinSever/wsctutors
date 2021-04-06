@@ -7,7 +7,7 @@ const  printAllElements = (items) => {
        // console.log(items[i].type);
         let item = document.createElement('li');
         item.innerHTML = `${(i+1)}. ${items[i].firstName} ${items[i].age} id=${items[i].id}`;
-        document.getElementById('add_data').appendChild(item);
+        document.getElementById('all-quizes-container').appendChild(item);
      }
 }
 // say

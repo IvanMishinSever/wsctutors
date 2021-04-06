@@ -3,7 +3,7 @@ import './AdminTableQuizes.css';
 import {printAllElements} from "../../../../../utils/helps.js";
 
 //get all users
-const url = "/api/users/";
+const url = "http://localhost:4001/api/users/";
 
 async function getAllUsers() {
     const urlToFetch = url;
@@ -14,7 +14,7 @@ async function getAllUsers() {
             const jsonResponse = await response.json();
             printAllElements(jsonResponse);
             
-            console.log('worki!!!')
+           // console.log(jsonResponse);
         }
     }
     catch (error) {
@@ -30,8 +30,9 @@ export default class AdminTableQuizes extends React.Component {
             
             <div className="AdminTableQuizes">
                    <h3>Список тестов</h3>
+                   <button onClick={getAllUsers}>Обновить</button>
                    <div id="all-quizes-container">
-                    <button onClick={getAllUsers}>Обновить</button>
+                    
                    </div>
                     
                     
