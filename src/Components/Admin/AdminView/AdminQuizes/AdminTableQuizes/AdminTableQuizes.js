@@ -3,8 +3,8 @@ import './AdminTableQuizes.css';
 import {printAllElements} from "../../../../../utils/helps.js";
 
 //get all users
-const url = "http://localhost:4001/api/users/";
-
+//const url = "http://localhost:4001/api/users/";
+const url = "http://localhost:4001/api/quizes/";
 async function getAllUsers() {
     const urlToFetch = url;
     try {
@@ -14,7 +14,7 @@ async function getAllUsers() {
             const jsonResponse = await response.json();
             printAllElements(jsonResponse);
             
-           // console.log(jsonResponse);
+            console.log(jsonResponse);
         }
     }
     catch (error) {
