@@ -1,0 +1,16 @@
+
+  
+  .TableQuiz th {
+    border: 2px solid #8c6b48;
+  }
+  
+  .TableQuiz table {
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  .TableQuiz td {
+    border: 2px solid #8c6b48;
+    width: 300px;
+  }
+  

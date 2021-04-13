@@ -10,6 +10,16 @@ const  printAllElements = (items) => {
         document.getElementById('all-quizes-container').appendChild(item);
      }
 }
+// print quizes category
+
+const  printQuizesCategory = (items) => {
+  for (let i = 0; i<items.length; i++ ) {
+     // console.log(items[i].type);
+      let item = document.createElement('li');
+      item.innerHTML = ` ${items[i].quiz_id} ${items[i].quiz_name} : ${items[i].quiz_description}`;
+      document.getElementById('all-quizes-container').appendChild(item);
+   }
+}
 // say
 const hello = () => console.log('hello Hell');
 
@@ -32,4 +42,4 @@ const  statusRequery = (item) => {
     document.getElementById('status-name').value = item.status;
     document.getElementById('query-name').value = item.url;
 }
-export {hello, printAllElements, printPropetyOfObject, statusRequery };
+export {hello, printAllElements, printPropetyOfObject, statusRequery, printQuizesCategory };

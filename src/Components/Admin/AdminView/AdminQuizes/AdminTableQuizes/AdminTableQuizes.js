@@ -1,7 +1,7 @@
 import React from 'react';
 import './AdminTableQuizes.css';
-import {printAllElements} from "../../../../../utils/helps.js";
-
+import {printQuizesCategory} from "../../../../../utils/helps.js";
+import TableQuiz from './TableQuiz/TableQuiz';
 //get all users
 //const url = "http://localhost:4001/api/users/";
 const url = "http://localhost:4001/api/quizes/";
@@ -12,7 +12,7 @@ async function getAllUsers() {
         console.log(response);
         if (response.ok) {
             const jsonResponse = await response.json();
-            printAllElements(jsonResponse);
+            printQuizesCategory(jsonResponse);
             
             console.log(jsonResponse);
         }
@@ -34,6 +34,7 @@ export default class AdminTableQuizes extends React.Component {
                    <div id="all-quizes-container">
                     
                    </div>
+                   <TableQuiz />
                     
                     
 
