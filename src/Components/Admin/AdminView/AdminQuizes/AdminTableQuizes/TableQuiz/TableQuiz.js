@@ -3,7 +3,11 @@ import React from 'react';
 import './TableQuiz.css';
 
 export default class TableQuiz extends React.Component {
+   
+   
+   
     render() {
+        const data = this.props.data;
         return(
             <div className="TableQuiz">
                 <table>

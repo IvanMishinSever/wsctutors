@@ -25,6 +25,12 @@ async function getAllUsers() {
 }
 
 export default class AdminTableQuizes extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataTable: [],
+        }
+    }
     render() {
         return (
             
@@ -34,7 +40,7 @@ export default class AdminTableQuizes extends React.Component {
                    <div id="all-quizes-container">
                     
                    </div>
-                   <TableQuiz />
+                   <TableQuiz data={this.state.dataTable}/>
                     
                     
 
