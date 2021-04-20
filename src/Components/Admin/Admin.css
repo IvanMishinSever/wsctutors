@@ -1,0 +1,22 @@
+.Admin {
+    display: flex;
+    position: fixed;
+    top: 5rem;
+    z-index: 10;
+    text-align: start;
+    width: 100%;
+
+    font-size: 1.1rem;
+    font-weight: 800;
+    background-color: rgb(199, 221, 219);
+    /*border: 1px solid black;*/
+    border-top: 1px solid black;
+}
+.Admin ul {
+    padding: 1rem;
+    list-style: none;
+}
+.Admin button {
+    width: 100%;
+    padding: 1rem  1rem;
+}

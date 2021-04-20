@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import Menu from '../Menu/Menu';
 import Footer from '../Footer/Footer';
 import MainView from '../MainVIew/MainView';
+import Admin from '../Admin/Admin';
 
 export default class App extends React.Component {
   
@@ -16,12 +17,14 @@ export default class App extends React.Component {
         listExist: false,
         idList : "",
         quizView: false,
-        firstContentView: true
+        firstContentView: true,
+        adminView: false
     }
     this.chooseCategory = this.chooseCategory.bind(this);
 
     this.setIdList = this.setIdList.bind(this);
     this.handlerQuizView = this.handlerQuizView.bind(this);
+    this.handlerAdminView = this.handlerAdminView.bind(this);
 }
 
 //CHOOSE CATEGORY
@@ -34,7 +37,8 @@ chooseCategory(newId) {
         idList: "",
         listExist: false,
         firstContentView: false,
-        quizView: false
+        quizView: false,
+        
         
     })
     //console.log(this.state.categoryView);
@@ -62,10 +66,27 @@ handlerQuizView() {
   )
 }
 
+// ADMIN COMPONENT
+renderAdmin() {
+     return (
+      <Admin />
+        )
+}
+//SHOW ADMIN COMPONENT
+handlerAdminView() {
+  this.setState(
+    { 
+      adminView: true
+    }
+  )
+}
+
+//ALL RENDER
   render() {
+    if (!this.state.adminView) {
     return (
       <div className="App">
-           <Header />
+           <Header adminViewChange={this.handlerAdminView}/>
            <Menu chooseCategory={this.chooseCategory}/>
            <MainView 
               categoryView={this.state.categoryView}
@@ -77,10 +98,20 @@ handlerQuizView() {
               quizViewChange={this.handlerQuizView}
               quizView={this.state.quizView}
            />
+           
            <Footer />
       </div>
+    )
+    } else {
+      return (
+        <div className="App">
+        <Header />  
+        {this.renderAdmin()}
+        </div>
+      );
+    }
 
-    );
+    
   }
 }
 

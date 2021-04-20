@@ -8,7 +8,7 @@ export default class Header extends React.Component {
         return (
             <div className="Header">
                 <MenuLeft />
-                <MenuRight />
+                <MenuRight adminViewChange={this.props.adminViewChange}/>
             </div>
         )
     }
