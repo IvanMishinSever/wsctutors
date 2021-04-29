@@ -4,27 +4,44 @@ import './TableQuiz.css';
 
 export default class TableQuiz extends React.Component {
    
-   
+   renderTable() {
+    let  data =  this.props.data;
+    return (
+        data.map(item => {
+            console.log(item.quiz_id + " " + item.quiz_name);
+            return(
+                <tr key={item.quiz_id}>
+                    <td>{item.quiz_id}</td>
+                    <td>{item.quiz_name}</td>
+                </tr>
+                )
+            })
+        )    
+   }
    
     render() {
-        const data = this.props.data;
+        
         return(
             <div className="TableQuiz">
                 <table>
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>номер теста</th>
                             <th>название теста</th>
                         </tr>
                         
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>gtht</td>
-                        </tr>
+                    {this.renderTable()}
+                    
+                    
                     </tbody>
+                
+                    
+                    
+
                 </table>
+                
             </div>
         )
     }

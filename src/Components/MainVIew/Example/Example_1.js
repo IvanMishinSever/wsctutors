@@ -135,8 +135,44 @@ promise_6.then(res => Promise.resolve(res -10)).then(res => Promise.resolve(res 
      console.log(winner);
  }, 5000);
 */
- 
+// ASYNC AWAIT
+const promise_10 = new Promise(resolve => {
+    setTimeout(() => resolve('iam succki man!'), 6000)
+});
+const promise_11 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('iam  man!'), 3000);
+    //setTimeout(() => reject('iam  DEB!'), 7000)
+});
 
+async function first() {
+    const msg1 = await(promise_11);
+    console.log(msg1 + "qerrrr");
+    const msg = await(promise_10);
+    console.log(msg + "qerrrr");
+
+}
+async function second() {
+    try{
+        const msg = await Promise.all([promise_11, promise_10]);
+        //console.log(msg + "sssss");
+        alert(msg);
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+//first();
+second();
+
+// RESOLVING JS PROMISES
+
+let promise_13 = Promise.resolve(5);
+let promise_14 = 44;
+let promise_15 = new Promise(function(resolve, reject){
+    setTimeout(resolve, 10000, 'foo');
+});
+//Promise.all([promise_13, promise_14, promise_15]).then(function(values) {console.log(values);});
+Promise.all([promise_13, promise_14, promise_15]);
 
     //RETURN
         return (
