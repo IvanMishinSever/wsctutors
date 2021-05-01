@@ -8,7 +8,7 @@
 
     font-size: 1.1rem;
     font-weight: 800;
-    background-color: rgb(199, 221, 219);
+    background-color: rgba(199, 221, 219, 0.521);
     /*border: 1px solid black;*/
     border-top: 1px solid black;
 }
