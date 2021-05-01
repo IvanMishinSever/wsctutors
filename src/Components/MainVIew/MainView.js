@@ -7,7 +7,8 @@ import FirstContent from './FirstContent/FirstContent';
 import MenuNodes from './MenuNodes/MenuNodes';
 import './MainView.css';
 import QuizContainer from './Quiz/QuizContainer';
-import Example from './Example/Example';
+//import Example from './Example/Example';
+import Example1 from './Example/Example_1';
 //
 // import { chooseMainCategory } from '../../utils/chooseSubCategory';
 
@@ -117,7 +118,7 @@ renderExample() {
         
         return (
             <div>
-                <Example  />
+                <Example1  />
             </div>
         );
     

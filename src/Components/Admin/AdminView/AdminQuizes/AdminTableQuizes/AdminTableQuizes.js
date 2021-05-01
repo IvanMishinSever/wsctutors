@@ -30,8 +30,33 @@ export default class AdminTableQuizes extends React.Component {
         super(props);
         this.state = {
             dataTable: [],
+            isFetching: true,
+            error: null
+        }
+        this.getAllUsers = this.getAllUsers.bind(this);
+    }
+    
+async getAllUsers() {
+    const url = "http://localhost:4001/api/quizes/";
+    const urlToFetch = url;
+    try {
+        const response = await fetch(urlToFetch);
+        console.log(response);
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            this.setState({
+                dataTable: jsonResponse,
+                isFetching: false,
+             
+            })   
+           // printQuizesCategory(jsonResponse);
+            
+           
+            
+           // console.log(jsonResponse);
         }
     }
+<<<<<<< HEAD
     
     async getAllUsers() {
         const url = "http://localhost:4001/api/quizes/";
@@ -68,7 +93,26 @@ export default class AdminTableQuizes extends React.Component {
  }
 */
 
+=======
+    catch (error) {
+        this.setState({
+            isFetching: false,
+            error:error.message
+        })
+        console.log(error);
+        console.log('SOMETHING WRONG!!!')
+       
+    }
+    
+}
+>>>>>>> master
     render() {
+    /*
+    // НЕ ПОНЯТНО ЗАЧЕМ ISFETCHING  
+    const  {dataTable, isFetching, error} = this.state;  
+    if (isFetching) return <div>...Loading</div>;
+    if (error) return <div>{`Error: ${error}`}</div>;
+*/
         return (
             
             <div className="AdminTableQuizes">

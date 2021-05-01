@@ -1,16 +1,30 @@
 
   
   .TableQuiz th {
-    border: 2px solid #8c6b48;
+    font-size: 13px;
+    font-weight: 700;
+    background: #b9c9fe;
+    border-top: 4px solid #aabcfe;
+    border-bottom: 1px solid white;
+    color: #039;
+    padding: 8px;
   }
-  
+  /*
   .TableQuiz table {
     text-align: center;
     margin: 20px auto;
+    border-collapse: collapse;
   }
-  
+  */
   .TableQuiz td {
-    border: 2px solid #8c6b48;
-    width: 300px;
+    font-size: 13px;
+    font-weight: 500;
+    background: #e8edff;
+    border-bottom: 1px solid white;
+    color: #669;
+    border-top: 1px solid transparent;
+    padding: 8px;
   }
-  
+  .TableQuiz tr:hover td {
+    background: #ccddff;
+  }
