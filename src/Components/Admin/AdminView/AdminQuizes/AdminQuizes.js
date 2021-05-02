@@ -5,17 +5,21 @@ import AdminTableQuizes from "./AdminTableQuizes/AdminTableQuizes";
 
 export default class AdminQuizes extends React.Component {
     render() {
-        return (
+        const view = this.props.viewQuizers;
+        if (view) {
+            return (
             
-            <div className="AdminQuizes">
-                    <AdminTableQuizes />
-                    {/*<AdminView />*/}
+                <div className="AdminQuizes">
+                        <AdminTableQuizes />
+                        {/*<AdminView />*/}
+                        
+                        
+    
+    
                     
-                    
-
-
-                
-            </div>
-        )
+                </div>
+            )
+        } else return null;
+        
     }
 }

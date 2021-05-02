@@ -5,17 +5,23 @@ import AdminTableUsersMain from "./AdminTableUsersMain/AdminTableUsersMain";
 
 export default class AdminUsers extends React.Component {
     render() {
-        return (
+
+        const view = this.props.viewUsers;
+        if(view) {
+            return (
             
-            <div className="AdminUsers">
-                    <AdminTableUsersMain />
-                    {/*<AdminView />*/}
+                <div className="AdminUsers">
+                        <AdminTableUsersMain />
+                        {/*<AdminView />*/}
+                        
+                        
+    
+    
                     
-                    
+                </div>
+            )
+        } else return null;
+        
 
-
-                
-            </div>
-        )
     }
 }
