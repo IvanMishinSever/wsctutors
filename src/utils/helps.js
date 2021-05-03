@@ -20,6 +20,11 @@ const  printQuizesCategory = (items) => {
       document.getElementById('all-quizes-container').appendChild(item);
    }
 }
+
+const printQuizesCategoryTable = (items) => {
+   
+}
+
 // say
 const hello = () => console.log('hello Hell');
 
