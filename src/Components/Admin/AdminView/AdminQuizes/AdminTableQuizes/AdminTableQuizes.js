@@ -54,7 +54,7 @@ async getAllUsers() {
             
            
             
-           // console.log(jsonResponse);
+            console.log(jsonResponse);
         }
     }
     catch (error) {
