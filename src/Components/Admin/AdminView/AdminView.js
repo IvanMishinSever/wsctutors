@@ -5,12 +5,16 @@ import AdminQuizes from './AdminQuizes/AdminQuizes';
 
 
 export default class AdminView extends React.Component {
+
+
+
+
     render() {
         return (
             
             <div className="AdminView">
-                    <AdminUsers />
-                    <AdminQuizes />
+                    <AdminUsers viewUsers={this.props.viewUsers} />
+                    <AdminQuizes viewQuizers={this.props.viewQuizers} />
                     
                     
 

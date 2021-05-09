@@ -1,4 +1,4 @@
-import TestCategory from '../Components/MainVIew/Category/CategoryDataTests';
+import TestCategory from '../Components/App/CategoryDataTests';
 import CourseCategory from "../Components/MainVIew/Category/CategoryDataCourses";
 
 const testSubCategory = TestCategory;

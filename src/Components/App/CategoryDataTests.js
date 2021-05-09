@@ -118,12 +118,13 @@ const TestCategory = [
     {
         id: "8",
         label:'Сопротивление материалов1'}
-    
-    
-    
-    
-    
-    
+ 
     ];
+/*
+class TestCategory {
+
+    data: 
+}
+*/
 
 export default TestCategory;

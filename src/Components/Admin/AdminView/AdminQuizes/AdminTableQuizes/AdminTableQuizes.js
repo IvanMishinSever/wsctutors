@@ -2,6 +2,7 @@ import React from 'react';
 import './AdminTableQuizes.css';
 import {printQuizesCategory} from "../../../../../utils/helps.js";
 import TableQuiz from './TableQuiz/TableQuiz';
+//good
 //get all users
 //const url = "http://localhost:4001/api/users/";
 /*
@@ -53,7 +54,7 @@ async getAllUsers() {
             
            
             
-           // console.log(jsonResponse);
+            console.log(jsonResponse);
         }
     }
     catch (error) {
