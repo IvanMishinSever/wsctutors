@@ -36,16 +36,22 @@ export default class App extends React.Component {
 async getAllCategory() {
   const url = "http://localhost:4001/api/category/";
   const url2 = "http://localhost:4001/api/subcategory/";
+  const url3 = "http://localhost:4001/api/quizes/";
   const urlToFetch = url;
   try {
       const response = await fetch(urlToFetch);
       const response2 = await fetch(url2);
-      console.log(response);
-      console.log(response2);
+      const response3 = await fetch(url3);
+     // console.log(response);
+     // console.log(response2);
+     // console.log(response3);
       if (response.ok & response2.ok) {
           const jsonResponse = await response.json();
           const jsonResponse2 = await response2.json();
+          const jsonResponse3 = await response3.json();
           const data = [];
+          const subdata = [];
+          /*
           jsonResponse.map(element => {
             data.push(element);
             element.nodes = [];
@@ -53,8 +59,38 @@ async getAllCategory() {
           
           jsonResponse2.map(element => {
             data[element.id_category - 1].nodes.push(element);
+            element.nodes = [];
+
+            //data[element.id_category - 1].nodes[element.id] = [];
           })
-         
+         */
+          jsonResponse.map(element => {
+            data.push(element);
+            element.nodes = [];
+          })
+          jsonResponse2.map(element => {
+            subdata.push(element);
+            element.nodes = [];
+          })
+          console.log(subdata);
+
+          jsonResponse3.map(element => {
+            subdata[element.id_category - 1].nodes.push(element);
+            //element.nodes = [];
+            console.log(subdata); 
+
+          })
+          console.log("dddd");       
+          console.log(subdata);
+
+          subdata.map(element => {
+            data[element.id_category - 1].nodes.push(element);
+           // element.nodes = [];
+
+            //data[element.id_category - 1].nodes[element.id] = [];
+          })
+
+
           this.setState({
               dataCategory: data,
               isFetching: false,
@@ -201,6 +237,7 @@ handlerAdminView() {
               setIdList={this.setIdList}
               quizViewChange={this.handlerQuizView}
               quizView={this.state.quizView}
+              dataCategory={this.state.dataCategory}
            />
            
            <Footer />
