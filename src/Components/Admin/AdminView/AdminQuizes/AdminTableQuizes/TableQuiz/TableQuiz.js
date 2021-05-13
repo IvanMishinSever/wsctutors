@@ -8,11 +8,11 @@ export default class TableQuiz extends React.Component {
     let  data =  this.props.data;
     return (
         data.map(item => {
-            console.log(item.quiz_id + " " + item.quiz_name);
+           // console.log(item.id + " " + item.label);
             return(
-                <tr key={item.quiz_id}>
-                    <td>{item.quiz_id}</td>
-                    <td>{item.quiz_name}</td>
+                <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.label}</td>
                 </tr>
                 )
             })
