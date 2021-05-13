@@ -14,6 +14,7 @@ export default class QuizContainer extends React.Component {
             questionId: 1,
             question: '',
             answerOptions: [],
+            questionData: [],
             answer: '',
             answersCount: {
               trueAnswer: 0,
@@ -29,15 +30,87 @@ export default class QuizContainer extends React.Component {
         };
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     }
+//FETCH QUESTIONS AND ANSWERS
+async getAllQuestion() {
+  const urlQuestion = "http://localhost:4001/api/question/";
+  const urlAnswer = "http://localhost:4001/api/answer/";
+  
+  
+  try {
+      const responseQuestion = await fetch(urlQuestion);
+      const responseAnswer = await fetch(urlAnswer);
+      
+     // console.log(response);
+     // console.log(response2);
+     // console.log(response3);
+      if (responseQuestion.ok & responseAnswer.ok) {
+          const jsonResponseQuestion = await responseQuestion.json();
+          const jsonResponseAnswer = await responseAnswer.json();
+         
+          const data = [];
+          const answers= [];
+
+          jsonResponseQuestion.map(element => {
+            element.answers = []; 
+            element.question = {};
+            element.question.text = element.question_text;
+            delete element.question_text;
+            data.push(element);
+           // element.answers = [];
+
+          })
+          console.log(data);
+          /*
+          jsonResponseSubCategory.map(element => {
+            subdata.push(element);
+            element.nodes = [];
+          })
+         // console.log(subdata);
+
+          jsonResponseQuizes.map(element => {
+            subdata[element.id_category - 1].nodes.push(element);
+          })
+          //console.log("dddd");       
+          //console.log(subdata);
+
+          subdata.map(element => {
+            data[element.id_category - 1].nodes.push(element);
+          })
+*/
+
+          this.setState({
+              dataMenuNodes: data,
+              isFetching: false,
+           
+          })  
+      }
+  }
+  catch (error) {
+      this.setState({
+          isFetching: false,
+          error:error.message
+      })
+      console.log(error);
+      console.log('SOMETHING WRONG!!!')
+     
+  }
+  
+};
+
+
+
+
+
 
 // FILL ARRAY OF QUESTIONS
 componentDidMount() {
+  this.getAllQuestion();
    // const shuffledAnswerOptions = quizQuestions.map(question => this.shuffleArray(question.answers));
   //const arrayAnswerOptions = quizQuestions.map()
     
-    console.log(quizQuestions[0].question.text);
-    console.log(quizQuestions);
-    console.log(quizQuestions[0].answers);
+    //console.log(quizQuestions[0].question.text);
+   // console.log(quizQuestions);
+   // console.log(quizQuestions[0].answers);
     
     this.setState({
       //question: quizQuestions[0].question,
@@ -69,8 +142,8 @@ componentDidMount() {
   }
 //HANDLER CLICK ANSWER
 setUserAnswer(answer, idx) {
-  console.log("idx hfdyj" + idx);
-  console.log(answer);
+ // console.log("idx hfdyj" + idx);
+  //console.log(answer);
 //calculate true answer
 if (answer === 'Yes') {
     //document.getElementById()
@@ -116,9 +189,9 @@ if (answer === 'Yes') {
     });
   }
   handleAnswerSelected(idx, event) {
-    console.log('event' + event.currentTarget.value);
+    //console.log('event' + event.currentTarget.value);
    // console.log(event);
-    console.log('idx=' + idx);
+   // console.log('idx=' + idx);
     this.setUserAnswer(event.currentTarget.value,idx);
 
     //APPLY NEXT QUESTION
