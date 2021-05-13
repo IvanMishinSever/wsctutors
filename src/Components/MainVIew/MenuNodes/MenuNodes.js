@@ -15,7 +15,7 @@ export default class MenuNodes extends React.Component {
     //RENDER MENU NODES
 renderNodes() {
     //const nameCategory = chooseMainCategory(this.props.idCategory);
-    const nameCategory = this.props.dataCategory;
+    const nameCategory = this.props.dataMenuNodes;
    // console.log(nameCategory);
     const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
     

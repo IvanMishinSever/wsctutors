@@ -19,7 +19,7 @@ export default class App extends React.Component {
         quizView: false,
         firstContentView: true,
         adminView: false,
-        dataCategory: [],
+        dataMenuNodes: [],
        // dataSubCategory: [],
 
         isFetching: true,
@@ -32,77 +32,52 @@ export default class App extends React.Component {
     this.handlerAdminView = this.handlerAdminView.bind(this);
 }
 
-// FETCH Category
+// FETCH DATA FOR MENUNODES
 async getAllCategory() {
-  const url = "http://localhost:4001/api/category/";
-  const url2 = "http://localhost:4001/api/subcategory/";
-  const url3 = "http://localhost:4001/api/quizes/";
-  const urlToFetch = url;
+  const urlCategory = "http://localhost:4001/api/category/";
+  const urlSubCategory = "http://localhost:4001/api/subcategory/";
+  const urlQuizes = "http://localhost:4001/api/quizes/";
+  
   try {
-      const response = await fetch(urlToFetch);
-      const response2 = await fetch(url2);
-      const response3 = await fetch(url3);
+      const responseCategory = await fetch(urlCategory);
+      const responseSubCategory = await fetch(urlSubCategory);
+      const responseQuizes = await fetch(urlQuizes);
      // console.log(response);
      // console.log(response2);
      // console.log(response3);
-      if (response.ok & response2.ok) {
-          const jsonResponse = await response.json();
-          const jsonResponse2 = await response2.json();
-          const jsonResponse3 = await response3.json();
+      if (responseCategory.ok & responseSubCategory.ok & responseQuizes.ok) {
+          const jsonResponseCategory = await responseCategory.json();
+          const jsonResponseSubCategory = await responseSubCategory.json();
+          const jsonResponseQuizes = await responseQuizes.json();
           const data = [];
           const subdata = [];
-          /*
-          jsonResponse.map(element => {
-            data.push(element);
-            element.nodes = [];
-          })
-          
-          jsonResponse2.map(element => {
-            data[element.id_category - 1].nodes.push(element);
-            element.nodes = [];
 
-            //data[element.id_category - 1].nodes[element.id] = [];
-          })
-         */
-          jsonResponse.map(element => {
+          jsonResponseCategory.map(element => {
             data.push(element);
             element.nodes = [];
           })
-          jsonResponse2.map(element => {
+          jsonResponseSubCategory.map(element => {
             subdata.push(element);
             element.nodes = [];
           })
-          console.log(subdata);
+         // console.log(subdata);
 
-          jsonResponse3.map(element => {
+          jsonResponseQuizes.map(element => {
             subdata[element.id_category - 1].nodes.push(element);
-            //element.nodes = [];
-            console.log(subdata); 
-
           })
-          console.log("dddd");       
-          console.log(subdata);
+          //console.log("dddd");       
+          //console.log(subdata);
 
           subdata.map(element => {
             data[element.id_category - 1].nodes.push(element);
-           // element.nodes = [];
-
-            //data[element.id_category - 1].nodes[element.id] = [];
           })
 
 
           this.setState({
-              dataCategory: data,
+              dataMenuNodes: data,
               isFetching: false,
            
           })  
-         // printQuizesCategory(jsonResponse);
-          
-         
-          
-          //console.log(jsonResponse);
-          //console.log(jsonResponse2);
-          console.log(data);
       }
   }
   catch (error) {
@@ -116,54 +91,7 @@ async getAllCategory() {
   }
   
 };
-/*
-// FETCH subCategory
-async getAllSubCategory() {
-  const url = "http://localhost:4001/api/subcategory/";
-  const urlToFetch = url;
-  try {
 
-      const response = await fetch(urlToFetch);
-      const response2 = await this.getAllCategory;
-      //const category = this.state.dataCategory;
-      //console.log(category);
-      console.log(response2);
-
-      console.log(response);
-      if (response.ok) {
-          const jsonResponse = await response.json();
-        if (jsonResponse.id_category === 1) {
-          
-        }
-
-
-
-
-
-          this.setState({
-              dataSubCategory: jsonResponse,
-              isFetching: false,
-           
-          })   
-         // printQuizesCategory(jsonResponse);
-          
-         
-          
-          console.log(jsonResponse);
-      }
-  }
-  catch (error) {
-      this.setState({
-          isFetching: false,
-          error:error.message
-      })
-      console.log(error);
-      console.log('SOMETHING WRONG!!!')
-     
-  }
-  
-}
-*/
 //CHOOSE CATEGORY
 
 
@@ -237,7 +165,7 @@ handlerAdminView() {
               setIdList={this.setIdList}
               quizViewChange={this.handlerQuizView}
               quizView={this.state.quizView}
-              dataCategory={this.state.dataCategory}
+              dataMenuNodes={this.state.dataMenuNodes}
            />
            
            <Footer />
