@@ -24,7 +24,8 @@ export default class App extends React.Component {
 
         isFetching: true,
         error: null,
-        quizId:''
+        quizId:'',
+        dataQuiz: []
     }
     this.chooseCategory = this.chooseCategory.bind(this);
 
@@ -32,6 +33,7 @@ export default class App extends React.Component {
     this.handlerQuizView = this.handlerQuizView.bind(this);
     this.handlerAdminView = this.handlerAdminView.bind(this);
     this.chooseQuizId = this.chooseQuizId.bind(this);
+    this.getAllQuestion = this.getAllQuestion.bind(this);
 }
 
 // FETCH DATA FOR MENUNODES
@@ -94,8 +96,70 @@ async getMenuNodes() {
   
 };
 
+//FETCH QUESTIONS AND ANSWERS
+
+async getAllQuestion() {
+  const urlQuestion = "http://localhost:4001/api/question/";
+  const urlAnswer = "http://localhost:4001/api/answer/";
+  
+  
+  try {
+      const responseQuestion = await fetch(urlQuestion);
+      const responseAnswer = await fetch(urlAnswer);
+      
+     // console.log(response);
+     // console.log(response2);
+     // console.log(response3);
+      if (responseQuestion.ok & responseAnswer.ok) {
+          const jsonResponseQuestion = await responseQuestion.json();
+          const jsonResponseAnswer = await responseAnswer.json();
+         
+          const data = [];
+          const answers= [];
+
+          jsonResponseQuestion.map(element => {
+            element.answers = []; 
+            element.question = {};
+            element.question.text = element.question_text;
+            delete element.question_text;
+            data.push(element);
+           // element.answers = [];
+
+          })
+          jsonResponseAnswer.map(element => {
+            data[element.question_id - 1].answers.push(element);
+            
+            
+           // element.answers = [];
+
+          })
+          console.log(data);
+
+          this.setState({
+              dataQuiz: data,
+              isFetching: false,
+           
+          })  
+      }
+  }
+  catch (error) {
+      this.setState({
+          isFetching: false,
+          error:error.message
+      })
+      console.log(error);
+      console.log('SOMETHING WRONG!!!')
+     
+  }
+  
+};
+
+
+
+
 //CHOOSE QUIZ ID
 chooseQuizId(id) {
+  this.getAllQuestion();
   this.setState({
     quizId: id
   })
@@ -131,6 +195,10 @@ setIdList(id, listExist) {
   //this.showID();
 }  
 */
+
+
+
+
 
 //SHOW QUIZ COMPONENT
 
@@ -173,10 +241,11 @@ handlerAdminView() {
               categoryView={this.state.categoryView}
               firstContentView={this.state.firstContentView} 
               idCategory={this.state.idCategory}
-              
+
               chooseQuizId = {this.chooseQuizId}
               quizId={this.state.quizId}
-              
+              dataQuiz={this.state.dataQuiz}
+
               quizViewChange={this.handlerQuizView}
               quizView={this.state.quizView}
               dataMenuNodes={this.state.dataMenuNodes}

@@ -96,7 +96,8 @@ renderQuizContainer() {
     return (
         <div>
             <QuizContainer 
-            quizView={this.props.quizView}
+            quizView={this.props.quizId}
+            dataQuiz={this.props.dataQuiz}
 
             />
         </div>

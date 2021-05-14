@@ -24,14 +24,15 @@ export default class QuizContainer extends React.Component {
             result: '',
             styleAnswer:{
               flag: false},
-            selectedItem: null
+            selectedItem: null,
+            
               
 
         };
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     }
 //FETCH QUESTIONS AND ANSWERS
-
+/*
 async getAllQuestion() {
   const urlQuestion = "http://localhost:4001/api/question/";
   const urlAnswer = "http://localhost:4001/api/answer/";
@@ -68,26 +69,9 @@ async getAllQuestion() {
 
           })
           console.log(data);
-          /*
-          jsonResponseSubCategory.map(element => {
-            subdata.push(element);
-            element.nodes = [];
-          })
-         // console.log(subdata);
-
-          jsonResponseQuizes.map(element => {
-           
-          })
-          //console.log("dddd");       
-          //console.log(subdata);
-
-          subdata.map(element => {
-            data[element.id_category - 1].nodes.push(element);
-          })
-*/
 
           this.setState({
-              dataMenuNodes: data,
+              dataQuiz: data,
               isFetching: false,
            
           })  
@@ -105,21 +89,17 @@ async getAllQuestion() {
   
 };
 
-
+*/
 
 
 
 
 // FILL ARRAY OF QUESTIONS
+
 componentDidMount() {
- this.getAllQuestion();
-   // const shuffledAnswerOptions = quizQuestions.map(question => this.shuffleArray(question.answers));
-  //const arrayAnswerOptions = quizQuestions.map()
-    
-    //console.log(quizQuestions[0].question.text);
-   // console.log(quizQuestions);
-   // console.log(quizQuestions[0].answers);
-    
+const data = this.props.dataQuiz;
+console.log("asas");
+console.log(data);
     this.setState({
       //question: quizQuestions[0].question,
       question: quizQuestions[0].question.text,
@@ -128,12 +108,6 @@ componentDidMount() {
     });
 
   }
-
-  quizMount() {
-    this.getAllQuestion();
-
-  }
-
 
 
   shuffleArray(array) {
