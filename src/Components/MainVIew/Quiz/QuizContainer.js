@@ -31,6 +31,7 @@ export default class QuizContainer extends React.Component {
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     }
 //FETCH QUESTIONS AND ANSWERS
+
 async getAllQuestion() {
   const urlQuestion = "http://localhost:4001/api/question/";
   const urlAnswer = "http://localhost:4001/api/answer/";
@@ -59,6 +60,13 @@ async getAllQuestion() {
            // element.answers = [];
 
           })
+          jsonResponseAnswer.map(element => {
+            data[element.question_id - 1].answers.push(element);
+            
+            
+           // element.answers = [];
+
+          })
           console.log(data);
           /*
           jsonResponseSubCategory.map(element => {
@@ -68,7 +76,7 @@ async getAllQuestion() {
          // console.log(subdata);
 
           jsonResponseQuizes.map(element => {
-            subdata[element.id_category - 1].nodes.push(element);
+           
           })
           //console.log("dddd");       
           //console.log(subdata);
@@ -104,7 +112,7 @@ async getAllQuestion() {
 
 // FILL ARRAY OF QUESTIONS
 componentDidMount() {
-  this.getAllQuestion();
+ this.getAllQuestion();
    // const shuffledAnswerOptions = quizQuestions.map(question => this.shuffleArray(question.answers));
   //const arrayAnswerOptions = quizQuestions.map()
     
@@ -120,6 +128,13 @@ componentDidMount() {
     });
 
   }
+
+  quizMount() {
+    this.getAllQuestion();
+
+  }
+
+
 
   shuffleArray(array) {
     var currentIndex = array.length,

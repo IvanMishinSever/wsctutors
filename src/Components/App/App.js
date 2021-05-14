@@ -14,8 +14,8 @@ export default class App extends React.Component {
     this.state = {
         categoryView: false,
         idCategory: "",  // idCategory 1-Курсы, 2- Тесты, 3- Example
-        listExist: false,
-        idList : "",
+        //listExist: false,
+        //idList : "",
         quizView: false,
         firstContentView: true,
         adminView: false,
@@ -23,11 +23,12 @@ export default class App extends React.Component {
        // dataSubCategory: [],
 
         isFetching: true,
-        error: null
+        error: null,
+        quizId:''
     }
     this.chooseCategory = this.chooseCategory.bind(this);
 
-    this.setIdList = this.setIdList.bind(this);
+    //this.setIdList = this.setIdList.bind(this);
     this.handlerQuizView = this.handlerQuizView.bind(this);
     this.handlerAdminView = this.handlerAdminView.bind(this);
 }
@@ -102,8 +103,8 @@ chooseCategory(newId) {
     this.setState({
         categoryView: true,
         idCategory: newId,
-        idList: "",
-        listExist: false,
+       // idList: "",
+       // listExist: false,
         firstContentView: false,
         quizView: false,
         
@@ -114,7 +115,7 @@ chooseCategory(newId) {
       }
 
   //SET ID LIST
-
+/*
 setIdList(id, listExist) {
     this.setState({
       idList: id,
@@ -123,6 +124,8 @@ setIdList(id, listExist) {
   
   //this.showID();
 }  
+*/
+
 //SHOW QUIZ COMPONENT
 
 handlerQuizView() {
@@ -160,9 +163,9 @@ handlerAdminView() {
               categoryView={this.state.categoryView}
               firstContentView={this.state.firstContentView} 
               idCategory={this.state.idCategory}
-              idList={this.state.idList}
-              listExist={this.state.listExist}
-              setIdList={this.setIdList}
+             
+              
+              
               quizViewChange={this.handlerQuizView}
               quizView={this.state.quizView}
               dataMenuNodes={this.state.dataMenuNodes}
