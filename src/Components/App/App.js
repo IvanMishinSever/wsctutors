@@ -31,10 +31,11 @@ export default class App extends React.Component {
     //this.setIdList = this.setIdList.bind(this);
     this.handlerQuizView = this.handlerQuizView.bind(this);
     this.handlerAdminView = this.handlerAdminView.bind(this);
+    this.chooseQuizId = this.chooseQuizId.bind(this);
 }
 
 // FETCH DATA FOR MENUNODES
-async getAllCategory() {
+async getMenuNodes() {
   const urlCategory = "http://localhost:4001/api/category/";
   const urlSubCategory = "http://localhost:4001/api/subcategory/";
   const urlQuizes = "http://localhost:4001/api/quizes/";
@@ -93,11 +94,16 @@ async getAllCategory() {
   
 };
 
-//CHOOSE CATEGORY
+//CHOOSE QUIZ ID
+chooseQuizId(id) {
+  this.setState({
+    quizId: id
+  })
+}
 
 
 chooseCategory(newId) {
- this.getAllCategory();
+ this.getMenuNodes();
   //this.getAllSubCategory();
 
     this.setState({
@@ -158,13 +164,18 @@ handlerAdminView() {
     return (
       <div className="App">
            <Header adminViewChange={this.handlerAdminView}/>
-           <Menu chooseCategory={this.chooseCategory}/>
+           <Menu 
+           chooseCategory={this.chooseCategory}
+           
+           
+           />
            <MainView 
               categoryView={this.state.categoryView}
               firstContentView={this.state.firstContentView} 
               idCategory={this.state.idCategory}
-             
               
+              chooseQuizId = {this.chooseQuizId}
+              quizId={this.state.quizId}
               
               quizViewChange={this.handlerQuizView}
               quizView={this.state.quizView}

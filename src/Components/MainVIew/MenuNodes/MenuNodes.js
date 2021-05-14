@@ -27,6 +27,7 @@ renderNodes() {
                 <Nodes  key={index}
                     element={element}
                     quizViewChange={this.props.quizViewChange}
+                    chooseQuizId = {this.props.chooseQuizId}
                   />
              
                   )}

@@ -85,6 +85,7 @@ renderMenuNodes() {
             idCategory={this.props.idCategory}
             quizViewChange={this.props.quizViewChange}
             dataMenuNodes={this.props.dataMenuNodes}
+            chooseQuizId = {this.props.chooseQuizId}
             />
         </div>
     )
