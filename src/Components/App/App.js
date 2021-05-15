@@ -121,11 +121,12 @@ async getMenuNodes() {
 async getAllQuestion(id) {
   const urlQuestion = "http://localhost:4001/api/question/";
   const urlAnswer = "http://localhost:4001/api/answer/";
-  
+  const urlToFetchAnswerId = `${urlAnswer}${id}`
+  const urlToFetchQuestionId = `${urlQuestion}${id}`
   
   try {
-      const responseQuestion = await fetch(urlQuestion);
-      const responseAnswer = await fetch(urlAnswer);
+      const responseQuestion = await fetch(urlToFetchQuestionId);
+      const responseAnswer = await fetch(urlToFetchAnswerId);
       
      // console.log(response);
      // console.log(response2);
