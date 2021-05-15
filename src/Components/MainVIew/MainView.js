@@ -98,8 +98,20 @@ renderQuizContainer() {
             <QuizContainer 
             quizView={this.props.quizId}
             dataQuiz={this.props.dataQuiz}
+            question={this.props.question}
+            counter={this.props.counter}
+            answerOptions={this.props.answerOptions}
+            questionId={this.props.questionId}
+            answer={this.props.answer}
+            styleAnswer={this.props.styleAnswer}
+            selectedItem={this.props.selectedItem}
+            answersCount={this.props.answersCount}
+            result={this.props.result}
+            questionLength={this.props.questionLength}
+            onAnswerSelected={this.props.onAnswerSelected}
+           />
 
-            />
+           
         </div>
     )
 }

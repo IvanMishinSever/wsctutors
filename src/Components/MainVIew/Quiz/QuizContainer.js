@@ -10,26 +10,26 @@ export default class QuizContainer extends React.Component {
         super(props);
 
         this.state = {
-            counter: 0,
-            questionId: 1,
-            question: '',
-            answerOptions: [],
-            questionData: [],
-            answer: '',
-            answersCount: {
-              trueAnswer: 0,
+           //counter: 0,
+            //questionId: 1,
+            //question: '',
+           // answerOptions: [],
+          //  questionData: [],
+           // answer: '',
+           // answersCount: {
+           //   trueAnswer: 0,
              // microsoft: 0,
              // sony: 0
-            },
-            result: '',
-            styleAnswer:{
-              flag: false},
-            selectedItem: null,
+           // },
+           // result: '',
+           // styleAnswer:{
+           //   flag: false},
+           // selectedItem: null,
             
               
 
         };
-        this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+       // this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     }
 //FETCH QUESTIONS AND ANSWERS
 /*
@@ -95,20 +95,7 @@ async getAllQuestion() {
 
 
 // FILL ARRAY OF QUESTIONS
-
-componentDidMount() {
-const data = this.props.dataQuiz;
-console.log("asas");
-console.log(data);
-    this.setState({
-      //question: quizQuestions[0].question,
-      question: quizQuestions[0].question.text,
-     //answerOptions: shuffledAnswerOptions[0]
-      answerOptions: quizQuestions[0].answers
-    });
-
-  }
-
+/*
 
   shuffleArray(array) {
     var currentIndex = array.length,
@@ -137,11 +124,7 @@ setUserAnswer(answer, idx) {
 if (answer === 'Yes') {
     //document.getElementById()
     this.setState((state, props) => ({
-    /*  answersCount: {
-        ...state.answersCount,
-        [answer]: (state.answersCount[answer] || 0) + 1
-      },*/
-     // ...state.answersCount,
+
       answer: answer,
       answersCount: {
         trueAnswer: state.answersCount.trueAnswer + 1
@@ -167,7 +150,7 @@ if (answer === 'Yes') {
       counter: counter,
       questionId: questionId,
       //question: quizQuestions[counter].question,
-      question: quizQuestions[counter].question.text,
+     // question: quizQuestions[counter].question.text,
       answerOptions: quizQuestions[counter].answers,
       answer: '',
       styleAnswer: {
@@ -194,40 +177,30 @@ if (answer === 'Yes') {
     }
   
     getResults() {
-        /*
-      const answersCount = this.state.answersCount;
-      const answersCountKeys = Object.keys(answersCount);
-      const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
-      const maxAnswerCount = Math.max.apply(null, answersCountValues);
-      return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
-      */
+
      const result = "YOU PASS QUIZ";
      return result;
       }
       setResults (result) {
-          /*
-        if (result.length === 1) {
-        this.setState({ result: result[0] });
-        } else {
-        this.setState({ result: 'Undetermined' });
-        }
-        */
+
        this.setState({result: result});
         }
+
+  */      
 //RENDER QUIZ
 renderQuiz() {
   //let is_selected = this.state.selectedItem === idx;
     return (
         <Quiz 
         quizView={this.props.quizView} 
-        answer={this.state.answer}
-        answerOptions={this.state.answerOptions}
-        questionId={this.state.questionId}
-        question={this.state.question}
-        onAnswerSelected={this.handleAnswerSelected}
+        answer={this.props.answer}
+        answerOptions={this.props.answerOptions}
+        questionId={this.props.questionId}
+        question={this.props.question}
+        onAnswerSelected={this.props.onAnswerSelected}
         questionTotal={quizQuestions.length}
-        styleAnswer={this.state.styleAnswer}
-        isSelected={this.state.selectedItem}
+        styleAnswer={this.props.styleAnswer}
+        isSelected={this.props.selectedItem}
         />
     );
   
@@ -236,9 +209,9 @@ renderQuiz() {
  renderResult() {
      return (
          <Result 
-         quizResult={this.state.result} 
-         trueAnswer={this.state.answersCount.trueAnswer}
-         questionTotal={quizQuestions.length}
+         quizResult={this.props.result} 
+         trueAnswer={this.props.answersCount.trueAnswer}
+         questionTotal={this.props.questionLength}
          />
      )
  }
@@ -250,7 +223,7 @@ render() {
                 <div>
                     <h2> WSC Quiz</h2>
                 </div>
-                {this.state.result ? this.renderResult() : this.renderQuiz()}
+                {this.props.result ? this.renderResult() : this.renderQuiz()}
             </div>
         )
     } else return null;

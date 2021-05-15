@@ -24,8 +24,27 @@ export default class App extends React.Component {
 
         isFetching: true,
         error: null,
+
         quizId:'',
-        dataQuiz: []
+        dataQuiz: [],
+
+        question: '',
+        counter: 0,
+        answerOptions: [],
+        questionId: 1,
+        answer: '',
+        styleAnswer:{
+          flag: false},
+        selectedItem: null,
+        answersCount: {
+          trueAnswer: 0,
+        },
+        result: '',
+        questionLength: 0,
+          
+
+    
+
     }
     this.chooseCategory = this.chooseCategory.bind(this);
 
@@ -34,6 +53,7 @@ export default class App extends React.Component {
     this.handlerAdminView = this.handlerAdminView.bind(this);
     this.chooseQuizId = this.chooseQuizId.bind(this);
     this.getAllQuestion = this.getAllQuestion.bind(this);
+    this.handleAnswerSelected =this.handleAnswerSelected.bind(this);
 }
 
 // FETCH DATA FOR MENUNODES
@@ -138,6 +158,9 @@ async getAllQuestion() {
           this.setState({
               dataQuiz: data,
               isFetching: false,
+              question: data[0].question.text,
+              answerOptions: data[0].answers,
+              questionLength: data.length
            
           })  
       }
@@ -155,15 +178,121 @@ async getAllQuestion() {
 };
 
 
+//
+// START QUIZ PART
+//
 
+// FILL ARRAY OF QUESTIONS
+
+
+shuffleArray(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+//SET NEW QUESTION
+setNextQuestion() {
+  const data = this.state.dataQuiz;
+  const counter = this.state.counter + 1;
+  const questionId = this.state.questionId + 1;
+
+  this. setState({
+    counter: counter,
+    questionId: questionId,
+    question: data[counter].question.text,
+    answerOptions: data[counter].answers,
+    answer: '',
+    styleAnswer: {
+      flag: false
+    },
+    selectedItem: null
+  })
+}
+//HANDLER CLICK ANSWER
+setUserAnswer(answer, idx) {
+  // console.log("idx hfdyj" + idx);
+   //console.log(answer);
+ //calculate true answer
+ if (answer === 'Yes') {
+     //document.getElementById()
+     this.setState((state, props) => ({
+     /*  answersCount: {
+         ...state.answersCount,
+         [answer]: (state.answersCount[answer] || 0) + 1
+       },*/
+      // ...state.answersCount,
+       answer: answer,
+       answersCount: {
+         trueAnswer: state.answersCount.trueAnswer + 1
+       },
+       styleAnswer: {
+         flag: true
+       },
+       selectedItem: idx
+ 
+     }));
+   } else {
+     this.setState({
+       selectedItem: idx
+     })
+   }
+   }
+//HANDLER ANSWER
+handleAnswerSelected(idx, event) {
+  //console.log('event' + event.currentTarget.value);
+ // console.log(event);
+ // console.log('idx=' + idx);
+  this.setUserAnswer(event.currentTarget.value,idx);
+
+  //APPLY NEXT QUESTION
+  
+  if (this.state.questionId < this.state.questionLength) {
+  setTimeout(() => this.setNextQuestion(), 600);
+  } else {
+  // do nothing for now
+  setTimeout (() => this.setResults (this.getResults ()), 300);
+  }
+  }
+//RESULT
+  getResults() {
+   const result = "YOU PASS QUIZ";
+   return result;
+    }
+  setResults (result) {
+    this.setState({result: result});
+      }
 
 //CHOOSE QUIZ ID
 chooseQuizId(id) {
   this.getAllQuestion();
   this.setState({
-    quizId: id
+    quizId: id,
+    
+    
   })
 }
+
+
+//
+// END QUIZ PART
+//
+
+
 
 
 chooseCategory(newId) {
@@ -249,6 +378,17 @@ handlerAdminView() {
               quizViewChange={this.handlerQuizView}
               quizView={this.state.quizView}
               dataMenuNodes={this.state.dataMenuNodes}
+              question={this.state.question}
+              counter={this.state.counter}
+              answerOptions={this.state.answerOptions}
+              questionId={this.state.questionId}
+              answer={this.state.answer}
+              styleAnswer={this.state.styleAnswer}
+              selectedItem={this.state.selectedItem}
+              answersCount={this.state.answersCount}
+              result={this.state.result}
+              onAnswerSelected={this.handleAnswerSelected}
+              questionLength={this.state.questionLength}
            />
            
            <Footer />
