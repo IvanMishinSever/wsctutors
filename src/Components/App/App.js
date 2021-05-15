@@ -118,7 +118,7 @@ async getMenuNodes() {
 
 //FETCH QUESTIONS AND ANSWERS
 
-async getAllQuestion() {
+async getAllQuestion(id) {
   const urlQuestion = "http://localhost:4001/api/question/";
   const urlAnswer = "http://localhost:4001/api/answer/";
   
@@ -160,7 +160,8 @@ async getAllQuestion() {
               isFetching: false,
               question: data[0].question.text,
               answerOptions: data[0].answers,
-              questionLength: data.length
+              questionLength: data.length,
+              quizId: id,
            
           })  
       }
@@ -279,12 +280,12 @@ handleAnswerSelected(idx, event) {
 
 //CHOOSE QUIZ ID
 chooseQuizId(id) {
-  this.getAllQuestion();
-  this.setState({
+  this.getAllQuestion(id);
+  /*this.setState({
     quizId: id,
     
     
-  })
+  })*/
 }
 
 
@@ -362,7 +363,7 @@ handlerAdminView() {
               idCategory={this.state.idCategory}
 
               chooseQuizId = {this.chooseQuizId}
-              quizId={this.state.quizId}
+              
               dataQuiz={this.state.dataQuiz}
 
               quizViewChange={this.handlerQuizView}

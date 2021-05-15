@@ -37,7 +37,8 @@ renderQuizContainer() {
     return (
         <div>
             <QuizContainer 
-            quizView={this.props.quizId}
+            quizView={this.props.quizView}
+            quizId={this.props.quizId}
             dataQuiz={this.props.dataQuiz}
             question={this.props.question}
             counter={this.props.counter}
