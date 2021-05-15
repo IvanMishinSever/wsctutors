@@ -226,9 +226,9 @@ setNextQuestion() {
 //HANDLER CLICK ANSWER
 setUserAnswer(answer, idx) {
   // console.log("idx hfdyj" + idx);
-   //console.log(answer);
+   console.log(typeof(answer));
  //calculate true answer
- if (answer === 'Yes') {
+ if (answer === '100') {
      //document.getElementById()
      this.setState((state, props) => ({
      /*  answersCount: {
@@ -313,17 +313,7 @@ chooseCategory(newId) {
    // console.log(this.props);
       }
 
-  //SET ID LIST
-/*
-setIdList(id, listExist) {
-    this.setState({
-      idList: id,
-      listExist: listExist,
-  })
-  
-  //this.showID();
-}  
-*/
+
 
 
 

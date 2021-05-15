@@ -9,30 +9,17 @@ import QuestionCount from './QuestionCount/QuestionCount';
 function Quiz(props) {
     
     function renderAnswerOptions(key, idListItem) {
-      /*  return (
-        <AnswerOption
-            key={key.content}
-            answerContent={key.content}
-            answerType={key.type}
-            answer={props.answer}
-            questionId={props.questionId}
-            onAnswerSelected={props.onAnswerSelected}
-        />
-        );*/
+
         const is_selected = props.isSelected === idListItem;
-           // console.log(idListItem);
-            //console.log(props.isSelected);
-            //console.log(is_selected);
-            console.log('idListItem' + idListItem);
 
           return (
         <AnswerOption
             key={idListItem}
             answerContent={key.text}
-            answerType={key.label}
+            answerType={key.value}
             answer={props.answer}
             questionId={props.questionId}
-            //onAnswerSelected={props.onAnswerSelected.bind(idListItem)}
+ 
             onAnswerSelected={props.onAnswerSelected.bind(this, idListItem)}
             styleAnswer={props.styleAnswer}
             isSelected={is_selected}
@@ -44,15 +31,7 @@ function Quiz(props) {
     
         
             return (
-              /*  <CSSTransitionGroup
-                className="container"
-                component="div"
-                transitionName="fade"
-                transitionEnterTimeout={800}
-                transitionLeaveTimeout={500}
-                transitionAppear
-                transitionAppearTimeout={500}
-              >*/
+
                 <div className="Quiz" key={props.questionId}>
                     <QuestionCount 
                         counter={props.questionId} 
@@ -66,7 +45,7 @@ function Quiz(props) {
                         {props.answerOptions.map(renderAnswerOptions)}
                     </ul>
                 </div>
-               // </CSSTransitionGroup>
+              
             )
   
 
