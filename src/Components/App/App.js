@@ -124,19 +124,23 @@ async getAllQuestion(id) {
   const urlToFetchAnswerId = `${urlAnswer}${id}`
   const urlToFetchQuestionId = `${urlQuestion}${id}`
   
+  //console.log(id);
   try {
       const responseQuestion = await fetch(urlToFetchQuestionId);
       const responseAnswer = await fetch(urlToFetchAnswerId);
       
-     // console.log(response);
-     // console.log(response2);
+      //console.log(responseQuestion);
+      //console.log(responseAnswer);
      // console.log(response3);
       if (responseQuestion.ok & responseAnswer.ok) {
           const jsonResponseQuestion = await responseQuestion.json();
           const jsonResponseAnswer = await responseAnswer.json();
          
+         // console.log(jsonResponseQuestion);
+         // console.log(jsonResponseAnswer);
+
           const data = [];
-          const answers= [];
+         // const answers= [];
 
           jsonResponseQuestion.map(element => {
             element.answers = []; 
@@ -147,14 +151,21 @@ async getAllQuestion(id) {
            // element.answers = [];
 
           })
+
           jsonResponseAnswer.map(element => {
-            data[element.question_id - 1].answers.push(element);
-            
-            
-           // element.answers = [];
+           // console.log(element);
+            jsonResponseQuestion.map( question => {
+             // console.log(question.id);
+              //console.log(element.question_id);
+
+              if (question.id === element.question_id) {
+                question.answers.push(element);
+              }
+
+            })
 
           })
-          console.log(data);
+        //  console.log(data);
 
           this.setState({
               dataQuiz: data,
@@ -163,7 +174,19 @@ async getAllQuestion(id) {
               answerOptions: data[0].answers,
               questionLength: data.length,
               quizId: id,
-           
+
+              //REFRSH STATE AFTER CHOOSE NEW TEST
+              counter: 0,
+              questionId: 1,
+              answer: '',
+              styleAnswer:{
+                flag: false},
+              selectedItem: null,
+              answersCount: {
+                trueAnswer: 0,
+              },
+              result: '',
+
           })  
       }
   }
@@ -228,7 +251,7 @@ setNextQuestion() {
 //HANDLER CLICK ANSWER
 setUserAnswer(answer, idx) {
   // console.log("idx hfdyj" + idx);
-   console.log(typeof(answer));
+   //console.log(typeof(answer));
  //calculate true answer
  if (answer === '100') {
      //document.getElementById()
@@ -281,6 +304,7 @@ handleAnswerSelected(idx, event) {
 
 //CHOOSE QUIZ ID
 chooseQuizId(id) {
+
   this.getAllQuestion(id);
   /*this.setState({
     quizId: id,
