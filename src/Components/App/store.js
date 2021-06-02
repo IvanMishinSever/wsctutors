@@ -4,7 +4,7 @@ import menuSideReducer from "../Menu/MenuSide/menuSideSlice";
 
 const store = configureStore ({
    reducer: {
-    meniSide: menuSideReducer,
+    menuSide: menuSideReducer,
    } 
 })
 export default store;

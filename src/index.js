@@ -4,10 +4,14 @@ import './index.css';
 import App from './Components/App/App';
 
 import reportWebVitals from './reportWebVitals';
+import store from './Components/App/store.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App 
+    state={store.getState()}
+    dispatch={store.dispatch}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );
