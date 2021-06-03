@@ -2,7 +2,7 @@ import React from 'react';
 import './Menu.css';
 import MenuSide from './MenuSide/MenuSide';
 
-
+/*
 export default class Menu extends React.Component {
     render() {
         return (
@@ -16,3 +16,16 @@ export default class Menu extends React.Component {
         )
     }
 }
+*/
+ const Menu = (props) => {
+    const { state, dispatch } = props;
+           return (
+            <div className="Menu">
+                <MenuSide chooseCategory={props.chooseCategory}
+                chooseCategoryRedux={props.chooseCategoryRedux}
+                dispatch={dispatch}
+                />
+            </div>
+            )
+   }
+   export default Menu;

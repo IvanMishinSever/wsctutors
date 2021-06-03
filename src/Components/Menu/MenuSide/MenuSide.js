@@ -1,7 +1,7 @@
 import React from 'react';
 import './MenuSide.css';
 import {showFirstContentView} from "../MenuSide/menuSideSlice";
-
+/*
 export default class MenuSide extends React.Component {
     constructor(props) {
         super(props);
@@ -17,9 +17,10 @@ export default class MenuSide extends React.Component {
 
       }
       onShowFirstContent =() => {
+        console.log(showFirstContentView);
           this.props.dispatch(showFirstContentView());
       }
-
+    
 
 
 //<ul onClick={this.props.handleClick}>
@@ -47,3 +48,41 @@ export default class MenuSide extends React.Component {
         )
     }
 }
+*/
+const MenuSide = (props) => {
+ const { chooseCategoryRedux, dispatch} = props;
+    const handleClick = (e) => {
+        const id = e.target.value;
+        props.chooseCategory(id);
+ 
+      }
+    const onShowFirstContent =() => {
+        console.log(showFirstContentView);
+        dispatch(showFirstContentView());
+      }
+
+
+        return (
+            <div className="MenuSide">
+                <ul >
+                    <li>
+                        <button onClick={handleClick} value="0"> Курсы </button>
+                    </li>
+                    <li>
+                        <button onClick={handleClick} value="1"> Тесты </button>
+                        <button onClick={onShowFirstContent} value="2">Example</button>
+                    </li>
+                    
+                    
+                </ul>
+                <form onClick={handleClick}>
+                    <input type="radio" name="src" value="1" /> fast
+                    <input type="radio" name="src" value="2" /> slow
+                    <input type="radio" name="src" value="3" /> cute
+                    <input type="radio" name="src" value="4" /> eek
+                </form>
+            </div>
+        )
+    
+}
+export default MenuSide;
