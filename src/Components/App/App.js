@@ -6,6 +6,7 @@ import Menu from '../Menu/Menu';
 import Footer from '../Footer/Footer';
 import MainView from '../MainVIew/MainView';
 import Admin from '../Admin/Admin';
+import store from './store';
 
 export default class App extends React.Component {
   
@@ -56,6 +57,7 @@ export default class App extends React.Component {
     this.handleAnswerSelected =this.handleAnswerSelected.bind(this);
 }
 
+ 
 // FETCH DATA FOR MENUNODES
 async getMenuNodes() {
   const urlCategory = "http://localhost:4001/api/category/";
@@ -379,7 +381,8 @@ handlerAdminView() {
            <Header adminViewChange={this.handlerAdminView}/>
            <Menu 
            chooseCategory={this.chooseCategory}
-           
+           chooseCategoryRedux={this.state.menuSide}
+           dispatch={this.state.dispatch}
            
            />
            <MainView 

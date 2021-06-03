@@ -1,6 +1,6 @@
 import React from 'react';
 import './MenuSide.css';
-
+import {showFirstContentView} from "../MenuSide/menuSideSlice";
 
 export default class MenuSide extends React.Component {
     constructor(props) {
@@ -16,7 +16,12 @@ export default class MenuSide extends React.Component {
        // console.log(id);
 
       }
-      
+      onShowFirstContent =() => {
+          this.props.dispatch(showFirstContentView());
+      }
+
+
+
 //<ul onClick={this.props.handleClick}>
     render() {
         return (
@@ -27,7 +32,7 @@ export default class MenuSide extends React.Component {
                     </li>
                     <li>
                         <button onClick={this.handleClick} value="1"> Тесты </button>
-                        <button onClick={this.handleClick} value="2">Example</button>
+                        <button onClick={this.onShowFirstContent} value="2">Example</button>
                     </li>
                     
                     

@@ -7,7 +7,10 @@ export default class Menu extends React.Component {
     render() {
         return (
             <div className="Menu">
-                <MenuSide chooseCategory={this.props.chooseCategory}/>
+                <MenuSide chooseCategory={this.props.chooseCategory}
+                chooseCategoryRedux={this.props.chooseCategoryRedux}
+                dispatch={this.props.dispatch}
+                />
                 
             </div>
         )

@@ -17,10 +17,18 @@ import { createSlice } from '@reduxjs/toolkit';
                 idCategory: action.payload.newId,
                 firstContentView: false,
                 quizView: false,
-            }
-            }
+                }
+            },
+        showFirstContentView: (state, action) => {
+                return { 
+                    firstContentView: true,
+                    
+                  }
+                }    
         }
     
     };
+    
     export const menuSideSlice = createSlice(options);
+    export const  {addMenuNodes, showFirstContentView} = menuSideSlice.actions;
     export default menuSideSlice.reducer;
