@@ -57,6 +57,7 @@ export default class App extends React.Component {
     this.handleAnswerSelected =this.handleAnswerSelected.bind(this);
 }
 
+
  
 // FETCH DATA FOR MENUNODES
 async getMenuNodes() {
@@ -375,14 +376,15 @@ handlerAdminView() {
 
 //ALL RENDER
   render() {
+    const { state, dispatch } = this.props;
     if (!this.state.adminView) {
     return (
       <div className="App">
            <Header adminViewChange={this.handlerAdminView}/>
            <Menu 
            chooseCategory={this.chooseCategory}
-           chooseCategoryRedux={this.state.menuSide}
-           dispatch={this.state.dispatch}
+           chooseCategoryRedux={this.props.state.menuSide}
+           dispatch={dispatch}
            
            />
            <MainView 
