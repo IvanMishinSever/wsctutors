@@ -127,7 +127,7 @@ async getAllQuestion(id) {
   const urlToFetchAnswerId = `${urlAnswer}${id}`
   const urlToFetchQuestionId = `${urlQuestion}${id}`
   
-  //console.log(id);
+  console.log(id);
   try {
       const responseQuestion = await fetch(urlToFetchQuestionId);
       const responseAnswer = await fetch(urlToFetchAnswerId);
@@ -377,13 +377,16 @@ handlerAdminView() {
 //ALL RENDER
   render() {
     const { state, dispatch } = this.props;
+
+    //console.log(store.getState());    
+
     if (!this.state.adminView) {
     return (
       <div className="App">
            <Header adminViewChange={this.handlerAdminView}/>
            <Menu 
            chooseCategory={this.chooseCategory}
-           chooseCategoryRedux={this.props.state.menuSide}
+           
            dispatch={dispatch}
            
            />
@@ -391,6 +394,9 @@ handlerAdminView() {
               categoryView={this.state.categoryView}
               firstContentView={this.state.firstContentView} 
               idCategory={this.state.idCategory}
+
+              menuSide={state.menuSide}
+
 
               chooseQuizId = {this.chooseQuizId}
               

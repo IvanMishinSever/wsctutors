@@ -22,7 +22,7 @@ export default class Menu extends React.Component {
            return (
             <div className="Menu">
                 <MenuSide chooseCategory={props.chooseCategory}
-                chooseCategoryRedux={props.chooseCategoryRedux}
+                
                 dispatch={dispatch}
                 />
             </div>

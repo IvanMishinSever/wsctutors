@@ -1,6 +1,6 @@
 import React from 'react';
 import './MenuSide.css';
-import {showFirstContentView} from "../MenuSide/menuSideSlice";
+import {showFirstContentView, addMenuNodes, loadMenuNodes } from "../MenuSide/menuSideSlice";
 /*
 export default class MenuSide extends React.Component {
     constructor(props) {
@@ -50,18 +50,27 @@ export default class MenuSide extends React.Component {
 }
 */
 const MenuSide = (props) => {
- const { chooseCategoryRedux, dispatch} = props;
+ const { dispatch } = props;
+
     const handleClick = (e) => {
         const id = e.target.value;
         props.chooseCategory(id);
  
       }
+// SET ID CATEGORY AND FETCH NODES
+      const onShowCategoryRedux = (e) => {
+        const id = e.target.value;
+        dispatch(addMenuNodes(id));
+        dispatch(loadMenuNodes());
+        
+      }
+/*
     const onShowFirstContent =() => {
         console.log(showFirstContentView);
         dispatch(showFirstContentView());
       }
 
-
+*/
         return (
             <div className="MenuSide">
                 <ul >
@@ -70,7 +79,7 @@ const MenuSide = (props) => {
                     </li>
                     <li>
                         <button onClick={handleClick} value="1"> Тесты </button>
-                        <button onClick={onShowFirstContent} value="2">Example</button>
+                        <button onClick={onShowCategoryRedux} value="2">Example</button>
                     </li>
                     
                     
