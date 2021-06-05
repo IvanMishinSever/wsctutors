@@ -403,6 +403,8 @@ handlerAdminView() {
               dataQuiz={this.state.dataQuiz}
 
               quizViewChange={this.handlerQuizView}
+              quizViewChangeRedux={state.quiz}
+
               quizView={this.state.quizView}
               dataMenuNodes={this.state.dataMenuNodes}
               question={this.state.question}

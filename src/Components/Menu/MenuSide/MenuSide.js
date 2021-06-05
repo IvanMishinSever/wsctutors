@@ -57,11 +57,19 @@ const MenuSide = (props) => {
         props.chooseCategory(id);
  
       }
-// SET ID CATEGORY AND FETCH NODES
+// SET ID CATEGORY AND FETCH, если курсы то другая функция
       const onShowCategoryRedux = (e) => {
         const id = e.target.value;
-        dispatch(addMenuNodes(id));
-        dispatch(loadMenuNodes());
+        if (id === 2)  {
+            dispatch(loadMenuNodes());
+        } else {
+            dispatch(loadMenuNodes());
+        }
+        
+        //dispatch(addMenuNodes(id));
+       // console.log();
+        
+        
         
       }
 /*
@@ -78,7 +86,7 @@ const MenuSide = (props) => {
                         <button onClick={handleClick} value="0"> Курсы </button>
                     </li>
                     <li>
-                        <button onClick={handleClick} value="1"> Тесты </button>
+                        <button onClick={onShowCategoryRedux} value="1"> Тесты </button>
                         <button onClick={onShowCategoryRedux} value="2">Example</button>
                     </li>
                     

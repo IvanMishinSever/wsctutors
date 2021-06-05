@@ -44,7 +44,7 @@ export const loadMenuNodes = createAsyncThunk(
 
 
         dataMenuNodes = data;
-        console.log(data);
+       // console.log(data);
         }
         return dataMenuNodes;
     }
@@ -68,6 +68,7 @@ export const loadMenuNodes = createAsyncThunk(
 
     reducers: {
         addMenuNodes: (state, action) => {
+            
             return { 
                 categoryView: true,
                 idCategory: action.payload,
@@ -97,6 +98,10 @@ export const loadMenuNodes = createAsyncThunk(
                 state.dataMenuNodes = action.payload;
                 state.isFetching = true;
                 state.error = false;
+                state.categoryView = true;
+                
+                state.firstContentView = false;
+                state.quizView = false;
                 
             },
             [loadMenuNodes.rejected]: (state, action) => {

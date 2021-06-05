@@ -24,9 +24,15 @@ renderMenuNodes() {
             <MenuNodes 
             categoryView={this.props.categoryView} 
             idCategory={this.props.idCategory}
-            quizViewChange={this.props.quizViewChange}
             dataMenuNodes={this.props.dataMenuNodes}
+
+            quizViewChange={this.props.quizViewChange}
+            quizViewChangeRedux={this.props.quizViewChangeRedux}
+
             chooseQuizId = {this.props.chooseQuizId}
+
+            menuSide={this.props.menuSide}
+
             />
         </div>
     )
