@@ -24,14 +24,14 @@ renderMenuNodes() {
     return (
         <div>
             <MenuNodes 
-            categoryView={this.props.categoryView} 
-            idCategory={this.props.idCategory}
-            dataMenuNodes={this.props.dataMenuNodes}
+           // categoryView={this.props.categoryView} 
+           // idCategory={this.props.idCategory}
+           // dataMenuNodes={this.props.dataMenuNodes}
 
-            quizViewChange={this.props.quizViewChange}
+           // quizViewChange={this.props.quizViewChange}
             quizViewChangeRedux={this.props.quizViewChangeRedux}
 
-            chooseQuizId = {this.props.chooseQuizId}
+           // chooseQuizId = {this.props.chooseQuizId}
 
             menuSide={this.props.menuSide}
             dispatch={dispatch}

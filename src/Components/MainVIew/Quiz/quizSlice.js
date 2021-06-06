@@ -66,8 +66,8 @@ export const quizLoad = createAsyncThunk(
     initialState: {
         categoryView: true,
         quizView: false,
-        expanded: false,
-        nodesExist: false,
+       // expanded: false,
+      //  nodesExist: false,
         dataQuiz: [],
         isFetching: false,
         error: ""
@@ -79,7 +79,7 @@ export const quizLoad = createAsyncThunk(
             return { 
                 categoryView: false,
                 quizView: true,
-                expanded: !state.expanded
+               // expanded: !state.expanded
             }
         }
     },
@@ -90,12 +90,12 @@ export const quizLoad = createAsyncThunk(
             state.error = false;
         },
         [quizLoad.fulfilled]: (state, action) => {
-                state.dataMenuNodes = action.payload;
+                state.dataQuiz = action.payload;
                 state.isFetching = true;
                 state.error = false;
                 state.categoryView = false;
                 state.quizView = true;
-                state.expanded = !state.expanded;
+               // state.expanded = !state.expanded;
         },
         [quizLoad.rejected]: (state, action) => {
                 state.isFetching = false;

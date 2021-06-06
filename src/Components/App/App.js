@@ -385,25 +385,25 @@ handlerAdminView() {
       <div className="App">
            <Header adminViewChange={this.handlerAdminView}/>
            <Menu 
-           chooseCategory={this.chooseCategory}
+          // chooseCategory={this.chooseCategory} 
            
            dispatch={dispatch}
            
            />
            <MainView 
-              categoryView={this.state.categoryView}
-              firstContentView={this.state.firstContentView} 
-              idCategory={this.state.idCategory}
+              //categoryView={this.state.categoryView} //del
+             // firstContentView={this.state.firstContentView}  //del
+             // idCategory={this.state.idCategory} //del
 
               menuSide={state.menuSide}
               dispatch={dispatch}
 
 
-              chooseQuizId = {this.chooseQuizId}
+             // chooseQuizId = {this.chooseQuizId} //del
               
               dataQuiz={this.state.dataQuiz}
 
-              quizViewChange={this.handlerQuizView}
+             // quizViewChange={this.handlerQuizView} //del
               quizViewChangeRedux={state.quiz}
 
               quizView={this.state.quizView}

@@ -38,12 +38,12 @@ renderNodes() {
             {nameCategory.map((element, index) => 
                 <Nodes  key={index}
                     element={element}
-                    quizViewChange={this.props.quizViewChange}
+                   // quizViewChange={this.props.quizViewChange}
 
                     quizViewChangeRedux={this.props.quizViewChangeRedux}
                     dispatch={dispatch}
-                    menuSide={this.props.menuSide}
-                    chooseQuizId = {this.props.chooseQuizId}
+                   // menuSide={this.props.menuSide}
+                   // chooseQuizId = {this.props.chooseQuizId}
                   />
              
                   )}
