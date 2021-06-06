@@ -14,6 +14,8 @@ export default class MenuNodes extends React.Component {
  
     //RENDER MENU NODES
 renderNodes() {
+    const { dispatch } = this.props;
+    console.log(dispatch);
     //const nameCategory = chooseMainCategory(this.props.idCategory);
     //const nameCategory = this.props.dataMenuNodes;
     const nameCategory = this.props.menuSide.dataMenuNodes;
@@ -37,8 +39,10 @@ renderNodes() {
                 <Nodes  key={index}
                     element={element}
                     quizViewChange={this.props.quizViewChange}
-                    quizViewChangeRedux={this.props.quizViewChangeRedux}
 
+                    quizViewChangeRedux={this.props.quizViewChangeRedux}
+                    dispatch={dispatch}
+                    menuSide={this.props.menuSide}
                     chooseQuizId = {this.props.chooseQuizId}
                   />
              

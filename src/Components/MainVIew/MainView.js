@@ -15,10 +15,12 @@ import Example1 from './Example/Example_1';
 
 
 export default class MainView extends React.Component {
-
+    
 //RENDER MENU NODES
 
 renderMenuNodes() {
+    const { dispatch } = this.props;
+    //console.log(dispatch);
     return (
         <div>
             <MenuNodes 
@@ -32,7 +34,7 @@ renderMenuNodes() {
             chooseQuizId = {this.props.chooseQuizId}
 
             menuSide={this.props.menuSide}
-
+            dispatch={dispatch}
             />
         </div>
     )

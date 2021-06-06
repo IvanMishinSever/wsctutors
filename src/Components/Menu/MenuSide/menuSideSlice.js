@@ -63,7 +63,8 @@ export const loadMenuNodes = createAsyncThunk(
         quizView: false,
         dataMenuNodes: [],
         isFetching: false,
-        error: ""
+        error: "",
+        expanded: false
     },
 
     reducers: {
@@ -83,8 +84,14 @@ export const loadMenuNodes = createAsyncThunk(
                     firstContentView: true,
                     
                   }
-                }    
+                },
+        showNodesView: (state, action) => {
+                
+                    state.expanded = !state.expanded;
+                   
+                 }    
         },
+
         extraReducers: {
             [loadMenuNodes.pending]: (state, action) => {
                 
@@ -118,5 +125,5 @@ export const loadMenuNodes = createAsyncThunk(
     };
     
     export const menuSideSlice = createSlice(options);
-    export const  {addMenuNodes, showFirstContentView} = menuSideSlice.actions;
+    export const  {addMenuNodes, showFirstContentView, showNodesView} = menuSideSlice.actions;
     export default menuSideSlice.reducer;

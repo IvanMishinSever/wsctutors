@@ -396,6 +396,7 @@ handlerAdminView() {
               idCategory={this.state.idCategory}
 
               menuSide={state.menuSide}
+              dispatch={dispatch}
 
 
               chooseQuizId = {this.chooseQuizId}
