@@ -64,20 +64,33 @@ export const quizLoad = createAsyncThunk(
     name: 'quiz',
 
     initialState: {
-        categoryView: true,
+       // categoryView: false,
         quizView: false,
-       // expanded: false,
-      //  nodesExist: false,
         dataQuiz: [],
         isFetching: false,
-        error: ""
+        error: "",
+
+        question: '',
+        counter: 0,
+        answerOptions: [],
+        questionId: 1,
+        answer: '',
+        styleAnswer:{
+          flag: false},
+        selectedItem: null,
+        answersCount: {
+          trueAnswer: 0,
+        },
+        result: '',
+        questionLength: 0,
+
 
     },
 
     reducers: {
         showQuiz: (state, action) => {
             return { 
-                categoryView: false,
+                categoryView: true,
                 quizView: true,
                // expanded: !state.expanded
             }
@@ -93,7 +106,7 @@ export const quizLoad = createAsyncThunk(
                 state.dataQuiz = action.payload;
                 state.isFetching = true;
                 state.error = false;
-                state.categoryView = false;
+               // state.categoryView = false;
                 state.quizView = true;
                // state.expanded = !state.expanded;
         },

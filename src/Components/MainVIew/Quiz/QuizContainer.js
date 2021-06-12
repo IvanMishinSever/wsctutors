@@ -20,6 +20,8 @@ renderQuiz() {
   //let is_selected = this.state.selectedItem === idx;
     return (
         <Quiz 
+        quizViewChangeRedux={this.props.quizViewChangeRedux}
+
         quizView={this.props.quizView} 
         answer={this.props.answer}
         answerOptions={this.props.answerOptions}
@@ -37,15 +39,20 @@ renderQuiz() {
  renderResult() {
      return (
          <Result 
-         quizResult={this.props.result} 
-         trueAnswer={this.props.answersCount.trueAnswer}
-         questionTotal={this.props.questionLength}
+         quizResult={this.props.quizRedux.result} 
+         trueAnswer={this.props.quizRedux.answersCount.trueAnswer}
+         questionTotal={this.props.quizRedux.questionLength}
          />
      )
  }
 //RENDER ALL   
 render() {
-    if (this.props.quizView) {
+   // console.log(this.props.quizRedux.quizView);
+
+
+
+
+    if (this.props.quizRedux.quizView) {
         return (
             <div className="Quiz">
                 <div>

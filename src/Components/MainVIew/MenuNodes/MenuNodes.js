@@ -1,7 +1,7 @@
 import React from 'react';
 import './MenuNodes.css';
 import Nodes from './Nodes/Nodes';
-import { chooseMainCategory } from '../../../utils/chooseSubCategory';
+//import { chooseMainCategory } from '../../../utils/chooseSubCategory';
 export default class MenuNodes extends React.Component {
  /*
     constructor(props) {

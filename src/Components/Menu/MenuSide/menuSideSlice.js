@@ -85,6 +85,9 @@ export const loadMenuNodes = createAsyncThunk(
                     
                   }
                 },
+        showCategoryView: (state, action) => {
+          state.categoryView = false;
+        }
            
         },
 
@@ -121,5 +124,5 @@ export const loadMenuNodes = createAsyncThunk(
     };
     
     export const menuSideSlice = createSlice(options);
-    export const  {addMenuNodes, showFirstContentView} = menuSideSlice.actions;
+    export const  {addMenuNodes, showFirstContentView, showCategoryView} = menuSideSlice.actions;
     export default menuSideSlice.reducer;

@@ -45,6 +45,9 @@ renderQuizContainer() {
     return (
         <div>
             <QuizContainer 
+            quizRedux={this.props.quizViewChangeRedux}
+
+
             quizView={this.props.quizView}
             quizId={this.props.quizId}
             dataQuiz={this.props.dataQuiz}
@@ -82,11 +85,12 @@ renderExample() {
     render() {
 
 
+        
         return (
             <div className="MainView">
              {/* <Category categoryView={this.props.categoryView} idCategory={this.props.idCategory} /> */}
 
-              <FirstContent firstContentView={this.props.firstContentView} />
+              <FirstContent firstContentView={this.props.menuSide.firstContentView} />
 
                {this.renderMenuNodes()}
                {this.renderQuizContainer()}

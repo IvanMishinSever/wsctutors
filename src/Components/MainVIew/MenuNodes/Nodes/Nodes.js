@@ -1,7 +1,7 @@
 import React from 'react';
 import './Nodes.css';
 import { quizLoad } from '../../Quiz/quizSlice.js';
-//import { showNodesView, showFirstContentView } from '../../../Menu/MenuSide/menuSideSlice.js';
+import { showCategoryView } from '../../../Menu/MenuSide/menuSideSlice.js';
 
 export default class Nodes extends React.Component {
     constructor(props) {
@@ -10,11 +10,12 @@ export default class Nodes extends React.Component {
             expanded: false,
            // nodesExist: false
         }
-        this.handleClick = this.handleClick.bind(this);
+        //this.handleClick = this.handleClick.bind(this);
         this.showNodes = this.showNodes.bind(this);
         this.onShowQuiz=this.onShowQuiz.bind(this);
     }
     
+    /*
     //SWITCH  EXPANDED
     handleClick(e) {
         let expanded = !this.state.expanded;
@@ -38,8 +39,9 @@ export default class Nodes extends React.Component {
             expanded: expanded
         })
         
-       
-    }
+     
+    }*/
+
     //REDUX SHOW QUIZ
     onShowQuiz(e) {
        const {dispatch} = this.props;
@@ -52,19 +54,15 @@ export default class Nodes extends React.Component {
             //this.props.chooseQuizId(id);
 
             dispatch(quizLoad(id));
+            dispatch(showCategoryView());
 
-            //this.props.quizViewChangeRedux();
-            //console.log("h11111");
+           
         } else {
             this.setState({
                 expanded: expanded
             })
            
         }
-        
-        //this.props.quizView();
-
-        
     }
 
 /*
@@ -92,12 +90,9 @@ export default class Nodes extends React.Component {
                 <Nodes 
                 key={index} 
                 element={element} 
-               // quizViewChange={this.props.quizViewChange}
-
                 quizViewChangeRedux={this.props.quizViewChangeRedux}
                 dispatch={dispatch}
-               // menuSide={this.props.menuSide}    
-               // chooseQuizId = {this.props.chooseQuizId}
+              
                 />)
             ));
             }

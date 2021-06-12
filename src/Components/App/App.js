@@ -13,18 +13,18 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        categoryView: false,
-        idCategory: "",  // idCategory 1-Курсы, 2- Тесты, 3- Example
+      //  categoryView: false,
+       // idCategory: "",  // idCategory 1-Курсы, 2- Тесты, 3- Example
         //listExist: false,
         //idList : "",
-        quizView: false,
-        firstContentView: true,
+      //  quizView: false,
+       // firstContentView: true,
         adminView: false,
-        dataMenuNodes: [],
+       // dataMenuNodes: [],
        // dataSubCategory: [],
 
-        isFetching: true,
-        error: null,
+       // isFetching: true,
+       // error: null,
 
         quizId:'',
         dataQuiz: [],
@@ -47,10 +47,10 @@ export default class App extends React.Component {
     
 
     }
-    this.chooseCategory = this.chooseCategory.bind(this);
+   // this.chooseCategory = this.chooseCategory.bind(this);
 
     //this.setIdList = this.setIdList.bind(this);
-    this.handlerQuizView = this.handlerQuizView.bind(this);
+    //this.handlerQuizView = this.handlerQuizView.bind(this);
     this.handlerAdminView = this.handlerAdminView.bind(this);
     this.chooseQuizId = this.chooseQuizId.bind(this);
     this.getAllQuestion = this.getAllQuestion.bind(this);
@@ -58,7 +58,7 @@ export default class App extends React.Component {
 }
 
 
- 
+/* 
 // FETCH DATA FOR MENUNODES
 async getMenuNodes() {
   const urlCategory = "http://localhost:4001/api/category/";
@@ -118,7 +118,7 @@ async getMenuNodes() {
   }
   
 };
-
+*/
 //FETCH QUESTIONS AND ANSWERS
 
 async getAllQuestion(id) {
@@ -323,7 +323,7 @@ chooseQuizId(id) {
 
 
 
-
+/*
 chooseCategory(newId) {
  this.getMenuNodes();
   //this.getAllSubCategory();
@@ -342,12 +342,12 @@ chooseCategory(newId) {
    // console.log(this.props);
       }
 
+*/
 
 
 
 
-
-
+/*
 //SHOW QUIZ COMPONENT
 
 handlerQuizView() {
@@ -358,7 +358,7 @@ handlerQuizView() {
       }
   )
 }
-
+*/
 // ADMIN COMPONENT
 renderAdmin() {
      return (
