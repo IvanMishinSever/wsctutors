@@ -55,20 +55,16 @@ export const quizLoad = createAsyncThunk(
     }
 );
 
-
-
-
-
-
  const options= {
     name: 'quiz',
 
     initialState: {
-       // categoryView: false,
+       
         quizView: false,
         dataQuiz: [],
         isFetching: false,
         error: "",
+        quizId:'',
 
         question: '',
         counter: 0,
@@ -94,6 +90,45 @@ export const quizLoad = createAsyncThunk(
                 quizView: true,
                // expanded: !state.expanded
             }
+        },
+
+        //  RIGHT ANSWER
+        userAnswerRight: (state, action) => {
+            console.log(action);
+            state.answer = action.payload.answer;
+            state.answersCount = {
+              trueAnswer: state.answersCount.trueAnswer + 1
+            };
+            state.styleAnswer = {
+              flag: true
+            };
+            state.selectedItem = action.payload.idx; 
+        },
+
+        // WRONG ANSWER
+
+        userAnswerWrong: (state, action) => {
+            state.selectedItem = action.payload; 
+        },
+
+
+        //NEXT QUESTION
+        nextQuestion: (state, action) => {
+            state.counter = state.counter + 1;;
+            //console.log(action.payload);
+
+            state.questionId = state.questionId + 1;
+            state.question = state.dataQuiz[state.counter].question.text;
+            state.answerOptions = state.dataQuiz[state.counter].answers;
+            state.answer = '';
+            state.styleAnswer = {
+            flag: false
+            };
+            state.selectedItem = null;
+
+        },
+        getResult: (state, action) => {
+            state.result = action.payload;
         }
     },
 
@@ -106,9 +141,19 @@ export const quizLoad = createAsyncThunk(
                 state.dataQuiz = action.payload;
                 state.isFetching = true;
                 state.error = false;
-               // state.categoryView = false;
-                state.quizView = true;
-               // state.expanded = !state.expanded;
+                 state.quizView = true;
+                state.question = state.dataQuiz[0].question.text;
+                state.answerOptions = state.dataQuiz[0].answers;
+                state.questionLength = state.dataQuiz.length;
+                state.quizId = action.payload; // NO ????????
+
+
+
+
+
+
+
+
         },
         [quizLoad.rejected]: (state, action) => {
                 state.isFetching = false;
@@ -118,4 +163,6 @@ export const quizLoad = createAsyncThunk(
     }
 };
     export const quizSlice = createSlice(options);
+    export const {userAnswerRight, userAnswerWrong, nextQuestion, getResult } = quizSlice.actions;
     export default quizSlice.reducer;
+    

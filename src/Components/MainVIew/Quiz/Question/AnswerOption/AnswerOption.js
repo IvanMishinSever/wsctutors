@@ -2,16 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './AnswerOption.css';
+//import {onAnswerSelected } from "../../quizSlice.js";
 
 function AnswerOption(props) {
   
  let style;
- /*if (props.styleAnswer.flag) {
-     
-    style = {
-        backgroundColor:"green"
-    }
- }*/
+ 
  if (props.isSelected && props.styleAnswer.flag) {
      
     style = {
@@ -25,8 +21,7 @@ function AnswerOption(props) {
     }
  }
 
-
-    
+ 
     return (
         <li className="AnswerOption" style={style} >
             <input

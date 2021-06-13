@@ -57,6 +57,7 @@ const MenuSide = (props) => {
         props.chooseCategory(id);
  
       }
+
 // SET ID CATEGORY AND FETCH, если курсы то другая функция
       const onShowCategoryRedux = (e) => {
         const id = e.target.value;
@@ -92,8 +93,8 @@ const MenuSide = (props) => {
                     
                     
                 </ul>
-                <form onClick={handleClick}>
-                    <input type="radio" name="src" value="1" /> fast
+               <form onClick={handleClick}>
+                   <input type="radio" name="src" value="1" /> fast
                     <input type="radio" name="src" value="2" /> slow
                     <input type="radio" name="src" value="3" /> cute
                     <input type="radio" name="src" value="4" /> eek

@@ -10,19 +10,22 @@ function Quiz(props) {
     
     function renderAnswerOptions(key, idListItem) {
 
-        const is_selected = props.isSelected === idListItem;
+        const is_selected = props.quizRedux.selectedItem === idListItem;
 
           return (
         <AnswerOption
+           
+            isSelected={is_selected}
+            
             key={idListItem}
             answerContent={key.text}
             answerType={key.value}
-            answer={props.answer}
-            questionId={props.questionId}
+            answer={props.quizRedux.answer}
+            questionId={props.quizRedux.questionId}
  
             onAnswerSelected={props.onAnswerSelected.bind(this, idListItem)}
-            styleAnswer={props.styleAnswer}
-            isSelected={is_selected}
+
+            styleAnswer={props.quizRedux.styleAnswer}
             number={idListItem}
             
         />
@@ -32,17 +35,17 @@ function Quiz(props) {
         
             return (
 
-                <div className="Quiz" key={props.questionId}>
+                <div className="Quiz" key={props.quizRedux.questionId}>
                     <QuestionCount 
-                        counter={props.questionId} 
-                        total={props.questionTotal} 
+                        counter={props.quizRedux.questionId} 
+                        total={props.quizRedux.questionLength} 
                      />
                     <Question 
-                        content={props.question}
+                        content={props.quizRedux.question}
 
                     />
                     <ul className="Quiz-answerOptions">
-                        {props.answerOptions.map(renderAnswerOptions)}
+                        {props.quizRedux.answerOptions.map(renderAnswerOptions)}
                     </ul>
                 </div>
               

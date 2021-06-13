@@ -1,10 +1,8 @@
 import React from 'react';
 import './Quiz.css';
-
 import Quiz from './Quiz';
 import Result from './Result/Result';
-//import quizQuestions from './quizQuestions';
-import quizQuestions from './quizData';
+
 export default class QuizContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -17,20 +15,21 @@ export default class QuizContainer extends React.Component {
     
 //RENDER QUIZ
 renderQuiz() {
-  //let is_selected = this.state.selectedItem === idx;
+  
     return (
         <Quiz 
-        quizViewChangeRedux={this.props.quizViewChangeRedux}
+        quizRedux={this.props.quizRedux}
+        
 
-        quizView={this.props.quizView} 
-        answer={this.props.answer}
-        answerOptions={this.props.answerOptions}
-        questionId={this.props.questionId}
-        question={this.props.question}
+       // quizView={this.props.quizView} 
+       // answer={this.props.answer}
+       // answerOptions={this.props.answerOptions}
+       // questionId={this.props.questionId}
+       //question={this.props.question}
         onAnswerSelected={this.props.onAnswerSelected}
-        questionTotal={this.props.questionLength}
-        styleAnswer={this.props.styleAnswer}
-        isSelected={this.props.selectedItem}
+       // questionTotal={this.props.questionLength}
+      //  styleAnswer={this.props.styleAnswer}
+       // isSelected={this.props.selectedItem}
         />
     );
   
@@ -58,7 +57,7 @@ render() {
                 <div>
                     <h2> WSC Quiz</h2>
                 </div>
-                {this.props.result ? this.renderResult() : this.renderQuiz()}
+                {this.props.quizRedux.result ? this.renderResult() : this.renderQuiz()}
             </div>
         )
     } else return null;

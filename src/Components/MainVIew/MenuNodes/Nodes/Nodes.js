@@ -8,39 +8,13 @@ export default class Nodes extends React.Component {
         super(props);
         this.state = {
             expanded: false,
-           // nodesExist: false
+           
         }
-        //this.handleClick = this.handleClick.bind(this);
+        
         this.showNodes = this.showNodes.bind(this);
         this.onShowQuiz=this.onShowQuiz.bind(this);
     }
-    
-    /*
-    //SWITCH  EXPANDED
-    handleClick(e) {
-        let expanded = !this.state.expanded;
-        //console.log("hi");
-       // console.log(this.props.element.nodes);
-        //SHOW QUIZ AND SEND QUIZ ID
-        console.log(this.props);
-       if (!this.props.element.nodes) {
-        const id = e.target.value;
-
-        this.props.chooseQuizId(id);
-
-
-
-            this.props.quizViewChange(); 
-            //this.props.quizViewChangeRedux();
-            //console.log("h11111");
-        }
-        //this.props.quizView();
-        this.setState({
-            expanded: expanded
-        })
-        
-     
-    }*/
+ 
 
     //REDUX SHOW QUIZ
     onShowQuiz(e) {
@@ -50,8 +24,6 @@ export default class Nodes extends React.Component {
 
         if (!this.props.element.nodes) {
              const id = e.target.value;
-
-            //this.props.chooseQuizId(id);
 
             dispatch(quizLoad(id));
             dispatch(showCategoryView());
@@ -65,16 +37,7 @@ export default class Nodes extends React.Component {
         }
     }
 
-/*
-                // change state!!!!!!!!!!!!!
-    checkNodes() {
-        if (this.props.element.nodes) {
-        this.setState({
-            nodesExist: true
-        })
-        }
-    }            
-     */           
+   
     //SHOW NODES
     showNodes() {
         let arrayNodes = [];
@@ -133,8 +96,7 @@ export default class Nodes extends React.Component {
 
     //RENDER NODE
     render() {
-        
-        //console.log(this.props.menuSide.expanded);
+ 
         return (
             <div className="Nodes-container">
                 <div className="Nodes">
