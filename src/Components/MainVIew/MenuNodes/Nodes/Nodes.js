@@ -8,17 +8,20 @@ export default class Nodes extends React.Component {
             expanded: false,
             nodesExist: false
         }
-        this.toggle = this.toggle.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.showNodes = this.showNodes.bind(this);
     }
 
     //SWITCH  EXPANDED
-    toggle() {
+    handleClick(e) {
         let expanded = !this.state.expanded;
         //console.log("hi");
        // console.log(this.props.element.nodes);
-
+        //SHOW QUIZ AND SEND QUIZ ID
        if (!this.props.element.nodes) {
+        const id = e.target.value;
+        this.props.chooseQuizId(id);
+
             this.props.quizViewChange();
             //console.log("h11111");
         }
@@ -52,6 +55,7 @@ export default class Nodes extends React.Component {
                 key={index} 
                 element={element} 
                 quizViewChange={this.props.quizViewChange}
+                chooseQuizId = {this.props.chooseQuizId}
                 />)
             ));
             }
@@ -74,15 +78,17 @@ export default class Nodes extends React.Component {
          return(
             <button     style={styleButton}
                         type="button"
-                        onClick={this.toggle}
+                        onClick={this.handleClick}
                     >+ {this.props.element.label}{this.props.element.id}</button>
          ) 
          } else {
             return(
                 <button
                     type="button"
-                    onClick={this.toggle}
-                > - {this.props.element.label}</button>
+                    onClick={this.handleClick}
+                    value={this.props.element.id}
+                    
+                > - {this.props.element.id}{this.props.element.label}</button>
              )   
          }
      }   

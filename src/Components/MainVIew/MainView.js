@@ -15,66 +15,7 @@ import Example1 from './Example/Example_1';
 
 
 export default class MainView extends React.Component {
-//constructor(props) {
-  //  super(props);
-    /*this.state = {
-       // idList : "",
-       // listExist: false,
-       // number: [],
-       quizView: false,
-    } */
-    //this.setIdList = this.setIdList.bind(this);
-   // this.renderAllCategory = this.renderAllCategory.bind(this);
-    //this.handlerQuizView = this.handlerQuizView.bind(this);
-//}
-//RENDER MAIN CATEGORY COMPONENT
-/*
-renderAllCategory() {
 
-    return (
-        
-        <MainCategory 
-            categoryView={this.props.categoryView} 
-            idCategory={this.props.idCategory}
-            
-            idList={this.props.idList}
-            listExist={this.props.listExist}
-            setIdList={this.props.setIdList}
-            
-        />
-        )
-    
-}
-*/
-/*//RENDER MENU NODES
-renderNodes() {
-const nameCategory = chooseMainCategory(this.props.idCategory);
-const viewComponent = (nameCategory === false) ? false : this.props.categoryView;
-
-if (viewComponent) {
-    return (
-       <div className="MainView-nodes">
-
-        {nameCategory.map((element, index) => 
-            <Nodes  key={index}
-                element={element}
-              />
-         
-              )}
-        </div>  
-    )
-    
-}
-}*/
-
-//HANDLER QUIZ VIEW
-/*
-handlerQuizView() {
-    this.setState(
-        {quizView: true}
-    )
-}
-*/
 //RENDER MENU NODES
 
 renderMenuNodes() {
@@ -84,6 +25,8 @@ renderMenuNodes() {
             categoryView={this.props.categoryView} 
             idCategory={this.props.idCategory}
             quizViewChange={this.props.quizViewChange}
+            dataMenuNodes={this.props.dataMenuNodes}
+            chooseQuizId = {this.props.chooseQuizId}
             />
         </div>
     )
@@ -95,23 +38,27 @@ renderQuizContainer() {
         <div>
             <QuizContainer 
             quizView={this.props.quizView}
+            quizId={this.props.quizId}
+            dataQuiz={this.props.dataQuiz}
+            question={this.props.question}
+            counter={this.props.counter}
+            answerOptions={this.props.answerOptions}
+            questionId={this.props.questionId}
+            answer={this.props.answer}
+            styleAnswer={this.props.styleAnswer}
+            selectedItem={this.props.selectedItem}
+            answersCount={this.props.answersCount}
+            result={this.props.result}
+            questionLength={this.props.questionLength}
+            onAnswerSelected={this.props.onAnswerSelected}
+           />
 
-            />
+           
         </div>
     )
 }
 
-//SET ID LIST
-/*setIdList(id, listExist) {
-   
-    this.setState({
-        idList: id,
-       // listExist: listExist
-    })
-    
-    //this.showID();
-}
-*/
+
 //EXAMPLE 
 renderExample() {
     
@@ -133,14 +80,6 @@ renderExample() {
 
               <FirstContent firstContentView={this.props.firstContentView} />
 
-              {/*this.renderAllCategory()*/}
-              
-              {/*<List 
-                categoryView={this.props.categoryView} 
-                idCategory={this.props.idCategory}
-                onClick={this.setIdList} 
-              /> */ }
-               {/*this.renderNodes()*/}
                {this.renderMenuNodes()}
                {this.renderQuizContainer()}
                {/*this.renderExample()*/} 

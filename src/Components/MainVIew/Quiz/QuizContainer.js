@@ -10,162 +10,25 @@ export default class QuizContainer extends React.Component {
         super(props);
 
         this.state = {
-            counter: 0,
-            questionId: 1,
-            question: '',
-            answerOptions: [],
-            answer: '',
-            answersCount: {
-              trueAnswer: 0,
-             // microsoft: 0,
-             // sony: 0
-            },
-            result: '',
-            styleAnswer:{
-              flag: false},
-            selectedItem: null
-              
 
         };
-        this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+       // this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     }
-
-// FILL ARRAY OF QUESTIONS
-componentDidMount() {
-   // const shuffledAnswerOptions = quizQuestions.map(question => this.shuffleArray(question.answers));
-  //const arrayAnswerOptions = quizQuestions.map()
     
-    console.log(quizQuestions[0].question.text);
-    console.log(quizQuestions);
-    console.log(quizQuestions[0].answers);
-    
-    this.setState({
-      //question: quizQuestions[0].question,
-      question: quizQuestions[0].question.text,
-     //answerOptions: shuffledAnswerOptions[0]
-      answerOptions: quizQuestions[0].answers
-    });
-
-  }
-
-  shuffleArray(array) {
-    var currentIndex = array.length,
-      temporaryValue,
-      randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-  }
-//HANDLER CLICK ANSWER
-setUserAnswer(answer, idx) {
-  console.log("idx hfdyj" + idx);
-  console.log(answer);
-//calculate true answer
-if (answer === 'Yes') {
-    //document.getElementById()
-    this.setState((state, props) => ({
-    /*  answersCount: {
-        ...state.answersCount,
-        [answer]: (state.answersCount[answer] || 0) + 1
-      },*/
-     // ...state.answersCount,
-      answer: answer,
-      answersCount: {
-        trueAnswer: state.answersCount.trueAnswer + 1
-      },
-      styleAnswer: {
-        flag: true
-      },
-      selectedItem: idx
-
-    }));
-  } else {
-    this.setState({
-      selectedItem: idx
-    })
-  }
-  }
-  
-  setNextQuestion() {
-    const counter = this.state.counter + 1;
-    const questionId = this.state.questionId + 1;
-  
-    this.setState({
-      counter: counter,
-      questionId: questionId,
-      //question: quizQuestions[counter].question,
-      question: quizQuestions[counter].question.text,
-      answerOptions: quizQuestions[counter].answers,
-      answer: '',
-      styleAnswer: {
-        flag: false
-      },
-      selectedItem: null
-
-    });
-  }
-  handleAnswerSelected(idx, event) {
-    console.log('event' + event.currentTarget.value);
-   // console.log(event);
-    console.log('idx=' + idx);
-    this.setUserAnswer(event.currentTarget.value,idx);
-
-    //APPLY NEXT QUESTION
-    
-    if (this.state.questionId < quizQuestions.length) {
-    setTimeout(() => this.setNextQuestion(), 600);
-    } else {
-    // do nothing for now
-    setTimeout (() => this.setResults (this.getResults ()), 300);
-    }
-    }
-  
-    getResults() {
-        /*
-      const answersCount = this.state.answersCount;
-      const answersCountKeys = Object.keys(answersCount);
-      const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
-      const maxAnswerCount = Math.max.apply(null, answersCountValues);
-      return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
-      */
-     const result = "YOU PASS QUIZ";
-     return result;
-      }
-      setResults (result) {
-          /*
-        if (result.length === 1) {
-        this.setState({ result: result[0] });
-        } else {
-        this.setState({ result: 'Undetermined' });
-        }
-        */
-       this.setState({result: result});
-        }
 //RENDER QUIZ
 renderQuiz() {
   //let is_selected = this.state.selectedItem === idx;
     return (
         <Quiz 
         quizView={this.props.quizView} 
-        answer={this.state.answer}
-        answerOptions={this.state.answerOptions}
-        questionId={this.state.questionId}
-        question={this.state.question}
-        onAnswerSelected={this.handleAnswerSelected}
-        questionTotal={quizQuestions.length}
-        styleAnswer={this.state.styleAnswer}
-        isSelected={this.state.selectedItem}
+        answer={this.props.answer}
+        answerOptions={this.props.answerOptions}
+        questionId={this.props.questionId}
+        question={this.props.question}
+        onAnswerSelected={this.props.onAnswerSelected}
+        questionTotal={this.props.questionLength}
+        styleAnswer={this.props.styleAnswer}
+        isSelected={this.props.selectedItem}
         />
     );
   
@@ -174,9 +37,9 @@ renderQuiz() {
  renderResult() {
      return (
          <Result 
-         quizResult={this.state.result} 
-         trueAnswer={this.state.answersCount.trueAnswer}
-         questionTotal={quizQuestions.length}
+         quizResult={this.props.result} 
+         trueAnswer={this.props.answersCount.trueAnswer}
+         questionTotal={this.props.questionLength}
          />
      )
  }
@@ -188,7 +51,7 @@ render() {
                 <div>
                     <h2> WSC Quiz</h2>
                 </div>
-                {this.state.result ? this.renderResult() : this.renderQuiz()}
+                {this.props.result ? this.renderResult() : this.renderQuiz()}
             </div>
         )
     } else return null;
