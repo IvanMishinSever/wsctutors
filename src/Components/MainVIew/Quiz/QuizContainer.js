@@ -36,11 +36,13 @@ renderQuiz() {
 }    
 //RENDER RESULT
  renderResult() {
+     const { dispatch } = this.props;
      return (
          <Result 
          quizResult={this.props.quizRedux.result} 
          trueAnswer={this.props.quizRedux.answersCount.trueAnswer}
          questionTotal={this.props.quizRedux.questionLength}
+         dispatch={dispatch}
          />
      )
  }

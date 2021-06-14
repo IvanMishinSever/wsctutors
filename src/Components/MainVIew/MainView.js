@@ -26,11 +26,12 @@ renderMenuNodes() {
 //RENDER QUIZ
 
 renderQuizContainer() {
+    const { dispatch } = this.props;
     return (
         <div>
             <QuizContainer 
             quizRedux={this.props.quizViewChangeRedux}
-     
+            dispatch={dispatch}
             onAnswerSelected={this.props.onAnswerSelected}
            />
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Nodes.css';
 import { quizLoad } from '../../Quiz/quizSlice.js';
-import { showCategoryView } from '../../../Menu/MenuSide/menuSideSlice.js';
+import { closeCategoryView } from '../../../Menu/MenuSide/menuSideSlice.js';
 
 export default class Nodes extends React.Component {
     constructor(props) {
@@ -26,7 +26,7 @@ export default class Nodes extends React.Component {
              const id = e.target.value;
 
             dispatch(quizLoad(id));
-            dispatch(showCategoryView());
+            dispatch(closeCategoryView());
 
            
         } else {
