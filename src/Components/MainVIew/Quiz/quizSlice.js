@@ -49,6 +49,7 @@ export const quizLoad = createAsyncThunk(
                 })
               //  console.log(data);
                 dataQuiz = data;
+               
             }
             return dataQuiz;
         
@@ -158,6 +159,24 @@ const initialState = {
         // GET first INITIAL STATE
         getInitialState: state  => 
            initialState,
+
+           //REPEAT QUIZ
+        repeatQuiz: (state, action) => {
+            state.quizView = true;
+            state.question = state.dataQuiz[0].question.text;
+            state.answerOptions = state.dataQuiz[0].answers;
+            state.result = '';
+            state.selectedItem = null;
+            state.counter = 0;
+            state.answer = '';
+            state.styleAnswer = {
+              flag: false
+              };
+              state.questionId = 1;
+            state.answersCount = {
+                trueAnswer: 0,
+              };
+        },
         
     },
 
@@ -174,7 +193,7 @@ const initialState = {
                 state.question = state.dataQuiz[0].question.text;
                 state.answerOptions = state.dataQuiz[0].answers;
                 state.questionLength = state.dataQuiz.length;
-                state.quizId = action.payload; // NO ????????
+               // state.quizId = action.payload; // NO ????????
 
 
 
@@ -192,6 +211,6 @@ const initialState = {
     }
 };
     export const quizSlice = createSlice(options);
-    export const {userAnswerRight, userAnswerWrong, nextQuestion, getResult, getInitialState } = quizSlice.actions;
+    export const {userAnswerRight, userAnswerWrong, nextQuestion, getResult, getInitialState, repeatQuiz } = quizSlice.actions;
     export default quizSlice.reducer;
     
