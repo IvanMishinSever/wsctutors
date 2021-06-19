@@ -47,9 +47,18 @@ function Quiz(props) {
 
         // 
         const nextQuestion = () => {
+            let style;
+           
+            if (props.quizRedux.selectedItem) {
+                style = ''
+            } else {
+                style = 'disabled'
+            }
+ 
+
             return (
                 <div>
-                    <button onClick={props.nextQuestion}>Следующий</button>
+                    <button onClick={props.nextQuestion}  disabled={style}>Следующий</button>
                 </div>
             )
 
@@ -80,6 +89,7 @@ function Quiz(props) {
 
     
 }
+/*
 Quiz.propTypes = {
     answer: PropTypes.string.isRequired,
     answerOptions: PropTypes.array.isRequired,
@@ -89,4 +99,5 @@ Quiz.propTypes = {
     questionTotal: PropTypes.number.isRequired,
     onAnswerSelected: PropTypes.func.isRequired
     };
+    */
 export default Quiz;

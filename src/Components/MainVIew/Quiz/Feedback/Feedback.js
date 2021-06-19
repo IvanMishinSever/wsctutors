@@ -4,7 +4,7 @@ import './Feedback.css'
 const Feedback = (props) => {
    
         return (
-            <div class='Feedback'>
+            <div className='Feedback'>
                 <p>FEEDBACK{props.feedback[props.isSelected].feedback}</p>
             </div>
         )
