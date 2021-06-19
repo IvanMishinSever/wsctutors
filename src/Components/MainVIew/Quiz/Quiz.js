@@ -13,11 +13,12 @@ function Quiz(props) {
 
         const is_selected = props.quizRedux.selectedItem === idListItem;
 
+
           return (
         <AnswerOption
-           
-            isSelected={is_selected}
             
+            isSelected={is_selected}
+            pointer={props.quizRedux.pointer}
             key={idListItem}
             answerContent={key.text}
             answerType={key.value}
@@ -75,7 +76,7 @@ function Quiz(props) {
                         content={props.quizRedux.question}
 
                     />
-                    <ul className="Quiz-answerOptions">
+                    <ul className="Quiz-answerOptions" >
                         {props.quizRedux.answerOptions.map(renderAnswerOptions)}
                     </ul>
                     {renderFeedback()}

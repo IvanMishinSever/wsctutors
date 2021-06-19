@@ -76,6 +76,7 @@ const initialState = {
   },
   result: '',
   questionLength: 0,
+  pointer:"auto"   //block checking other questions
 };
 
 
@@ -104,7 +105,7 @@ const initialState = {
         },
         result: '',
         questionLength: 0,
-
+        pointer:"auto"
 
     },
 
@@ -127,13 +128,15 @@ const initialState = {
             state.styleAnswer = {
               flag: true
             };
-            state.selectedItem = action.payload.idx; 
+            state.selectedItem = action.payload.idx;
+            state.pointer = "none" 
         },
 
         // WRONG ANSWER
 
         userAnswerWrong: (state, action) => {
             state.selectedItem = action.payload; 
+            state.pointer = "none" 
         },
 
 
@@ -150,6 +153,7 @@ const initialState = {
             flag: false
             };
             state.selectedItem = null;
+            state.pointer = "auto";
 
         },
         //GET RESULT
@@ -176,6 +180,7 @@ const initialState = {
             state.answersCount = {
                 trueAnswer: 0,
               };
+            state.pointer = "auto"; 
         },
         
     },

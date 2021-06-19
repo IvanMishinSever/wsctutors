@@ -56,11 +56,9 @@ setNextQuestion() {
   if (state.quiz.questionId < state.quiz.questionLength) {
     dispatch(nextQuestion());
   } else {
-       setTimeout (() => this.setResults (this.getResults ()), 600);
+       setTimeout (() => this.setResults (this.getResults ()), 300);
   }
-  
-
-}
+ }
 
 
 

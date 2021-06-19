@@ -7,19 +7,33 @@ import './AnswerOption.css';
 function AnswerOption(props) {
   
  let style;
- 
+ const pointer = props.pointer;  //block checking other questions
+
  if (props.isSelected && props.styleAnswer.flag) {
      
     style = {
-        backgroundColor:"green"
+        backgroundColor:"green",
+        pointerEvents: pointer,
     }
  }
  if (props.isSelected && !props.styleAnswer.flag) {
-     
-    style = {
-        backgroundColor:"red"
+  style = {
+        backgroundColor:"red",
+        pointerEvents: pointer,
     }
  }
+
+ if (!props.isSelected) {
+
+    style = {
+        pointerEvents: pointer,
+    }
+ }
+
+
+
+
+
 
  
     return (
@@ -33,6 +47,7 @@ function AnswerOption(props) {
             value={props.answerType}
             disabled={props.answer}
             onChange={props.onAnswerSelected}
+            
             />
             <label className="radioCustomLabel" htmlFor={props.number}>
         {props.answerContent} {/*props.number*/}
@@ -40,10 +55,5 @@ function AnswerOption(props) {
         </li>
     )
 }
-AnswerOption.propTypes = {
-    //answerType: PropTypes.string.isRequired,
-    answerContent: PropTypes.string.isRequired,
-    answer: PropTypes.string.isRequired,
-    onAnswerSelected: PropTypes.func.isRequired
-    };
+
 export default AnswerOption;
