@@ -48,14 +48,14 @@ function Quiz(props) {
         // 
         const nextQuestion = () => {
             let style;
-           
-            if (props.quizRedux.selectedItem) {
+          
+           if (props.quizRedux.selectedItem != null) {
                 style = ''
             } else {
                 style = 'disabled'
             }
  
-
+           
             return (
                 <div>
                     <button onClick={props.nextQuestion}  disabled={style}>Следующий</button>
