@@ -33,6 +33,7 @@ renderQuizContainer() {
             quizRedux={this.props.quizViewChangeRedux}
             dispatch={dispatch}
             onAnswerSelected={this.props.onAnswerSelected}
+            nextQuestion={this.props.nextQuestion}
            />
 
            

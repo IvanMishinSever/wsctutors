@@ -27,6 +27,7 @@ renderQuiz() {
        // questionId={this.props.questionId}
        //question={this.props.question}
         onAnswerSelected={this.props.onAnswerSelected}
+        nextQuestion={this.props.nextQuestion}
        // questionTotal={this.props.questionLength}
       //  styleAnswer={this.props.styleAnswer}
        // isSelected={this.props.selectedItem}

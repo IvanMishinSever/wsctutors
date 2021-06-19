@@ -22,6 +22,7 @@ export default class App extends React.Component {
     this.handlerAdminView = this.handlerAdminView.bind(this);
     this.chooseQuizId = this.chooseQuizId.bind(this);
     this.handleAnswerSelected =this.handleAnswerSelected.bind(this);
+    this.setNextQuestion= this.setNextQuestion.bind(this);
 }
 
 
@@ -52,8 +53,12 @@ shuffleArray(array) {
 //SET NEW QUESTION
 setNextQuestion() {
   const { state, dispatch } = this.props;
+  if (state.quiz.questionId < state.quiz.questionLength) {
+    dispatch(nextQuestion());
+  } else {
+       setTimeout (() => this.setResults (this.getResults ()), 600);
+  }
   
-  dispatch(nextQuestion());
 
 }
 
@@ -81,7 +86,7 @@ handleAnswerSelected(idx, event) {
   this.setUserAnswer(event.currentTarget.value,idx);
 
   //APPLY NEXT QUESTION
- 
+ /*
   if (state.quiz.questionId < state.quiz.questionLength) {
     setTimeout(() => this.setNextQuestion(), 600);
   } else {
@@ -89,6 +94,7 @@ handleAnswerSelected(idx, event) {
    // setTimeout (dispatch(getResult("YOU PASS QUIZ")), 600);
     setTimeout (() => this.setResults (this.getResults ()), 600);
   }
+  */
 }
 //RESULT
 getResults() {
@@ -143,6 +149,7 @@ handlerAdminView() {
               dispatch={dispatch}
               quizViewChangeRedux={state.quiz}
               onAnswerSelected={this.handleAnswerSelected}
+              nextQuestion={this.setNextQuestion}
   
            />
            

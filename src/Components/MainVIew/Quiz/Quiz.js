@@ -5,6 +5,7 @@ import Question from './Question/Question';
 import AnswerOption from './Question/AnswerOption/AnswerOption';
 import PropTypes from 'prop-types';
 import QuestionCount from './QuestionCount/QuestionCount';
+import Feedback from './Feedback/Feedback';
 
 function Quiz(props) {
     
@@ -31,7 +32,28 @@ function Quiz(props) {
         />
         );     
         }
-    
+    //
+        const renderFeedback = () => {
+            if (props.quizRedux.selectedItem) {
+            return (
+                <Feedback 
+                feedback={props.quizRedux.answerOptions}
+                isSelected={props.quizRedux.selectedItem}
+            />
+            )
+            } else return null;
+        }
+
+
+        // 
+        const nextQuestion = () => {
+            return (
+                <div>
+                    <button onClick={props.nextQuestion}>Следующий</button>
+                </div>
+            )
+
+        }
         
             return (
 
@@ -47,6 +69,10 @@ function Quiz(props) {
                     <ul className="Quiz-answerOptions">
                         {props.quizRedux.answerOptions.map(renderAnswerOptions)}
                     </ul>
+                    {renderFeedback()}
+                    {nextQuestion()}
+                   
+                    
                 </div>
               
             )
