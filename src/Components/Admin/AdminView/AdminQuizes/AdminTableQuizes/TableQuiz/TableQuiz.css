@@ -23,8 +23,11 @@
     border-bottom: 1px solid white;
     color: #669;
     border-top: 1px solid transparent;
-    padding: 8px;
+    padding: 0px;
   }
   .TableQuiz tr:hover td {
     background: #ccddff;
+  }
+  .TableQuiz button {
+    cursor: pointer
   }

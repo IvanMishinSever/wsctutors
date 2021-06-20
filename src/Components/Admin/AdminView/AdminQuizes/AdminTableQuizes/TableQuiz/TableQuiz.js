@@ -12,7 +12,7 @@ export default class TableQuiz extends React.Component {
             return(
                 <tr key={item.id}>
                     <td>{item.id}</td>
-                    <td>{item.label}</td>
+                    <td><button>{item.label}</button></td>
                 </tr>
                 )
             })
