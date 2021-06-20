@@ -38,6 +38,8 @@ handlerAdminView(id) {
 
 
     render() {
+      const { state, dispatch} = this.props;
+      
         return (
             
             <div className="Admin">
@@ -45,6 +47,10 @@ handlerAdminView(id) {
                     <AdminView 
                     viewUsers={this.state.adminUsersView} 
                     viewQuizers={this.state.adminQuizersView}
+
+
+                    adminState={this.props.adminState}
+                    dispatch={dispatch}
                     
                     />
                     

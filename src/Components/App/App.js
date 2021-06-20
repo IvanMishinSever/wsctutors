@@ -114,8 +114,14 @@ chooseQuizId(id) {
 
 // ADMIN COMPONENT
 renderAdmin() {
+ 
+  const { state, dispatch } = this.props;
+ // console.log(state.admin);
      return (
-      <Admin />
+      <Admin 
+      adminState={state.admin}
+      dispatch={dispatch}
+      />
         )
 }
 //SHOW ADMIN COMPONENT

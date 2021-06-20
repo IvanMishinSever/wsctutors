@@ -10,11 +10,18 @@ export default class AdminView extends React.Component {
 
 
     render() {
+        const { state, dispatch} = this.props;
+        
         return (
             
             <div className="AdminView">
                     <AdminUsers viewUsers={this.props.viewUsers} />
-                    <AdminQuizes viewQuizers={this.props.viewQuizers} />
+                    <AdminQuizes 
+                    viewQuizers={this.props.viewQuizers}
+                    
+                    adminState={this.props.adminState}
+                    dispatch={dispatch}
+                    />
                     
                     
 
