@@ -1,26 +1,27 @@
 
 import React from 'react';
-import './TableCategories.css';
-import { idSubCategoryLoad  } from '../../../../adminSlice.js';
+import './TableSubCategories.css';
+import { idQuizesLoad  } from '../../../../adminSlice.js';
 
-export default class TableCategories extends React.Component {
+export default class TableSubCategories extends React.Component {
     constructor(props) {
         super(props);
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
-        this.onGetSubCategory = this.onGetSubCategory.bind(this);
+       // this.onGetQuizes = this.onGetSQuizes.bind(this);
     }
 
    //GET SUBCATEGORY BY ID
-onGetSubCategory(e) {
+ /*  
+onGetQuizes(e) {
     const { state, dispatch } = this.props;
     //console.log(this.props.adminState.dataQuizes);
     const id= e.target.value ;
     
     console.log(id);
-    dispatch(idSubCategoryLoad(id));
+    dispatch(idQuizesLoad(id));
 }
-
+*/
 
    renderTable() {
     let  data =  this.props.data;
@@ -32,9 +33,9 @@ onGetSubCategory(e) {
                     <tr key={item.id}>
                         <td>{item.id}</td>
                         <td><button
-                         onClick={this.onGetSubCategory}
+                        
                          value={item.id}
-                         >{item.label}</button></td>
+                         >{item.text}</button></td>
                     </tr>
                     
                 
@@ -49,13 +50,13 @@ onGetSubCategory(e) {
       //  const data = this.props.data;
 
         return(
-            <div className="TableCategories">
+            <div className="TableSubCategories">
                 
                 <table>
                     <thead>
                         <tr>
-                            <th>номер категории</th>
-                            <th>название категории</th>
+                            <th>номер подкатегории</th>
+                            <th>название подкатегории</th>
                         </tr>
                         
                     </thead>

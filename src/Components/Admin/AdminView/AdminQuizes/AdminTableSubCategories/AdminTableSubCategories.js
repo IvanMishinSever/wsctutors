@@ -1,7 +1,7 @@
 import React from 'react';
-import './AdminTableCategories.css';
+import './AdminTableSubCategories.css';
 //import {printQuizesCategory} from "../../../../../utils/helps.js";
-import TableCategories from './TableCategories/TableCategories';
+import TableSubCategories from './TableSubCategories/TableSubCategories';
 import { idSubCategoryLoad  } from '../../../adminSlice';
 
 export default class AdminTableSubCategories extends React.Component {
@@ -9,10 +9,10 @@ export default class AdminTableSubCategories extends React.Component {
         super(props);
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
-        this.onGetSubCategory = this.onGetSubCategory.bind(this);
+     //   this.onGetQu = this.onGetSubCategory.bind(this);
     }
 
-
+/*
 //GET ALL CATEGORIES
 onGetSubCategory(id) {
     const { state, dispatch } = this.props;
@@ -21,7 +21,7 @@ onGetSubCategory(id) {
     dispatch(idSubCategoryLoad(id));
 }
 
-
+*/
     render() {
     
         return (
@@ -29,7 +29,7 @@ onGetSubCategory(id) {
             <div className="AdminTableCategories">
                    <h3>Список подкатегорий</h3>
 
-                   <TableCategories data={this.props.adminState.dataCategoryId}/>
+                   <TableSubCategories data={this.props.adminState.dataSubCategoryId}/>
                     
                     
 

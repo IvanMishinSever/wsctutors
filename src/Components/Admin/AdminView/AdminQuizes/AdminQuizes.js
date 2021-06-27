@@ -1,7 +1,7 @@
 import React from 'react';
 import './AdminQuizes.css';
 import AdminTableCategories from "./AdminTableCategories/AdminTableCategories";
-
+import AdminTableSubCategories from "./AdminTableSubCategories/AdminTableSubCategories";
 
 export default class AdminQuizes extends React.Component {
     render() {
@@ -12,11 +12,16 @@ export default class AdminQuizes extends React.Component {
             return (
             
                 <div className="AdminQuizes">
-                        <AdminTableCategories 
+                 <AdminTableCategories 
                         
                         adminState={this.props.adminState}
                         dispatch={dispatch}
-                        />
+                />
+                <AdminTableSubCategories 
+                        
+                        adminState={this.props.adminState}
+                        dispatch={dispatch}
+                />
                         {/*<AdminView />*/}
                         
                         
