@@ -1,6 +1,6 @@
 
 import React from 'react';
-import '../../../AdminQuizes/AdminTableQuizes/TableQuiz/TableQuiz';
+import '../../../AdminQuizes/AdminTableCategories/TableCategories/TableCategories';
 
 export default class TableUsers extends React.Component {
    
@@ -29,7 +29,7 @@ export default class TableUsers extends React.Component {
       //  const data = this.props.data;
 
         return(
-            <div className="TableQuiz">
+            <div className="TableCategories">
                 <table>
                     <thead>
                         <tr>

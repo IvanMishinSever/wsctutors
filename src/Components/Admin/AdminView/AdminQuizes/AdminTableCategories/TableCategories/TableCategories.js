@@ -1,8 +1,8 @@
 
 import React from 'react';
-import './TableQuiz.css';
+import './TableCategories.css';
 
-export default class TableQuiz extends React.Component {
+export default class TableCategories extends React.Component {
    
    renderTable() {
     let  data =  this.props.data;
@@ -24,7 +24,7 @@ export default class TableQuiz extends React.Component {
       //  const data = this.props.data;
 
         return(
-            <div className="TableQuiz">
+            <div className="TableCategories">
                 <table>
                     <thead>
                         <tr>

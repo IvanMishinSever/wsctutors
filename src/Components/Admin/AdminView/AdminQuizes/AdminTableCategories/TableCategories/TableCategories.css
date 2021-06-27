@@ -1,6 +1,6 @@
 
   
-  .TableQuiz th {
+  .TableCategories th {
     font-size: 13px;
     font-weight: 700;
     background: #b9c9fe;
@@ -16,7 +16,7 @@
     border-collapse: collapse;
   }
   */
-  .TableQuiz td {
+  .TableCategories td {
     font-size: 13px;
     font-weight: 500;
     background: #e8edff;
@@ -25,9 +25,9 @@
     border-top: 1px solid transparent;
     padding: 0px;
   }
-  .TableQuiz tr:hover td {
+  .TableCategories tr:hover td {
     background: #ccddff;
   }
-  .TableQuiz button {
+  .TableCategories button {
     cursor: pointer
   }
