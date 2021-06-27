@@ -29,13 +29,16 @@ onGetAllCategories() {
 }
 
 
+
+
     render() {
     /*
     // НЕ ПОНЯТНО ЗАЧЕМ ISFETCHING  
     const  {dataTable, isFetching, error} = this.state;  
     if (isFetching) return <div>...Loading</div>;
     if (error) return <div>{`Error: ${error}`}</div>;
-*/
+*/ 
+    const { state, dispatch} = this.props;
         return (
             
             <div className="AdminTableCategories">
@@ -44,7 +47,10 @@ onGetAllCategories() {
                    <div id="all-quizes-container">
                     
                    </div>
-                   <TableCategories data={this.props.adminState.dataQuizes}/>
+                   <TableCategories 
+                   dispatch={dispatch}
+                   data={this.props.adminState.dataQuizes}
+                   />
                     
                     
 

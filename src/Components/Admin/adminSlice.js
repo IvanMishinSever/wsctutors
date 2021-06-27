@@ -33,9 +33,9 @@ export const allCategoriesLoad = createAsyncThunk(
     }
 );
 //GET SUBCATEGORY
-export const idCategoryLoad = createAsyncThunk(
-    "admin/allCategoriesLoad", async(id) => {
-        const url = "http://localhost:4001/api/category/";
+export const idSubCategoryLoad = createAsyncThunk(
+    "admin/idSubCategoriesLoad", async(id) => {
+        const url = "http://localhost:4001/api/subcategory/";
         const urlToFetch = `${url}${id}`;
         const response = await fetch(urlToFetch);
         console.log(response);
@@ -66,7 +66,7 @@ const options = {
         isFetching: true,
         error: null,
         dataCategories:[],
-        dataCategoryId:[]
+        dataSubCategoryId:[]
     },
     reducers: {
 
@@ -103,6 +103,21 @@ const options = {
             console.log("oh wrong!!!");
         },
         //
+        //GET ALL CATEGORIES
+        [idSubCategoryLoad.pending]: (state, action) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        [idSubCategoryLoad.fulfilled]: (state, action) => {
+            state.dataSubCategoryId = action.payload;
+            state.isFetching = true;
+            state.error= false;
+        },
+        [idSubCategoryLoad.rejected]: (state, action) => {
+            state.isFetching = false;
+            state.error = action.payload;
+            console.log("oh wrong!!!");
+        },
     }
 
 };
