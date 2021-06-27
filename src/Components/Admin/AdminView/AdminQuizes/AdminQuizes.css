@@ -1,3 +1,4 @@
 .AdminQuizes {
     background-color: rgba(240, 21, 21, 0.178);
+    display: flex;
 }

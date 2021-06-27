@@ -48,7 +48,22 @@ export const idSubCategoryLoad = createAsyncThunk(
         return dataCategoryId;
     }
 );
-
+//GET QUIZ
+export const idQuizLoad = createAsyncThunk(
+    "admin/idQuizLoad", async(id) => {
+        const url = "http://localhost:4001/api/quiz/";
+        const urlToFetch = `${url}${id}`;
+        const response = await fetch(urlToFetch);
+        console.log(response);
+        let dataQuizId = [];
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            dataQuizId = jsonResponse;
+            console.log(jsonResponse);
+        }
+        return dataQuizId;
+    }
+);
 
 
 
@@ -66,7 +81,8 @@ const options = {
         isFetching: true,
         error: null,
         dataCategories:[],
-        dataSubCategoryId:[]
+        dataSubCategoryId:[],
+        dataQuizesId: [],
     },
     reducers: {
 
