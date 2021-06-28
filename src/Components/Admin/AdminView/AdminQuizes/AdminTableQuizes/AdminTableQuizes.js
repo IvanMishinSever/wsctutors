@@ -1,10 +1,10 @@
 import React from 'react';
-import './AdminTableSubCategories.css';
+import './AdminTableQuizes.css';
 //import {printQuizesCategory} from "../../../../../utils/helps.js";
-import TableSubCategories from './TableSubCategories/TableSubCategories';
-import { idSubCategoryLoad  } from '../../../adminSlice';
+import TableQuizes from './TableQuizes/TableQuizes';
+//import { idSubCategoryLoad  } from '../../../adminSlice';
 
-export default class AdminTableSubCategories extends React.Component {
+export default class AdminTableQuizes extends React.Component {
     constructor(props) {
         super(props);
 
@@ -23,17 +23,13 @@ onGetSubCategory(id) {
 
 */
     render() {
-        const { state, dispatch} = this.props;
+    
         return (
             
-            <div className="AdminTableCategories">
-                   <h3>Список подкатегорий</h3>
+            <div className="AdminTableQuizes">
+                   <h3>Список тестов</h3>
 
-                   <TableSubCategories 
-                   dispatch={dispatch}
-                   data={this.props.adminState.dataSubCategoryId}
-                   
-                   />
+                   <TableQuizes data={this.props.adminState.dataQuizesId}/>
                     
                     
 

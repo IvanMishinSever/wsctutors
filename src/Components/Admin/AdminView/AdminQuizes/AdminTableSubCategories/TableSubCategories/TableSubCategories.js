@@ -1,27 +1,28 @@
 
 import React from 'react';
 import './TableSubCategories.css';
-import { idQuizesLoad  } from '../../../../adminSlice.js';
+import { idQuizLoad  } from '../../../../adminSlice.js';
 
 export default class TableSubCategories extends React.Component {
     constructor(props) {
         super(props);
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
-       // this.onGetQuizes = this.onGetSQuizes.bind(this);
+       this.onGetQuizes = this.onGetQuizes.bind(this);
     }
 
-   //GET SUBCATEGORY BY ID
- /*  
+   //GET QUIZES BY ID
+  
 onGetQuizes(e) {
     const { state, dispatch } = this.props;
+    console.log("RRRRRRRRRRRR");
     //console.log(this.props.adminState.dataQuizes);
     const id= e.target.value ;
     
     console.log(id);
-    dispatch(idQuizesLoad(id));
+    dispatch(idQuizLoad(id));
 }
-*/
+
 
    renderTable() {
     let  data =  this.props.data;
@@ -33,7 +34,7 @@ onGetQuizes(e) {
                     <tr key={item.id}>
                         <td>{item.id}</td>
                         <td><button
-                        
+                        onClick={this.onGetQuizes}
                          value={item.id}
                          >{item.text}</button></td>
                     </tr>

@@ -1,14 +1,14 @@
 
 import React from 'react';
 import './TableQuizes.css';
-import { idQuizesLoad  } from '../../../../adminSlice.js';
+//import { idQuizLoad  } from '../../../../adminSlice.js';
 
 export default class TableQuizes extends React.Component {
     constructor(props) {
         super(props);
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
-       // this.onGetQuizes = this.onGetSQuizes.bind(this);
+       // this.onGetQuizes = this.onGetQuizes.bind(this);
     }
 
    //GET SUBCATEGORY BY ID

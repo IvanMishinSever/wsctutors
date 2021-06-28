@@ -51,7 +51,7 @@ export const idSubCategoryLoad = createAsyncThunk(
 //GET QUIZ
 export const idQuizLoad = createAsyncThunk(
     "admin/idQuizLoad", async(id) => {
-        const url = "http://localhost:4001/api/quiz/";
+        const url = "http://localhost:4001/api/quizes/";
         const urlToFetch = `${url}${id}`;
         const response = await fetch(urlToFetch);
         console.log(response);
@@ -119,7 +119,7 @@ const options = {
             console.log("oh wrong!!!");
         },
         //
-        //GET ALL CATEGORIES
+        //GET ID SUBCATEGORIES
         [idSubCategoryLoad.pending]: (state, action) => {
             state.isFetching = true;
             state.error = false;
@@ -128,8 +128,24 @@ const options = {
             state.dataSubCategoryId = action.payload;
             state.isFetching = true;
             state.error= false;
+            state.dataQuizesId = [];
         },
         [idSubCategoryLoad.rejected]: (state, action) => {
+            state.isFetching = false;
+            state.error = action.payload;
+            console.log("oh wrong!!!");
+        },
+         //GET ID QUIZES
+         [idQuizLoad.pending]: (state, action) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        [idQuizLoad.fulfilled]: (state, action) => {
+            state.dataQuizesId = action.payload;
+            state.isFetching = true;
+            state.error= false;
+        },
+        [idQuizLoad.rejected]: (state, action) => {
             state.isFetching = false;
             state.error = action.payload;
             console.log("oh wrong!!!");
