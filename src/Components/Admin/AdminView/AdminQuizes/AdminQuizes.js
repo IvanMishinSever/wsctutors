@@ -3,7 +3,7 @@ import './AdminQuizes.css';
 import AdminTableCategories from "./AdminTableCategories/AdminTableCategories";
 import AdminTableSubCategories from "./AdminTableSubCategories/AdminTableSubCategories";
 import AdminTableQuizes from "./AdminTableQuizes/AdminTableQuizes";
-
+import AdminTableQuestions from "./AdminTableQuestions/AdminTableQuestions";
 
 export default class AdminQuizes extends React.Component {
     render() {
@@ -29,7 +29,12 @@ export default class AdminQuizes extends React.Component {
                         
                         adminState={this.props.adminState}
                         dispatch={dispatch}
-                />       
+                /> 
+                <AdminTableQuestions
+                        
+                        adminState={this.props.adminState}
+                        dispatch={dispatch}
+                />      
                         
     
     

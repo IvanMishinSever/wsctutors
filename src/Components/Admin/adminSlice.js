@@ -32,7 +32,7 @@ export const allCategoriesLoad = createAsyncThunk(
         return dataCategories;
     }
 );
-//GET SUBCATEGORY
+//GET ID SUBCATEGORY
 export const idSubCategoryLoad = createAsyncThunk(
     "admin/idSubCategoriesLoad", async(id) => {
         const url = "http://localhost:4001/api/subcategory/";
@@ -48,7 +48,7 @@ export const idSubCategoryLoad = createAsyncThunk(
         return dataCategoryId;
     }
 );
-//GET QUIZ
+//GET ID QUIZ
 export const idQuizLoad = createAsyncThunk(
     "admin/idQuizLoad", async(id) => {
         const url = "http://localhost:4001/api/quizes/";
@@ -65,6 +65,22 @@ export const idQuizLoad = createAsyncThunk(
     }
 );
 
+//GET ID QUESTIONS
+export const idQuestionsLoad = createAsyncThunk(
+    "admin/idQuestionsLoad", async(id) => {
+        const url = "http://localhost:4001/api/question/";
+        const urlToFetch = `${url}${id}`;
+        const response = await fetch(urlToFetch);
+        console.log(response);
+        let dataQuestionsId = [];
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            dataQuestionsId = jsonResponse;
+            console.log(jsonResponse);
+        }
+        return dataQuestionsId;
+    }
+);
 
 
 
@@ -83,6 +99,7 @@ const options = {
         dataCategories:[],
         dataSubCategoryId:[],
         dataQuizesId: [],
+        dataQuestionsId: [],
     },
     reducers: {
 
@@ -144,8 +161,24 @@ const options = {
             state.dataQuizesId = action.payload;
             state.isFetching = true;
             state.error= false;
+            state.dataQuestionsId = [];
         },
         [idQuizLoad.rejected]: (state, action) => {
+            state.isFetching = false;
+            state.error = action.payload;
+            console.log("oh wrong!!!");
+        },
+         //GET ID QUESTIONS
+         [idQuestionsLoad.pending]: (state, action) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        [idQuestionsLoad.fulfilled]: (state, action) => {
+            state.dataQuestionsId = action.payload;
+            state.isFetching = true;
+            state.error= false;
+        },
+        [idQuestionsLoad.rejected]: (state, action) => {
             state.isFetching = false;
             state.error = action.payload;
             console.log("oh wrong!!!");

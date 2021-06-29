@@ -23,13 +23,16 @@ onGetSubCategory(id) {
 
 */
     render() {
-    
+        const { state, dispatch} = this.props;
         return (
             
             <div className="AdminTableQuizes">
                    <h3>Список тестов</h3>
 
-                   <TableQuizes data={this.props.adminState.dataQuizesId}/>
+                   <TableQuizes 
+                   dispatch={dispatch}
+                   data={this.props.adminState.dataQuizesId}
+                   />
                     
                     
 

@@ -1,27 +1,27 @@
 
 import React from 'react';
-import './TableQuizes.css';
-import { idQuestionsLoad  } from '../../../../adminSlice.js';
+import './TableQuestions.css';
+//import { idQuizLoad  } from '../../../../adminSlice.js';
 
-export default class TableQuizes extends React.Component {
+export default class TableQuestions extends React.Component {
     constructor(props) {
         super(props);
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
-        this.onGetQuestions = this.onGetQuestions.bind(this);
+       // this.onGetQuizes = this.onGetQuizes.bind(this);
     }
 
    //GET SUBCATEGORY BY ID
- 
-onGetQuestions(e) {
+ /*  
+onGetQuizes(e) {
     const { state, dispatch } = this.props;
     //console.log(this.props.adminState.dataQuizes);
     const id= e.target.value ;
     
     console.log(id);
-    dispatch(idQuestionsLoad(id));
+    dispatch(idQuizesLoad(id));
 }
-
+*/
 
    renderTable() {
     let  data =  this.props.data;
@@ -33,7 +33,7 @@ onGetQuestions(e) {
                     <tr key={item.id}>
                         <td>{item.id}</td>
                         <td><button
-                        onClick={this.onGetQuestions}
+                        
                          value={item.id}
                          >{item.text}</button></td>
                     </tr>
@@ -50,13 +50,13 @@ onGetQuestions(e) {
       //  const data = this.props.data;
 
         return(
-            <div className="TableQuizes">
+            <div className="TableQuestions">
                 
                 <table>
                     <thead>
                         <tr>
-                            <th>номер теста</th>
-                            <th>название теста</th>
+                            <th>номер вопроса</th>
+                            <th>название вопроса</th>
                         </tr>
                         
                     </thead>

@@ -15,7 +15,7 @@ export default class TableSubCategories extends React.Component {
   
 onGetQuizes(e) {
     const { state, dispatch } = this.props;
-    console.log("RRRRRRRRRRRR");
+    //console.log("RRRRRRRRRRRR");
     //console.log(this.props.adminState.dataQuizes);
     const id= e.target.value ;
     
@@ -35,8 +35,8 @@ onGetQuizes(e) {
                         <td>{item.id}</td>
                         <td><button
                         onClick={this.onGetQuizes}
-                         value={item.id}
-                         >{item.text}</button></td>
+                        value={item.id}
+                         >{item.text}  ({data.length})</button></td>
                     </tr>
                     
                 
