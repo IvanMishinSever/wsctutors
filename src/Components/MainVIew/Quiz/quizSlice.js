@@ -27,8 +27,8 @@ export const quizLoad = createAsyncThunk(
                 jsonResponseQuestion.map(element => {
                   element.answers = []; 
                   element.question = {};
-                  element.question.text = element.question_text;
-                  delete element.question_text;
+                  element.question.text = element.text;
+                  delete element.text;
                   data.push(element);
                  // element.answers = [];
       

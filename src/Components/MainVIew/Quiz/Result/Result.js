@@ -25,7 +25,7 @@ function Result(props) {
                 <strong>
                 {Math.floor((props.trueAnswer/props.questionTotal)*100)}%
                 </strong>
-                <button onClick = {onClickEnd}>Закончить</button>
+                <button onClick = {onClickEnd}>Завершить</button>
                 <button onClick = {onClickRepeat}>Повторить</button>
         </div>
     )
