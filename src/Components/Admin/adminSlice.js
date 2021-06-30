@@ -81,6 +81,22 @@ export const idQuestionsLoad = createAsyncThunk(
         return dataQuestionsId;
     }
 );
+//GET ID ANSWERS
+export const idAnswersLoad = createAsyncThunk(
+    "admin/idAnswersLoad", async(id) => {
+        const url = "http://localhost:4001/api/answerforquestion/";
+        const urlToFetch = `${url}${id}`;
+        const response = await fetch(urlToFetch);
+        console.log(response);
+        let dataAnswersId = [];
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            dataAnswersId = jsonResponse;
+            console.log(jsonResponse);
+        }
+        return dataAnswersId;
+    }
+);
 
 
 
@@ -100,6 +116,7 @@ const options = {
         dataSubCategoryId:[],
         dataQuizesId: [],
         dataQuestionsId: [],
+        dataAnswersId: [],
     },
     reducers: {
 
@@ -146,6 +163,8 @@ const options = {
             state.isFetching = true;
             state.error= false;
             state.dataQuizesId = [];
+            state.dataAnswersId = [];
+            state.dataQuestionsId = [];
         },
         [idSubCategoryLoad.rejected]: (state, action) => {
             state.isFetching = false;
@@ -162,13 +181,14 @@ const options = {
             state.isFetching = true;
             state.error= false;
             state.dataQuestionsId = [];
+            state.dataAnswersId = [];
         },
         [idQuizLoad.rejected]: (state, action) => {
             state.isFetching = false;
             state.error = action.payload;
             console.log("oh wrong!!!");
         },
-         //GET ID QUESTIONS
+       /*  //GET ID QUESTIONS
          [idQuestionsLoad.pending]: (state, action) => {
             state.isFetching = true;
             state.error = false;
@@ -177,12 +197,45 @@ const options = {
             state.dataQuestionsId = action.payload;
             state.isFetching = true;
             state.error= false;
+            state.dataAnswersId = [];
+        },
+        [idQuestionsLoad.rejected]: (state, action) => {
+            state.isFetching = false;
+            state.error = action.payload;
+            console.log("oh wrong!!!");
+        },*/
+                //GET ID QUESTIONS
+         [idQuestionsLoad.pending]: (state, action) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        [idQuestionsLoad.fulfilled]: (state, action) => {
+            state.dataQuestionsId = action.payload;
+            state.isFetching = true;
+            state.error= false;
+            state.dataAnswersId = [];
         },
         [idQuestionsLoad.rejected]: (state, action) => {
             state.isFetching = false;
             state.error = action.payload;
             console.log("oh wrong!!!");
         },
+                        //GET ID ANSWERS
+                        [idAnswersLoad.pending]: (state, action) => {
+                            state.isFetching = true;
+                            state.error = false;
+                        },
+                        [idAnswersLoad.fulfilled]: (state, action) => {
+                            state.dataAnswersId = action.payload;
+                            state.isFetching = true;
+                            state.error= false;
+                        },
+                        [idAnswersLoad.rejected]: (state, action) => {
+                            state.isFetching = false;
+                            state.error = action.payload;
+                            console.log("oh wrong!!!");
+                        },
+                        
     }
 
 };
