@@ -17,7 +17,7 @@
   }
   */
   .TableQuestions td {
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 500;
     background: #e8edff;
     border-bottom: 1px solid white;
@@ -29,5 +29,12 @@
     background: #ccddff;
   }
   .TableQuestions button {
-    cursor: pointer
+    cursor: pointer;
+    font-size: 12px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  .TableQuestions .btn {
+    width: 50px;
   }

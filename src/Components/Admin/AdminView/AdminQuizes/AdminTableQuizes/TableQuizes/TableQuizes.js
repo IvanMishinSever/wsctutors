@@ -35,7 +35,10 @@ onGetQuestions(e) {
                         <td><button
                         onClick={this.onGetQuestions}
                          value={item.id}
-                         >{item.text}</button></td>
+                         >{item.text}</button>
+                         <button className='btn'><i class="fas fa-marker"></i></button>
+                         <button className='btn'><i class="fas fa-eraser"></i></button>
+                         </td>
                     </tr>
                     
                 

@@ -29,5 +29,12 @@
     background: #ccddff;
   }
   .TableSubCategories button {
-    cursor: pointer
+    cursor: pointer;
+    font-size: 12px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  .TableSubCategories .btn {
+    width: 50px;
   }

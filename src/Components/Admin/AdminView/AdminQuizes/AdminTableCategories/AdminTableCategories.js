@@ -44,6 +44,7 @@ onGetAllCategories() {
             <div className="AdminTableCategories">
                    <h3>Список категорий</h3>
                    <button onClick={this.onGetAllCategories}>Обновить категории</button>
+                   
                    <div id="all-quizes-container">
                     
                    </div>
@@ -51,6 +52,8 @@ onGetAllCategories() {
                    dispatch={dispatch}
                    data={this.props.adminState.dataQuizes}
                    />
+
+                <button className='btn'><i class="fas fa-plus"></i></button>
                     
                     
 

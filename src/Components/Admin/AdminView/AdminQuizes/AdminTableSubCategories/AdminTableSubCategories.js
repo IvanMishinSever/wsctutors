@@ -34,7 +34,7 @@ onGetSubCategory(id) {
                    data={this.props.adminState.dataSubCategoryId}
                    
                    />
-                    
+                   <button className='btn'><i class="fas fa-plus"></i></button> 
                     
 
 

@@ -36,7 +36,11 @@ onGetQuizes(e) {
                         <td><button
                         onClick={this.onGetQuizes}
                         value={item.id}
-                         >{item.text}  ({data.length})</button></td>
+                         >{item.text}  ({data.length})</button>
+                         <button className='btn'><i class="fas fa-marker"></i></button>
+                         <button className='btn'><i class="fas fa-eraser"></i></button>
+                         
+                         </td>
                     </tr>
                     
                 
