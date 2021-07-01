@@ -37,7 +37,7 @@ onGetQuestions(e) {
                          value={item.id}
                          >{item.text}</button>
                          <button className='btn'><i class="fas fa-marker"></i></button>
-                         <button className='btn'><i class="fas fa-eraser"></i></button>
+                         <button className='btn'><i class="fas fa-trash-alt"></i></button>
                          </td>
                     </tr>
                     
