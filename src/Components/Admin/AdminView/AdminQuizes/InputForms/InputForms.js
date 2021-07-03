@@ -2,7 +2,7 @@ import React from 'react';
 import './InputForms.css';
 //import { idQuestionsLoad  } from '../../../../adminSlice.js';
 
-export default class TableQuizes extends React.Component {
+export default class InputForms extends React.Component {
     constructor(props) {
         super(props);
 
@@ -25,9 +25,8 @@ onGetQuestions(e) {
    }
    
     render() {
-
-     
-
+        //console.log(this.props.adminState.openInputForms);
+     if (this.props.adminState.openInputForms) {
         return(
             <div className="InputForms">
              <p>Номер элемента</p>
@@ -36,9 +35,14 @@ onGetQuestions(e) {
              <form>
                  <input type="text"></input>
              </form>
-             <button><i class="fas fa-check">OK</i></button>
-             <button><i class="fas fa-window-close">Закрыть</i></button>
+             <button><i className="fas fa-check">OK</i></button>
+             <button><i className="fas fa-window-close">Закрыть</i></button>
             </div>
         )
+     } else return null;
+       
+     
+
+        
     }
 }

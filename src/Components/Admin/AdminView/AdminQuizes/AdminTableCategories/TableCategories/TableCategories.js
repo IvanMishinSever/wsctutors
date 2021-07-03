@@ -35,7 +35,7 @@ onGetSubCategory(e) {
                          onClick={this.onGetSubCategory}
                          value={item.id}
                          >{item.label}</button>
-                         <button className='btn'><i class="fas fa-marker"></i></button>
+                         <button className='btn'><i className="fas fa-marker"></i></button>
                          
 
                          

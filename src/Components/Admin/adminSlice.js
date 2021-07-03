@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+
 // GET ALL QUIZES
 export const allQizesLoad = createAsyncThunk(
     "admin/allAdminLoad", async() => {
@@ -117,9 +118,12 @@ const options = {
         dataQuizesId: [],
         dataQuestionsId: [],
         dataAnswersId: [],
+        openInputForms: false,
     },
     reducers: {
-
+        openInputForms: (state, action) => {
+            state.openInputForms = true;
+        }
     },
     extraReducers: {
         //GET ALL QUIZES
@@ -241,4 +245,5 @@ const options = {
 };
 
 export const adminSlice = createSlice(options);
+export const { openInputForms } = adminSlice.actions;
 export default adminSlice.reducer;

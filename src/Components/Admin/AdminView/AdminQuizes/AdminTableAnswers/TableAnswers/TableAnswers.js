@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './TableAnswers.css';
-//import { idQuizLoad  } from '../../../../adminSlice.js';
+import { openInputForms  } from '../../../../adminSlice';
 
 export default class TableAnswers extends React.Component {
     constructor(props) {
@@ -9,6 +9,7 @@ export default class TableAnswers extends React.Component {
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
        // this.onGetQuizes = this.onGetQuizes.bind(this);
+       this.onEdit = this.onEdit.bind(this);
     }
 
    //GET SUBCATEGORY BY ID
@@ -22,6 +23,11 @@ onGetQuizes(e) {
     dispatch(idQuizesLoad(id));
 }
 */
+onEdit() {
+    const { state, dispatch } = this.props;
+    dispatch(openInputForms());
+
+}
 
    renderTable() {
     let  data =  this.props.data;
@@ -36,8 +42,8 @@ onGetQuizes(e) {
                         
                          value={item.id}
                          >{item.text}</button>
-                         <button className='btn'><i class="fas fa-marker"></i></button>
-                         <button className='btn'><i class="fas fa-trash-alt"></i></button>
+                         <button className='btn'onClick={this.onEdit}><i className="fas fa-marker"></i></button>
+                         <button className='btn'><i className="fas fa-trash-alt"></i></button>
                          </td>
                     </tr>
                     

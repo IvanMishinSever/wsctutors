@@ -36,8 +36,8 @@ onGetAnswers(e) {
                         onClick={this.onGetAnswers}
                          value={item.id}
                          >{item.text}</button>
-                         <button className='btn'><i class="fas fa-marker"></i></button>
-                         <button className='btn'><i class="fas fa-trash-alt"></i></button>
+                         <button className='btn'><i className="fas fa-marker"></i></button>
+                         <button className='btn'><i className="fas fa-trash-alt"></i></button>
                          </td>
                     </tr>
                     

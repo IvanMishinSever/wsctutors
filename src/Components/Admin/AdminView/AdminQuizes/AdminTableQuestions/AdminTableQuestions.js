@@ -33,7 +33,7 @@ onGetSubCategory(id) {
                    dispatch={dispatch}
                    data={this.props.adminState.dataQuestionsId}
                    />
-                    <button className='btn'><i class="fas fa-plus"></i></button>
+                    <button className='btn'><i className="fas fa-plus"></i></button>
                     
 
 

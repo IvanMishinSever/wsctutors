@@ -53,7 +53,7 @@ onGetAllCategories() {
                    data={this.props.adminState.dataCategories}
                    />
 
-                <button className='btn'><i class="fas fa-plus"></i></button>
+                <button className='btn'><i className="fas fa-plus"></i></button>
                     
                     
 
