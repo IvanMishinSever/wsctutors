@@ -143,7 +143,7 @@ const options = {
             state.error = false;
         },
         [allCategoriesLoad.fulfilled]: (state, action) => {
-            state.dataQuizes = action.payload;
+            state.dataCategories = action.payload;
             state.isFetching = true;
             state.error= false;
         },
