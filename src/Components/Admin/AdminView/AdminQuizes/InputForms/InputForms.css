@@ -1,0 +1,24 @@
+.InputForms {
+    background-color: white;
+    border: 1px solid black;
+    width: 500px;
+    height: 300px;
+    z-index: 10;
+    position: absolute;
+    left: 300px;
+    top: 300px;
+}
+
+.InputForms button {
+    cursor: pointer;
+    font-size: 12px;
+    height: 50px;;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(128, 255, 0, 0.411);
+    width: 100px;
+  }
+  .InputForms input {
+      width: 300px;
+      height: 50px;
+  }
