@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './TableAnswers.css';
-import { openInputForms  } from '../../../../adminSlice';
+import { openInputForms } from '../../../../adminSlice';
 
 export default class TableAnswers extends React.Component {
     constructor(props) {
@@ -10,6 +10,7 @@ export default class TableAnswers extends React.Component {
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
        // this.onGetQuizes = this.onGetQuizes.bind(this);
        this.onEdit = this.onEdit.bind(this);
+       
     }
 
    //GET SUBCATEGORY BY ID
@@ -28,6 +29,7 @@ onEdit() {
     dispatch(openInputForms());
 
 }
+
 
    renderTable() {
     let  data =  this.props.data;

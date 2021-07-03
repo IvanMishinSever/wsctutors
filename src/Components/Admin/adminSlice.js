@@ -123,7 +123,11 @@ const options = {
     reducers: {
         openInputForms: (state, action) => {
             state.openInputForms = true;
-        }
+        },
+        closeInputForms: (state, action) => {
+            state.openInputForms = false;
+        },
+
     },
     extraReducers: {
         //GET ALL QUIZES
@@ -245,5 +249,5 @@ const options = {
 };
 
 export const adminSlice = createSlice(options);
-export const { openInputForms } = adminSlice.actions;
+export const { openInputForms, closeInputForms } = adminSlice.actions;
 export default adminSlice.reducer;
