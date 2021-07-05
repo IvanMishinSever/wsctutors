@@ -1,6 +1,6 @@
 import React from 'react';
 import './InputForms.css';
-import { closeInputForms } from '../../../adminSlice';
+import { closeInputForms, sendInputForms } from '../../../adminSlice';
 
 export default class InputForms extends React.Component {
     constructor(props) {
@@ -8,12 +8,20 @@ export default class InputForms extends React.Component {
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
        // this.onGetQuestions = this.onGetQuestions.bind(this);
+       this.onSend = this.onSend.bind(this);
        this.onClose = this.onClose.bind(this);
     }
 
    //GET SUBCATEGORY BY ID
  
-
+onSend() {
+        const { state, dispatch } = this.props;
+        const item = {
+            answer_id: 1,
+            answer_content: "4200"
+        }
+        dispatch(sendInputForms(item));  
+}
 onClose() {
     const { state, dispatch } = this.props;
     dispatch(closeInputForms());
@@ -36,7 +44,7 @@ onClose() {
              <form>
                  <input type="text"></input>
              </form>
-             <button><i className="fas fa-check">OK</i></button>
+             <button onClick={this.onSend}><i className="fas fa-check">OK</i></button>
              <button onClick={this.onClose}><i className="fas fa-window-close">Закрыть</i></button>
             </div>
         )

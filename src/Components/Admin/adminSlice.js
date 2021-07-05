@@ -98,7 +98,39 @@ export const idAnswersLoad = createAsyncThunk(
         return dataAnswersId;
     }
 );
+//UPDATE ID ANSWERS
 
+export const sendInputForms = createAsyncThunk(
+    "admin/idAnswersUpdate", async(item) => {
+        console.log(item);
+        const url = "http://localhost:4001/api/answerupdate/";
+        const urlToFetch = `${url}${item.answer_id}`;
+        const response = await fetch(urlToFetch, {
+            method: 'PUT',
+            headers: {"Content-Type": "application/json; charset=utf-8"},
+            body: JSON.stringify({
+                answer_id: item.answer_id,
+                answer_content: item.answer_content
+            })
+        });
+        
+       // console.log(response);
+        if (response.ok) {
+            const user = await response.json();
+            console.log('Успех:', JSON.stringify(user));
+            console.log(response);
+        } else {console.log(response);}
+
+       /* let dataAnswersId = [];
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            dataAnswersId = jsonResponse;
+            console.log(jsonResponse);
+        }
+        return dataAnswersId;
+        */
+    }
+);
 
 
 
