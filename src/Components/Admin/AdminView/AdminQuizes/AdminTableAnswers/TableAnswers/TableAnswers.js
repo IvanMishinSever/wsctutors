@@ -24,9 +24,12 @@ onGetQuizes(e) {
     dispatch(idQuizesLoad(id));
 }
 */
-onEdit() {
+onEdit(e) {
     const { state, dispatch } = this.props;
-    dispatch(openInputForms());
+
+    const id = e.target.value;
+    console.log(id);
+    dispatch(openInputForms(id));
 
 }
 
@@ -40,12 +43,9 @@ onEdit() {
                 
                     <tr key={item.id}>
                         <td>{item.id}</td>
-                        <td><button
-                        
-                         value={item.id}
-                         >{item.text}</button>
-                         <button className='btn'onClick={this.onEdit}><i className="fas fa-marker"></i></button>
-                         <button className='btn'><i className="fas fa-trash-alt"></i></button>
+                        <td><button onClick={this.onEdit} value={item.id}>{item.text}</button>
+                         <button className='btn'  value={item.id} onClick={this.onEdit} ><i className="fas fa-marker"></i>Edit</button>
+                         <button className='btn' ><i className="fas fa-trash-alt"></i>Delete</button>
                          </td>
                     </tr>
                     

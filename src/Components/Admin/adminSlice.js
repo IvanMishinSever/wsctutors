@@ -145,10 +145,13 @@ const options = {
         dataAnswersId: [],
         openInputForms: false,
         dataAnswersId_1: [],
+        selectedId: null,
     },
     reducers: {
         openInputForms: (state, action) => {
             state.openInputForms = true;
+            console.log(action.payload);
+            state.selectedId = action.payload;
         },
         closeInputForms: (state, action) => {
             state.openInputForms = false;

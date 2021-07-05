@@ -6,7 +6,8 @@ export default class InputForms extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            userInput: ''
+            userInput: '',
+            //selectedId: null
         }
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
        // this.onGetQuestions = this.bind(this);
@@ -21,7 +22,7 @@ onSend() {
         const { state, dispatch } = this.props;
 
         const item = {
-            answer_id: 1,
+            answer_id: this.props.adminState.selectedId,
             answer_content: this.state.userInput
         }
         dispatch(idAnswersUpdate(item));  
