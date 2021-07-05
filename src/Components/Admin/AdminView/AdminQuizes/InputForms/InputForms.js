@@ -1,27 +1,42 @@
 import React from 'react';
 import './InputForms.css';
-import { closeInputForms, sendInputForms } from '../../../adminSlice';
+import { closeInputForms, idAnswersUpdate } from '../../../adminSlice';
 
 export default class InputForms extends React.Component {
     constructor(props) {
         super(props);
-
+        this.state={
+            userInput: ''
+        }
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
-       // this.onGetQuestions = this.onGetQuestions.bind(this);
+       // this.onGetQuestions = this.bind(this);
+       this.handleUserInput = this.handleUserInput.bind(this);
        this.onSend = this.onSend.bind(this);
        this.onClose = this.onClose.bind(this);
     }
 
-   //GET SUBCATEGORY BY ID
- 
+  
+ // CLICK OK
 onSend() {
         const { state, dispatch } = this.props;
+
         const item = {
             answer_id: 1,
-            answer_content: "4200"
+            answer_content: this.state.userInput
         }
-        dispatch(sendInputForms(item));  
+        dispatch(idAnswersUpdate(item));  
 }
+// ENTER INPUT
+handleUserInput(e) {
+    this.setState(
+        {
+            userInput: e.target.value
+        }
+    )
+    
+}
+
+// CLOSE FORM
 onClose() {
     const { state, dispatch } = this.props;
     dispatch(closeInputForms());
@@ -42,7 +57,7 @@ onClose() {
              <p>Cодержание:</p>
              <p>Заменить содержание:</p>
              <form>
-                 <input type="text"></input>
+                 <input type="text"  onChange={this.handleUserInput}></input>
              </form>
              <button onClick={this.onSend}><i className="fas fa-check">OK</i></button>
              <button onClick={this.onClose}><i className="fas fa-window-close">Закрыть</i></button>

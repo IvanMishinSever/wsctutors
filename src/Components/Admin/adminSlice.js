@@ -100,7 +100,7 @@ export const idAnswersLoad = createAsyncThunk(
 );
 //UPDATE ID ANSWERS
 
-export const sendInputForms = createAsyncThunk(
+export const idAnswersUpdate = createAsyncThunk(
     "admin/idAnswersUpdate", async(item) => {
         console.log(item);
         const url = "http://localhost:4001/api/answerupdate/";
@@ -114,21 +114,14 @@ export const sendInputForms = createAsyncThunk(
             })
         });
         
-       // console.log(response);
-        if (response.ok) {
-            const user = await response.json();
-            console.log('Успех:', JSON.stringify(user));
-            console.log(response);
+         if (response.ok) {
+            const answer = await response.json();
+           
+            console.log('Успех:', JSON.stringify(answer));
+            console.log(answer[0]);
+           return answer[0];
         } else {console.log(response);}
 
-       /* let dataAnswersId = [];
-        if (response.ok) {
-            const jsonResponse = await response.json();
-            dataAnswersId = jsonResponse;
-            console.log(jsonResponse);
-        }
-        return dataAnswersId;
-        */
     }
 );
 
@@ -151,6 +144,7 @@ const options = {
         dataQuestionsId: [],
         dataAnswersId: [],
         openInputForms: false,
+        dataAnswersId_1: [],
     },
     reducers: {
         openInputForms: (state, action) => {
@@ -228,22 +222,6 @@ const options = {
             state.error = action.payload;
             console.log("oh wrong!!!");
         },
-       /*  //GET ID QUESTIONS
-         [idQuestionsLoad.pending]: (state, action) => {
-            state.isFetching = true;
-            state.error = false;
-        },
-        [idQuestionsLoad.fulfilled]: (state, action) => {
-            state.dataQuestionsId = action.payload;
-            state.isFetching = true;
-            state.error= false;
-            state.dataAnswersId = [];
-        },
-        [idQuestionsLoad.rejected]: (state, action) => {
-            state.isFetching = false;
-            state.error = action.payload;
-            console.log("oh wrong!!!");
-        },*/
                 //GET ID QUESTIONS
          [idQuestionsLoad.pending]: (state, action) => {
             state.isFetching = true;
@@ -260,21 +238,44 @@ const options = {
             state.error = action.payload;
             console.log("oh wrong!!!");
         },
-                        //GET ID ANSWERS
-                        [idAnswersLoad.pending]: (state, action) => {
-                            state.isFetching = true;
-                            state.error = false;
-                        },
-                        [idAnswersLoad.fulfilled]: (state, action) => {
-                            state.dataAnswersId = action.payload;
-                            state.isFetching = true;
-                            state.error= false;
-                        },
-                        [idAnswersLoad.rejected]: (state, action) => {
-                            state.isFetching = false;
-                            state.error = action.payload;
-                            console.log("oh wrong!!!");
-                        },
+        //GET ID ANSWERS
+        [idAnswersLoad.pending]: (state, action) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        [idAnswersLoad.fulfilled]: (state, action) => {
+            state.dataAnswersId = action.payload;
+            state.isFetching = true;
+            state.error= false;
+        },
+        [idAnswersLoad.rejected]: (state, action) => {
+            state.isFetching = false;
+            state.error = action.payload;
+            console.log("oh wrong!!!");
+        },
+         //UPDATE ID ANSWERS
+         [idAnswersUpdate.pending]: (state, action) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        [idAnswersUpdate.fulfilled]: (state, action) => {
+            state.dataAnswersId_1 = action.payload;
+            
+
+            state.dataAnswersId.map(item => {
+                if ( item.id === action.payload.answer_id) {
+                    item.text = action.payload.answer_content;
+                }
+            });
+            state.openInputForms = false;
+            state.isFetching = true;
+            state.error= false;
+        },
+        [idAnswersUpdate.rejected]: (state, action) => {
+            state.isFetching = false;
+            state.error = action.payload;
+            console.log("oh wrong!!!");
+        },
                         
     }
 
