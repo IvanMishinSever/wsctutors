@@ -10,11 +10,9 @@ export default class InputForms extends React.Component {
             userInputContent: '',
             userInputValue: null,
             userInputFeedback: '',
-           
-            //selectedId: null
+          
         }
-       // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
-       // this.onGetQuestions = this.bind(this);
+      
        this.handleUserInputContent = this.handleUserInputContent.bind(this);
        this.handleUserInputValue = this.handleUserInputValue.bind(this); 
        this.handleUserInputFeedback = this.handleUserInputFeedback.bind(this); 
@@ -75,14 +73,21 @@ onClose() {
      if (this.props.adminState.openInputForms) {
         return(
             <div className="InputForms">
-             <p>id: {this.props.adminState.selectedId}</p>
-             <p>Content:{this.props.adminState.dataAnswersId.map(item => {
+                <p>id: {this.props.adminState.selectedId}</p>
+                <p>Content:{this.props.adminState.dataAnswersId.map(item => {
                //console.log(this.props.adminState.selectedId)
                 if (item.id === Number(this.props.adminState.selectedId))
                 //{ console.log(item.text)}
                 return item.text;
-            }
-                )}</p>
+                })}
+                </p>
+                <p>Feedback:{this.props.adminState.dataAnswersId.map(item => {
+                   if (item.id === Number(this.props.adminState.selectedId))
+                   return item.feedback;
+                    })}
+                </p>
+
+
              <p>Заменить содержание:</p>
              <form>
                  <label>
@@ -93,7 +98,7 @@ onClose() {
 
                  <label>
                      Value:
-                 <input id="value" type="text" onChange={this.handleUserInputValue}  />
+                 <input id="value" type="number" onChange={this.handleUserInputValue}  />
                  </label>
 
                  <label>
