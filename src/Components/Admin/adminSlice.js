@@ -110,7 +110,9 @@ export const idAnswersUpdate = createAsyncThunk(
             headers: {"Content-Type": "application/json; charset=utf-8"},
             body: JSON.stringify({
                 answer_id: item.answer_id,
-                answer_content: item.answer_content
+                answer_content: item.answer_content,
+                answer_value: item.answer_value,
+                answer_feedback: item.answer_feedback,
             })
         });
         
@@ -268,6 +270,8 @@ const options = {
             state.dataAnswersId.map(item => {
                 if ( item.id === action.payload.answer_id) {
                     item.text = action.payload.answer_content;
+                    item.value = action.payload.answer_value;
+                    item.feedback = action.payload.answer_feedback;
                 }
             });
             state.openInputForms = false;

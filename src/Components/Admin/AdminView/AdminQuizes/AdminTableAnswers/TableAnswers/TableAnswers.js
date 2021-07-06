@@ -43,7 +43,10 @@ onEdit(e) {
                 
                     <tr key={item.id}>
                         <td>{item.id}</td>
-                        <td><button onClick={this.onEdit} value={item.id}>{item.text}</button>
+                        <td><button  value={item.id}>{item.text} значение {item.value}</button>
+                        <p>значение {item.value}</p>
+                        <p>feedback {item.feedback}</p>
+
                          <button className='btn'  value={item.id} onClick={this.onEdit} ><i className="fas fa-marker"></i>Edit</button>
                          <button className='btn' ><i className="fas fa-trash-alt"></i>Delete</button>
                          </td>
