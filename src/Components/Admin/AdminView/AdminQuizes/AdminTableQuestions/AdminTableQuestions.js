@@ -27,7 +27,7 @@ onGetSubCategory(id) {
         return (
             
             <div className="AdminTableQuestions">
-                   <h3>Список вопросов</h3>
+                   <h3>Список вопросов {this.props.adminState.selectedQuize} теста</h3>
 
                    <TableQuestions 
                    dispatch={dispatch}

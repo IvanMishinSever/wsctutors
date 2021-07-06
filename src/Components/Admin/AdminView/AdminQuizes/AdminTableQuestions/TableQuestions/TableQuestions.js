@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './TableQuestions.css';
-import { idAnswersLoad  } from '../../../../adminSlice.js';
+import { idAnswersLoad, getIdSelectedQuestion  } from '../../../../adminSlice.js';
 
 export default class TableQuestions extends React.Component {
     constructor(props) {
@@ -20,6 +20,7 @@ onGetAnswers(e) {
     
     console.log(id);
     dispatch(idAnswersLoad(id));
+    dispatch(getIdSelectedQuestion(id));
 }
 
 

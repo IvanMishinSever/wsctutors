@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './TableSubCategories.css';
-import { idQuizLoad  } from '../../../../adminSlice.js';
+import { idQuizLoad, getIdSelectedSubCategory  } from '../../../../adminSlice.js';
 
 export default class TableSubCategories extends React.Component {
     constructor(props) {
@@ -21,6 +21,7 @@ onGetQuizes(e) {
     
     console.log(id);
     dispatch(idQuizLoad(id));
+    dispatch(getIdSelectedSubCategory(id));
 }
 
 

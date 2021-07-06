@@ -148,6 +148,10 @@ const options = {
         openInputForms: false,
         dataAnswersId_1: [],
         selectedId: null,
+        selectedCategory: null,
+        selectedSubCategory: null,
+        selectedQuize: null,
+        selectedQuiestion: null,
     },
     reducers: {
         openInputForms: (state, action) => {
@@ -158,6 +162,18 @@ const options = {
         closeInputForms: (state, action) => {
             state.openInputForms = false;
         },
+        getIdSelectedCategory: (state, action) => {
+            state.selectedCategory = action.payload;
+        },
+        getIdSelectedSubCategory: (state, action) => {
+            state.selectedSubCategory = action.payload;
+        },
+        getIdSelectedQuize: (state, action) => {
+            state.selectedQuize = action.payload;
+        },
+        getIdSelectedQuestion: (state, action) => {
+            state.selectedQuestion = action.payload;
+        }
 
     },
     extraReducers: {
@@ -204,6 +220,9 @@ const options = {
             state.dataQuizesId = [];
             state.dataAnswersId = [];
             state.dataQuestionsId = [];
+            state.selectedQuize = null;
+            state.selectedQuestion = null;
+            state.selectedSubCategory = null;
         },
         [idSubCategoryLoad.rejected]: (state, action) => {
             state.isFetching = false;
@@ -221,6 +240,8 @@ const options = {
             state.error= false;
             state.dataQuestionsId = [];
             state.dataAnswersId = [];
+            state.selectedQuize = null;
+            state.selectedQuestion = null;
         },
         [idQuizLoad.rejected]: (state, action) => {
             state.isFetching = false;
@@ -237,6 +258,7 @@ const options = {
             state.isFetching = true;
             state.error= false;
             state.dataAnswersId = [];
+            state.selectedQuestion = null;
         },
         [idQuestionsLoad.rejected]: (state, action) => {
             state.isFetching = false;
@@ -289,5 +311,5 @@ const options = {
 };
 
 export const adminSlice = createSlice(options);
-export const { openInputForms, closeInputForms } = adminSlice.actions;
+export const { openInputForms, closeInputForms, getIdSelectedCategory, getIdSelectedSubCategory, getIdSelectedQuize, getIdSelectedQuestion } = adminSlice.actions;
 export default adminSlice.reducer;
