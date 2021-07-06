@@ -1,8 +1,8 @@
 import React from 'react';
-import './InputForms.css';
+import './InputFormsForAnswers.css';
 import { closeInputForms, idAnswersUpdate } from '../../../adminSlice';
 
-export default class InputForms extends React.Component {
+export default class InputFormsForAnswers  extends React.Component {
     constructor(props) {
         super(props);
         this.state={
@@ -72,7 +72,7 @@ onClose() {
         //console.log(this.props.adminState.openInputForms);
      if (this.props.adminState.openInputForms) {
         return(
-            <div className="InputForms">
+            <div className="InputFormsForAnswers">
                 <p>id: {this.props.adminState.selectedId}</p>
                 <p>Content:{this.props.adminState.dataAnswersId.map(item => {
                //console.log(this.props.adminState.selectedId)
