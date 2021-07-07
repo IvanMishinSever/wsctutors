@@ -30,21 +30,33 @@ export const loadMenuNodes = createAsyncThunk(
           subdata.push(element);
           element.nodes = [];
         })
-       // console.log(subdata);
+        console.log(subdata);
 
+        /*
         jsonResponseQuizes.map(element => {
           subdata[element.id_category - 1].nodes.push(element);
         })
+*/      subdata.map(subcategory => {
+          jsonResponseQuizes.map(element => {
+            if (element.id_category === subcategory.id)
+            subcategory.nodes.push(element);
+          })
+        })
+        
+
         //console.log("dddd");       
         //console.log(subdata);
-
-        subdata.map(element => {
-          data[element.id_category - 1].nodes.push(element);
+        data.map(category => {
+              subdata.map(element => {
+            if (category.id === element.id_category)
+            category.nodes.push(element);
+          })
         })
+        
 
 
         dataMenuNodes = data;
-       // console.log(data);
+        console.log(data);
         }
         return dataMenuNodes;
     }
