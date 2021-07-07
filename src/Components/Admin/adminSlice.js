@@ -126,7 +126,32 @@ export const idAnswersUpdate = createAsyncThunk(
 
     }
 );
+//UPDATE ID QUESTIONS
+export const idQuestionUpdate = createAsyncThunk(
+    "admin/idQuestionUpdate", async(item) => {
+        console.log(item);
+        const url = "http://localhost:4001/api/questionupdate/";
+        const urlToFetch = `${url}${item.question_id}`;
+        const response = await fetch(urlToFetch, {
+            method: 'PUT',
+            headers: {"Content-Type": "application/json; charset=utf-8"},
+            body: JSON.stringify({
+                question_id: item.question_id,
+                question_content: item.question_content
+                
+            })
+        });
+        
+         if (response.ok) {
+            const answer = await response.json();
+           
+            console.log('Успех:', JSON.stringify(answer));
+            console.log(answer[0]);
+           return answer[0];
+        } else {console.log(response);}
 
+    }
+);
 
 
 const initialState = {
@@ -145,13 +170,14 @@ const options = {
         dataQuizesId: [],
         dataQuestionsId: [],
         dataAnswersId: [],
-        openInputForms: false,
+        openInputForms: false, //FOR ANSWERS
+        openInputFormsForQuestions: false, //FOR QUESTIONS
         dataAnswersId_1: [],
         selectedId: null,
         selectedCategory: null,
         selectedSubCategory: null,
         selectedQuize: null,
-        selectedQuiestion: null,
+        selectedQuestion: null,
     },
     reducers: {
         openInputForms: (state, action) => {
@@ -159,8 +185,14 @@ const options = {
             console.log(action.payload);
             state.selectedId = action.payload;
         },
+        openInputFormsForQuestions: (state, action) => {
+            state.openInputFormsForQuestions = true;
+           // console.log(action.payload);
+            state.selectedId = action.payload;
+        },
         closeInputForms: (state, action) => {
             state.openInputForms = false;
+            state.openInputFormsForQuestions = false;
         },
         getIdSelectedCategory: (state, action) => {
             state.selectedCategory = action.payload;
@@ -248,7 +280,7 @@ const options = {
             state.error = action.payload;
             console.log("oh wrong!!!");
         },
-                //GET ID QUESTIONS
+            //GET ID QUESTIONS
          [idQuestionsLoad.pending]: (state, action) => {
             state.isFetching = true;
             state.error = false;
@@ -305,11 +337,35 @@ const options = {
             state.error = action.payload;
             console.log("oh wrong!!!");
         },
+         //UPDATE ID QUESTIONS
+         [idQuestionUpdate.pending]: (state, action) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        [idQuestionUpdate.fulfilled]: (state, action) => {
+           // state.dataAnswersId_1 = action.payload;
+            
+
+            state.dataQuestionsId.map(item => {
+                if ( item.id === action.payload.question_id) {
+                    item.text = action.payload.question_content;
+                    
+                }
+            });
+            state.openInputFormsForQuestions = false;
+            state.isFetching = true;
+            state.error= false;
+        },
+        [idQuestionUpdate.rejected]: (state, action) => {
+            state.isFetching = false;
+            state.error = action.payload;
+            console.log("oh wrong!!!");
+        },
                         
     }
 
 };
 
 export const adminSlice = createSlice(options);
-export const { openInputForms, closeInputForms, getIdSelectedCategory, getIdSelectedSubCategory, getIdSelectedQuize, getIdSelectedQuestion } = adminSlice.actions;
+export const { openInputForms, openInputFormsForQuestions, closeInputForms, getIdSelectedCategory, getIdSelectedSubCategory, getIdSelectedQuize, getIdSelectedQuestion } = adminSlice.actions;
 export default adminSlice.reducer;

@@ -1,8 +1,8 @@
 import React from 'react';
 import './InputFormsForAnswers.css';
-import { closeInputForms, idAnswersUpdate } from '../../../adminSlice';
+import { closeInputForms, idQuestionUpdate } from '../../../adminSlice';
 
-export default class InputFormsForAnswers  extends React.Component {
+export default class InputFormsForQuestions  extends React.Component {
     constructor(props) {
         super(props);
         this.state={
@@ -28,7 +28,7 @@ onSend() {
             question_content: this.state.userInputContent,
             
         }
-        dispatch(idAnswersUpdate(item));  
+        dispatch(idQuestionUpdate(item));  
 }
 // ENTER INPUT
 handleUserInputContent(e) {
@@ -55,7 +55,7 @@ onClose() {
    
     render() {
         //console.log(this.props.adminState.openInputForms);
-     if (this.props.adminState.openInputForms) {
+     if (this.props.adminState.openInputFormsForQuestions) {
         return(
             <div className="InputFormsForAnswers">
                 <p>id: {this.props.adminState.selectedId}</p>

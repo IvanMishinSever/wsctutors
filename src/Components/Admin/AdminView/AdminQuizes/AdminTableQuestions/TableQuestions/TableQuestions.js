@@ -1,13 +1,14 @@
 
 import React from 'react';
 import './TableQuestions.css';
-import { idAnswersLoad, getIdSelectedQuestion  } from '../../../../adminSlice.js';
+import { idAnswersLoad, getIdSelectedQuestion, openInputFormsForQuestions  } from '../../../../adminSlice.js';
 
 export default class TableQuestions extends React.Component {
     constructor(props) {
         super(props);
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
+       this.onEdit = this.onEdit.bind(this);
        this.onGetAnswers = this.onGetAnswers.bind(this);
     }
 
@@ -22,7 +23,14 @@ onGetAnswers(e) {
     dispatch(idAnswersLoad(id));
     dispatch(getIdSelectedQuestion(id));
 }
+onEdit(e) {
+    const { state, dispatch } = this.props;
 
+    const id = e.target.value;
+   // console.log(id);
+    dispatch(openInputFormsForQuestions(id));
+
+}
 
    renderTable() {
     let  data =  this.props.data;
@@ -37,7 +45,7 @@ onGetAnswers(e) {
                         onClick={this.onGetAnswers}
                          value={item.id}
                          >{item.text}</button>
-                         <button className='btn'><i className="fas fa-marker"></i></button>
+                         <button className='btn'value={item.id} onClick={this.onEdit} ><i className="fas fa-marker"></i></button>
                          <button className='btn'><i className="fas fa-trash-alt"></i></button>
                          </td>
                     </tr>

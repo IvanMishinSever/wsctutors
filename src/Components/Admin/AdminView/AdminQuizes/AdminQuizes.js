@@ -6,6 +6,7 @@ import AdminTableQuizes from "./AdminTableQuizes/AdminTableQuizes";
 import AdminTableQuestions from "./AdminTableQuestions/AdminTableQuestions";
 import AdminTableAnswers from "./AdminTableAnswers/AdminTableAnswers";
 import InputFormsForAnswers  from './InputForms/InputFormsForAnswers';
+import InputFormsForQuestions  from './InputForms/InputFormsForQuestions';
 
 export default class AdminQuizes extends React.Component {
     render() {
@@ -45,7 +46,11 @@ export default class AdminQuizes extends React.Component {
                 <InputFormsForAnswers 
                          adminState={this.props.adminState}
                          dispatch={dispatch}
-                />        
+                />
+                <InputFormsForQuestions 
+                         adminState={this.props.adminState}
+                         dispatch={dispatch}
+                />         
     
     
                     
