@@ -59,7 +59,7 @@ onClose() {
         return(
             <div className="InputFormsForAnswers">
                 <p>id: {this.props.adminState.selectedId}</p>
-                <p>Content:{this.props.adminState.dataAnswersId.map(item => {
+                <p>Content:{this.props.adminState.dataQuestionsId.map(item => {
                //console.log(this.props.adminState.selectedId)
                 if (item.id === Number(this.props.adminState.selectedId))
                 //{ console.log(item.text)}

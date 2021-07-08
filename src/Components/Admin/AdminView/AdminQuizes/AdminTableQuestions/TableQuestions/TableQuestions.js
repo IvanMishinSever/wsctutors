@@ -27,7 +27,7 @@ onEdit(e) {
     const { state, dispatch } = this.props;
 
     const id = e.target.value;
-   // console.log(id);
+    console.log(id);
     dispatch(openInputFormsForQuestions(id));
 
 }
@@ -45,7 +45,7 @@ onEdit(e) {
                         onClick={this.onGetAnswers}
                          value={item.id}
                          >{item.text}</button>
-                         <button className='btn'value={item.id} onClick={this.onEdit} ><i className="fas fa-marker"></i></button>
+                         <button className='btn'value={item.id} onClick={this.onEdit} >Edit<i className="fas fa-marker"></i></button>
                          <button className='btn'><i className="fas fa-trash-alt"></i></button>
                          </td>
                     </tr>
