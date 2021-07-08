@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './TableCategories.css';
-import { idSubCategoryLoad, getIdSelectedCategory  } from '../../../../adminSlice.js';
+import { idSubCategoryLoad, getIdSelectedCategory, openInputFormsForCategories  } from '../../../../adminSlice.js';
 
 export default class TableCategories extends React.Component {
     constructor(props) {
@@ -9,6 +9,7 @@ export default class TableCategories extends React.Component {
       
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
         this.onGetSubCategory = this.onGetSubCategory.bind(this);
+        this.onEdit = this.onEdit.bind(this);
     }
 
    //GET SUBCATEGORY BY ID
@@ -22,7 +23,14 @@ onGetSubCategory(e) {
     dispatch(getIdSelectedCategory(id));
   
 }
+onEdit(e) {
+    const { state, dispatch } = this.props;
 
+    const id = e.target.value;
+    console.log(id);
+    dispatch(openInputFormsForCategories(id));
+
+}
 
    renderTable() {
     let  data =  this.props.data;
@@ -40,7 +48,7 @@ onGetSubCategory(e) {
                          onClick={this.onGetSubCategory}
                          value={item.id}
                          >{item.label}</button>
-                         <button className='btn'><i className="fas fa-marker"></i></button>
+                         <button className='btn' value={item.id} onClick={this.onEdit}>Edit<i className="fas fa-marker"></i></button>
                          
 
                          
