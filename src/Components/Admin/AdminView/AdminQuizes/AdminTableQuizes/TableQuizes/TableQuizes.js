@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './TableQuizes.css';
-import { idQuestionsLoad, getIdSelectedQuize  } from '../../../../adminSlice.js';
+import { idQuestionsLoad, getIdSelectedQuize, openInputFormsForQuizes  } from '../../../../adminSlice.js';
 
 export default class TableQuizes extends React.Component {
     constructor(props) {
@@ -9,6 +9,7 @@ export default class TableQuizes extends React.Component {
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
         this.onGetQuestions = this.onGetQuestions.bind(this);
+        this.onEdit = this.onEdit.bind(this);
     }
 
    //GET SUBCATEGORY BY ID
@@ -18,11 +19,18 @@ onGetQuestions(e) {
     //console.log(this.props.adminState.dataQuizes);
     const id= e.target.value ;
     
-    console.log(id);
+   // console.log(id);
     dispatch(idQuestionsLoad(id));
     dispatch(getIdSelectedQuize(id));
 }
+onEdit(e) {
+    const { state, dispatch } = this.props;
 
+    const id = e.target.value;
+    //console.log(id);
+    dispatch(openInputFormsForQuizes(id));
+
+}
 
    renderTable() {
     let  data =  this.props.data;
@@ -37,7 +45,8 @@ onGetQuestions(e) {
                         onClick={this.onGetQuestions}
                          value={item.id}
                          >{item.text}</button>
-                         <button className='btn'><i className="fas fa-marker"></i></button>
+                         <p>Description: {item.quiz_description}</p>
+                         <button className='btn' value={item.id} onClick={this.onEdit} >Edit<i className="fas fa-marker"></i></button>
                          <button className='btn'><i className="fas fa-trash-alt"></i></button>
                          </td>
                     </tr>
