@@ -1,14 +1,15 @@
 import React from 'react';
 import './AdminTableCategories.css';
-import {printQuizesCategory} from "../../../../../utils/helps.js";
+//import {printQuizesCategory} from "../../../../../utils/helps.js";
 import TableCategories from './TableCategories/TableCategories';
-import { allCategoriesLoad  } from '../../../adminSlice';
+import { allCategoriesLoad, openAddInputFormsForCategories  } from '../../../adminSlice';
 
 export default class AdminTableCategories extends React.Component {
     constructor(props) {
         super(props);
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
+       this.onAdd = this.onAdd.bind(this);
         this.onGetAllCategories = this.onGetAllCategories.bind(this);
     }
 /*
@@ -27,7 +28,12 @@ onGetAllCategories() {
     
     dispatch(allCategoriesLoad());
 }
+onAdd() {
+    const { state, dispatch } = this.props;
 
+    dispatch(openAddInputFormsForCategories());
+
+}
 
 
 
@@ -53,7 +59,7 @@ onGetAllCategories() {
                    data={this.props.adminState.dataCategories}
                    />
 
-                <button className='btn'><i className="fas fa-plus"></i></button>
+                <button className='btn'onClick={this.onAdd}>Add <i className="fas fa-plus"></i></button>
                     
                     
 
