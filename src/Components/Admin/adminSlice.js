@@ -674,10 +674,13 @@ const options = {
         [idCategoriesDelete.fulfilled]: (state, action) => {
            // state.dataAnswersId_1 = action.payload;
             
-
+           // console.log(action.payload);
             //state.dataCategories.push({id: action.payload.main_id, label:action.payload.main_name});
              // state.dataCategories.delete({id: action.payload.main_id, label:action.payload.main_name});   
-            
+             const index = state.dataCategories.findIndex(item => item.id === Number(state.selectedId));
+             if (index !== -1) {
+                state.dataCategories.splice(index, 1);
+             }
             state.openDeleteInputForms= false;
             state.isFetching = true;
             state.error= false;

@@ -54,8 +54,8 @@ onClose() {
                 
 
 
-             <p>Вы действительно хотите удалить данную категорию?:</p>
-             
+             <p><b>Вы действительно хотите удалить данную категорию?</b></p>
+             <p>Удалить возможно только <strong> пустую </strong>категорию</p>
              <button onClick={this.onSend}><i className="fas fa-check">Да</i></button>
              <button onClick={this.onClose}><i className="fas fa-window-close">Отмена</i></button>
             </div>
