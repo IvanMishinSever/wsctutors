@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './TableSubCategories.css';
-import { idQuizLoad, getIdSelectedSubCategory  } from '../../../../adminSlice.js';
+import { idQuizLoad, getIdSelectedSubCategory, openInputFormsForSubCategories  } from '../../../../adminSlice.js';
 
 export default class TableSubCategories extends React.Component {
     constructor(props) {
@@ -9,6 +9,7 @@ export default class TableSubCategories extends React.Component {
 
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
        this.onGetQuizes = this.onGetQuizes.bind(this);
+       this.onEdit = this.onEdit.bind(this);
     }
 
    //GET QUIZES BY ID
@@ -23,7 +24,14 @@ onGetQuizes(e) {
     dispatch(idQuizLoad(id));
     dispatch(getIdSelectedSubCategory(id));
 }
+onEdit(e) {
+    const { state, dispatch } = this.props;
 
+    const id = e.target.value;
+    console.log(id);
+    dispatch(openInputFormsForSubCategories(id));
+
+}
 
    renderTable() {
     let  data =  this.props.data;
@@ -38,7 +46,7 @@ onGetQuizes(e) {
                         onClick={this.onGetQuizes}
                         value={item.id}
                          >{item.text}  ({data.length})</button>
-                         <button className='btn'><i className="fas fa-marker"></i></button>
+                         <button className='btn' value={item.id} onClick={this.onEdit}>Edit<i className="fas fa-marker"></i></button>
                          <button className='btn'><i className="fas fa-trash-alt"></i></button>
                          
                          </td>
