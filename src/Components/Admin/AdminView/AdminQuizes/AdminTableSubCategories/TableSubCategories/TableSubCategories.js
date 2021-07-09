@@ -53,7 +53,7 @@ onDelete(e) {
                         <td><button
                         onClick={this.onGetQuizes}
                         value={item.id}
-                         >{item.text}  ({data.length})</button>
+                         >{item.text}  </button>
                          <button className='btn' value={item.id} onClick={this.onEdit}>Edit<i className="fas fa-marker"></i></button>
                          <button className='btn' value={item.id} onClick={this.onDelete}>Delete<i className="fas fa-trash-alt"></i></button>
                          
