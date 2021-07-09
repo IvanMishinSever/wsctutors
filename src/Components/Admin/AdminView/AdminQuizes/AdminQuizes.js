@@ -12,6 +12,8 @@ import InputFormsForSubCategories  from './InputForms/InputFormsForSubCategories
 import InputFormsForCategories  from './InputForms/InputFormsForCategories';
 import AddInputFormsForCategories  from './InputForms/AddInputFormsForCategories';
 import DeleteInputForms  from './InputForms/DeleteInputForms';
+import AddInputFormsForSubCategories  from './InputForms/AddInputFormsForSubCategories';
+import DeleteInputFormsForSubCategories  from './InputForms/DeleteInputFormsForSubCategories';
 
 export default class AdminQuizes extends React.Component {
     render() {
@@ -73,6 +75,14 @@ export default class AdminQuizes extends React.Component {
                          dispatch={dispatch}
                 />
                 <DeleteInputForms
+                         adminState={this.props.adminState}
+                         dispatch={dispatch}
+                />
+                <AddInputFormsForSubCategories
+                         adminState={this.props.adminState}
+                         dispatch={dispatch}
+                />
+                <DeleteInputFormsForSubCategories
                          adminState={this.props.adminState}
                          dispatch={dispatch}
                 />

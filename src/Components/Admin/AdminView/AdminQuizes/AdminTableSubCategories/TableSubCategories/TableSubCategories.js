@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './TableSubCategories.css';
-import { idQuizLoad, getIdSelectedSubCategory, openInputFormsForSubCategories  } from '../../../../adminSlice.js';
+import { idQuizLoad, getIdSelectedSubCategory, openInputFormsForSubCategories, openDeleteInputFormsForSubCategories  } from '../../../../adminSlice.js';
 
 export default class TableSubCategories extends React.Component {
     constructor(props) {
@@ -10,6 +10,7 @@ export default class TableSubCategories extends React.Component {
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
        this.onGetQuizes = this.onGetQuizes.bind(this);
        this.onEdit = this.onEdit.bind(this);
+       this.onDelete = this.onDelete.bind(this);
     }
 
    //GET QUIZES BY ID
@@ -32,7 +33,14 @@ onEdit(e) {
     dispatch(openInputFormsForSubCategories(id));
 
 }
+onDelete(e) {
+    const { state, dispatch } = this.props;
 
+    const id = e.target.value;
+    console.log(id);
+    dispatch(openDeleteInputFormsForSubCategories(id));
+
+}
    renderTable() {
     let  data =  this.props.data;
     return (
@@ -47,7 +55,7 @@ onEdit(e) {
                         value={item.id}
                          >{item.text}  ({data.length})</button>
                          <button className='btn' value={item.id} onClick={this.onEdit}>Edit<i className="fas fa-marker"></i></button>
-                         <button className='btn'><i className="fas fa-trash-alt"></i></button>
+                         <button className='btn' value={item.id} onClick={this.onDelete}>Delete<i className="fas fa-trash-alt"></i></button>
                          
                          </td>
                     </tr>
