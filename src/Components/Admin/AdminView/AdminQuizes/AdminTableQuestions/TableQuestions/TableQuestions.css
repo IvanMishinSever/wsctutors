@@ -1,6 +1,6 @@
 
   
-  .TableQuiz th {
+  .TableQuestions th {
     font-size: 13px;
     font-weight: 700;
     background: #b9c9fe;
@@ -16,15 +16,25 @@
     border-collapse: collapse;
   }
   */
-  .TableQuiz td {
-    font-size: 13px;
+  .TableQuestions td {
+    font-size: 10px;
     font-weight: 500;
     background: #e8edff;
     border-bottom: 1px solid white;
     color: #669;
     border-top: 1px solid transparent;
-    padding: 8px;
+    padding: 0px;
   }
-  .TableQuiz tr:hover td {
+  .TableQuestions tr:hover td {
     background: #ccddff;
+  }
+  .TableQuestions button {
+    cursor: pointer;
+    font-size: 12px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  .TableQuestions .btn {
+    width: 50px;
   }

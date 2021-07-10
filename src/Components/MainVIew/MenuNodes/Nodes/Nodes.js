@@ -1,50 +1,49 @@
 import React from 'react';
 import './Nodes.css';
+import { quizLoad } from '../../Quiz/quizSlice.js';
+import { closeCategoryView } from '../../../Menu/MenuSide/menuSideSlice.js';
 
 export default class Nodes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             expanded: false,
-            nodesExist: false
+           
         }
-        this.handleClick = this.handleClick.bind(this);
-        this.showNodes = this.showNodes.bind(this);
-    }
-
-    //SWITCH  EXPANDED
-    handleClick(e) {
-        let expanded = !this.state.expanded;
-        //console.log("hi");
-       // console.log(this.props.element.nodes);
-        //SHOW QUIZ AND SEND QUIZ ID
-       if (!this.props.element.nodes) {
-        const id = e.target.value;
-        this.props.chooseQuizId(id);
-
-            this.props.quizViewChange();
-            //console.log("h11111");
-        }
-        //this.props.quizView();
-        this.setState({
-            expanded: expanded
-        })
         
-       
+        this.showNodes = this.showNodes.bind(this);
+        this.onShowQuiz=this.onShowQuiz.bind(this);
     }
-                // change state!!!!!!!!!!!!!
-    checkNodes() {
-        if (this.props.element.nodes) {
-        this.setState({
-            nodesExist: true
-        })
+ 
+
+    //REDUX SHOW QUIZ
+    onShowQuiz(e) {
+       const {dispatch} = this.props;
+        let expanded = !this.state.expanded;
+        //console.log(this.props);
+
+        if (!this.props.element.nodes) {
+             const id = e.target.value;
+
+            dispatch(quizLoad(id));
+            dispatch(closeCategoryView());
+
+           
+        } else {
+            this.setState({
+                expanded: expanded
+            })
+           
         }
-    }            
-                
+    }
+
+   
     //SHOW NODES
     showNodes() {
         let arrayNodes = [];
        // console.log(arrayNodes);
+       const { dispatch } = this.props;
+      // console.log(this.props);
         if (this.props.element.nodes ) {
 
 
@@ -54,8 +53,9 @@ export default class Nodes extends React.Component {
                 <Nodes 
                 key={index} 
                 element={element} 
-                quizViewChange={this.props.quizViewChange}
-                chooseQuizId = {this.props.chooseQuizId}
+                quizViewChangeRedux={this.props.quizViewChangeRedux}
+                dispatch={dispatch}
+              
                 />)
             ));
             }
@@ -65,7 +65,7 @@ export default class Nodes extends React.Component {
      renderButton() {
          const sign = this.props.element.nodes;
          //console.log(sign);
-
+         //console.log(this.props.menuSide);
          //CHANGE COLOR OF THE BUTTON
          let styleButton;
          if (this.state.expanded) {
@@ -78,14 +78,14 @@ export default class Nodes extends React.Component {
          return(
             <button     style={styleButton}
                         type="button"
-                        onClick={this.handleClick}
+                        onClick={this.onShowQuiz}
                     >+ {this.props.element.label}{this.props.element.id}</button>
          ) 
          } else {
             return(
                 <button
                     type="button"
-                    onClick={this.handleClick}
+                    onClick={this.onShowQuiz}
                     value={this.props.element.id}
                     
                 > - {this.props.element.id}{this.props.element.label}</button>
@@ -96,7 +96,7 @@ export default class Nodes extends React.Component {
 
     //RENDER NODE
     render() {
-        //console.log(this.props.element);
+ 
         return (
             <div className="Nodes-container">
                 <div className="Nodes">

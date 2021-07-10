@@ -1,10 +1,8 @@
 import React from 'react';
 import './Quiz.css';
-
 import Quiz from './Quiz';
 import Result from './Result/Result';
-//import quizQuestions from './quizQuestions';
-import quizQuestions from './quizData';
+
 export default class QuizContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -17,41 +15,52 @@ export default class QuizContainer extends React.Component {
     
 //RENDER QUIZ
 renderQuiz() {
-  //let is_selected = this.state.selectedItem === idx;
+  
     return (
         <Quiz 
-        quizView={this.props.quizView} 
-        answer={this.props.answer}
-        answerOptions={this.props.answerOptions}
-        questionId={this.props.questionId}
-        question={this.props.question}
+        quizRedux={this.props.quizRedux}
+        
+
+       // quizView={this.props.quizView} 
+       // answer={this.props.answer}
+       // answerOptions={this.props.answerOptions}
+       // questionId={this.props.questionId}
+       //question={this.props.question}
         onAnswerSelected={this.props.onAnswerSelected}
-        questionTotal={this.props.questionLength}
-        styleAnswer={this.props.styleAnswer}
-        isSelected={this.props.selectedItem}
+        nextQuestion={this.props.nextQuestion}
+       // questionTotal={this.props.questionLength}
+      //  styleAnswer={this.props.styleAnswer}
+       // isSelected={this.props.selectedItem}
         />
     );
   
 }    
 //RENDER RESULT
  renderResult() {
+     const { dispatch } = this.props;
      return (
          <Result 
-         quizResult={this.props.result} 
-         trueAnswer={this.props.answersCount.trueAnswer}
-         questionTotal={this.props.questionLength}
+         quizResult={this.props.quizRedux.result} 
+         trueAnswer={this.props.quizRedux.answersCount.trueAnswer}
+         questionTotal={this.props.quizRedux.questionLength}
+         dispatch={dispatch}
          />
      )
  }
 //RENDER ALL   
 render() {
-    if (this.props.quizView) {
+   // console.log(this.props.quizRedux.quizView);
+
+
+
+
+    if (this.props.quizRedux.quizView) {
         return (
             <div className="Quiz">
                 <div>
                     <h2> WSC Quiz</h2>
                 </div>
-                {this.props.result ? this.renderResult() : this.renderQuiz()}
+                {this.props.quizRedux.result ? this.renderResult() : this.renderQuiz()}
             </div>
         )
     } else return null;

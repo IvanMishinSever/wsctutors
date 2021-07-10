@@ -1,6 +1,6 @@
 import React from 'react';
 import './AdminTableUsersMain.css';
-import TableQuiz from './TableUsers/TableUsers';
+import TableCategories from './TableUsers/TableUsers';
 
 export default class AdminTableUsersMain extends React.Component {
     constructor(props) {
@@ -59,7 +59,7 @@ async getAllUsers() {
                    <div id="all-users-container">
                     
                    </div>
-                   <TableQuiz data={this.state.dataTable}/>
+                   <TableCategories data={this.state.dataTable}/>
                     
                     
 
