@@ -126,6 +126,34 @@ export const idAnswersUpdate = createAsyncThunk(
 
     }
 );
+//CREATE ID ANSWERS
+export const idAnswersCreate = createAsyncThunk(
+    "admin/idAnswersCreate", async(item) => {
+        console.log(item);
+        const url = "http://localhost:4001/api/answer/";
+        const urlToFetch = `${url}`;
+        const response = await fetch(urlToFetch, {
+            method: 'POST',
+            headers: {"Content-Type": "application/json; charset=utf-8"},
+            body: JSON.stringify({
+                answer_content: item.answer_content,
+                answer_feedback: item.answer_feedback,
+                answer_value: item.answer_value,
+                question_id: item.question_id,
+                quiz_id: item.quiz_id
+            })
+        });
+        
+         if (response.ok) {
+            const answer = await response.json();
+           
+            console.log('Успех:', JSON.stringify(answer));
+            console.log(answer[0]);
+           return answer[0];
+        } else {console.log(response);}
+
+    }
+);
 //UPDATE ID QUESTIONS
 export const idQuestionUpdate = createAsyncThunk(
     "admin/idQuestionUpdate", async(item) => {
@@ -187,9 +215,8 @@ export const idQuestionsDelete = createAsyncThunk(
             method: 'DELETE',
             headers: {"Content-Type": "application/json; charset=utf-8"},
             body: JSON.stringify({
-                question_id: item.question_id,
-                //main_name: item.main_name
-                               
+                question_id: item.question_id
+                  
             })
         });
         
@@ -438,6 +465,32 @@ export const idSubCategoriesDelete = createAsyncThunk(
 
     }
 );
+//DELETE ID ANSWERS
+export const idAnswersDelete = createAsyncThunk(
+    "admin/idAnswerssDelete", async(item) => {
+        console.log(item);
+        const url = "http://localhost:4001/api/answer/";
+        const urlToFetch = `${url}${item.answer_id}`;
+        const response = await fetch(urlToFetch, {
+            method: 'DELETE',
+            headers: {"Content-Type": "application/json; charset=utf-8"},
+            body: JSON.stringify({
+                answer_id: item.answer_id,
+                //main_name: item.main_name
+                               
+            })
+        });
+        
+         if (response.ok) {
+            const answer = await response.json();
+           
+            console.log('Успех:', JSON.stringify(answer));
+            console.log(answer[0]);
+           return answer[0];
+        } else {console.log(response);}
+
+    }
+);
 
 const initialState = {
 
@@ -466,11 +519,13 @@ const options = {
         openAddInputFormsForSubCategories: false, //FOR ADD SUBCATEGORIES
         openAddInputFormsForQuizes: false, //FOR ADD QUIZES 
         openAddInputFormsForQuestions: false, //FOR ADD QUESTIONS
+        openAddInputFormsForAnswers: false, //FOR ADD ANSWERS
 
         openDeleteInputForms: false, //FOR CATEGORIES
         openDeleteInputFormsForSubCategories: false, //FOR SUBCATEGORIES
         openDeleteInputFormsForQuizes: false, //FOR QUIZES
-        openDeleteInputFormsForQuestions: false, //FOR QUESTION 
+        openDeleteInputFormsForQuestions: false, //FOR QUESTION
+        openDeleteInputFormsForAnswers: false, //FOR QUESTION  
 
         dataAnswersId_1: [],
         selectedId: null,
@@ -525,6 +580,11 @@ const options = {
            // console.log(action.payload);
            
         },
+        openAddInputFormsForAnswers: (state, action) => {
+            state.openAddInputFormsForAnswers = true;
+           // console.log(action.payload);
+           
+        },        
         openDeleteInputForms: (state, action) => {
             state.openDeleteInputForms = true;
            // console.log(action.payload);
@@ -548,7 +608,13 @@ const options = {
            // console.log(action.payload);
            state.selectedId = action.payload;
            
-        },        
+        }, 
+        openDeleteInputFormsForAnswers: (state, action) => {
+            state.openDeleteInputFormsForAnswers = true;
+           // console.log(action.payload);
+           state.selectedId = action.payload;
+           
+        },               
         closeInputForms: (state, action) => {
             state.openInputForms = false;
             state.openInputFormsForQuestions = false;
@@ -563,6 +629,8 @@ const options = {
             state.openDeleteInputFormsForQuizes = false;
             state.openAddInputFormsForQuestions = false;
             state.openDeleteInputFormsForQuestions = false;
+            state.openAddInputFormsForAnswers = false;
+            state.openDeleteInputFormsForAnswers = false;
         },
         getIdSelectedCategory: (state, action) => {
             state.selectedCategory = action.payload;
@@ -848,6 +916,27 @@ const options = {
             state.error = action.payload;
             console.log("oh wrong!!!");
         },
+         //CREATE ID ANSWERS
+         [idAnswersCreate.pending]: (state, action) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        [idAnswersCreate.fulfilled]: (state, action) => {
+           // state.dataAnswersId_1 = action.payload;
+            
+
+            state.dataAnswersId.push({id: action.payload.answer_id, text:action.payload.answer_content, feedback:action.payload.answer_feedback, value:action.payload.answer_value});
+                 
+            
+            state.openAddInputFormsForAnswers = false;
+            state.isFetching = true;
+            state.error= false;
+        },
+        [idAnswersCreate.rejected]: (state, action) => {
+            state.isFetching = false;
+            state.error = action.payload;
+            console.log("oh wrong!!!");
+        },  
                 //CREATE ID QUESTIONS
         [idQuestionsCreate.pending]: (state, action) => {
             state.isFetching = true;
@@ -996,11 +1085,31 @@ const options = {
             state.error = action.payload;
             console.log("oh wrong!!!");
         },
+        //DELETE ID ANSWERS
+        [idAnswersDelete.pending]: (state, action) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        [idAnswersDelete.fulfilled]: (state, action) => {
+         
+            const index = state.dataAnswersId.findIndex(item => item.id === Number(state.selectedId));
+            if (index !== -1) {
+                state.dataAnswersId.splice(index, 1);
+            }
+            state.openDeleteInputFormsForAnswers = false;
+            state.isFetching = true;
+            state.error= false;
+        },
+        [idAnswersDelete.rejected]: (state, action) => {
+            state.isFetching = false;
+            state.error = action.payload;
+            console.log("oh wrong!!!");
+        },
                                                  
     }
 
 };
 
 export const adminSlice = createSlice(options);
-export const { openAddInputFormsForQuestions, openDeleteInputFormsForQuestions, openDeleteInputFormsForQuizes, openAddInputFormsForQuizes, openDeleteInputFormsForSubCategories, openAddInputFormsForCategories,openAddInputFormsForSubCategories, openDeleteInputForms, openInputForms, openInputFormsForQuestions, openInputFormsForQuizes,openInputFormsForSubCategories, openInputFormsForCategories, closeInputForms, getIdSelectedCategory, getIdSelectedSubCategory, getIdSelectedQuize, getIdSelectedQuestion } = adminSlice.actions;
+export const { openDeleteInputFormsForAnswers, openAddInputFormsForAnswers, openAddInputFormsForQuestions, openDeleteInputFormsForQuestions, openDeleteInputFormsForQuizes, openAddInputFormsForQuizes, openDeleteInputFormsForSubCategories, openAddInputFormsForCategories,openAddInputFormsForSubCategories, openDeleteInputForms, openInputForms, openInputFormsForQuestions, openInputFormsForQuizes,openInputFormsForSubCategories, openInputFormsForCategories, closeInputForms, getIdSelectedCategory, getIdSelectedSubCategory, getIdSelectedQuize, getIdSelectedQuestion } = adminSlice.actions;
 export default adminSlice.reducer;

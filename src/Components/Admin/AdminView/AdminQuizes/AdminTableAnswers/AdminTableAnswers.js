@@ -2,26 +2,21 @@ import React from 'react';
 import './AdminTableAnswers.css';
 //import {printQuizesCategory} from "../../../../../utils/helps.js";
 import TableAnswers from './TableAnswers/TableAnswers';
-//import { idSubCategoryLoad  } from '../../../adminSlice';
+import { openAddInputFormsForAnswers  } from '../../../adminSlice';
 
 export default class AdminTableAnswers extends React.Component {
     constructor(props) {
         super(props);
-
-       // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
-     //   this.onGetQu = this.onGetSubCategory.bind(this);
+        
+        this.onAdd = this.onAdd.bind(this);
     }
 
-/*
-//GET ALL CATEGORIES
-onGetSubCategory(id) {
-    const { state, dispatch } = this.props;
-    //console.log(this.props.adminState.dataQuizes);
+    onAdd() {
+        const { state, dispatch } = this.props;
     
-    dispatch(idSubCategoryLoad(id));
-}
-
-*/
+        dispatch(openAddInputFormsForAnswers());
+    
+    }
     render() {
         const { state, dispatch} = this.props;
         return (
@@ -33,7 +28,7 @@ onGetSubCategory(id) {
                    dispatch={dispatch}
                    data={this.props.adminState.dataAnswersId}
                    />
-                   <button className='btn'><i className="fas fa-plus"></i></button> 
+                   <button className='btn' onClick={this.onAdd}>Add<i className="fas fa-plus"></i></button> 
                     
 
 
