@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './TableQuestions.css';
-import { idAnswersLoad, getIdSelectedQuestion, openInputFormsForQuestions  } from '../../../../adminSlice.js';
+import { idAnswersLoad, getIdSelectedQuestion, openInputFormsForQuestions,  openDeleteInputFormsForQuestions  } from '../../../../adminSlice.js';
 
 export default class TableQuestions extends React.Component {
     constructor(props) {
@@ -10,6 +10,7 @@ export default class TableQuestions extends React.Component {
        // this.onGetAllQuizes = this.onGetAllQuizes.bind(this);
        this.onEdit = this.onEdit.bind(this);
        this.onGetAnswers = this.onGetAnswers.bind(this);
+       this.onDelete = this.onDelete.bind(this);
     }
 
    //GET ANSWERS BY ID
@@ -31,7 +32,14 @@ onEdit(e) {
     dispatch(openInputFormsForQuestions(id));
 
 }
+onDelete(e) {
+    const { state, dispatch } = this.props;
 
+    const id = e.target.value;
+    console.log(id);
+    dispatch(openDeleteInputFormsForQuestions(id));
+
+}
    renderTable() {
     let  data =  this.props.data;
     return (
@@ -46,7 +54,7 @@ onEdit(e) {
                          value={item.id}
                          >{item.text}</button>
                          <button className='btn'value={item.id} onClick={this.onEdit} >Edit<i className="fas fa-marker"></i></button>
-                         <button className='btn'><i className="fas fa-trash-alt"></i></button>
+                         <button className='btn'value={item.id} onClick={this.onDelete}>Delete<i className="fas fa-trash-alt"></i></button>
                          </td>
                     </tr>
                     
